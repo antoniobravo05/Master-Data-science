@@ -1,8 +1,7 @@
-# Master-Data-science
+# Máster en Data Science
 
-Antonio.
+*KSCHOOL*
 
-Puedo poner *cursiva*, **negrita**. Y muchas más cosas. :(
-
-Puedo poner *cursiva*, **negrita**. Y muchas más cosas. :)
+**Autor: Antonio Bravo Muñoz**
+**Repositorio con tareas relacionadas con data Science vistas durante el curso.**
 
