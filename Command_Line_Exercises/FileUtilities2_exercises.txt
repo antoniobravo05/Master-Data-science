@@ -1,0 +1,19 @@
+File utilities - Quick exercises
+------------------------------------
+1. Go to ~/Data/Shell/ and use Text_example.txt to generate a new file with the same content but with line number at the beginning of each line.
+R: cd Data/Shell/
+R: cat -n Text_example.txt | > Text_example_lines.txt
+
+2. Generate a new file with twice the content of “Text_example.txt” inside. (one full text content after another)
+R: cat Text_example.txt | > Text_example_twice.txt | >> Text_example_twice.txt
+
+
+3. Open new shell inside a new terminal tab and using block search execute again the command where we printed the linux details (hint: it had “release” in the name)
+R: Ctrl+Shift+T
+R: Ctrl+r
+R: cat -n /etc/os-release 
+
+4. Generate an file with creation timespamp and name of the user who created it on the first line. Smth like this:
+"# This file is created by KSCHOOL on:Sun Nov 26 10:31:06 CET 2017"
+R: echo "# This file is created by KSCHOOL on:" | > timestamp.txt | echo `date` | >> timestamp.txt
+

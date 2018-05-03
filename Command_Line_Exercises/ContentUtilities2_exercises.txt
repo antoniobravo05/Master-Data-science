@@ -1,0 +1,19 @@
+Content utilities - Quick exercises
+--------------------------------------
+1. Save the information of 3 largest files located inside ~/Data/us_dot/otp/ into a three_largest_file.txt. (hint: use ls with sort option and pipe the result)
+R:
+
+2. Save last 20 commands used at command line to a file. (hint use history and redirect the output)
+R:
+
+3. Print first 3 lines of ~/Text_example.txt
+R:
+
+4. Print content of ~/Text_example.txt except first 2 and last 3 lines.
+R:
+
+5. How many lines does ~/Data/opentraveldata/optd_aircraft.csv file have?
+R:
+
+6. How many words do first 5 lines of the ~/Data/shell/Finn.txt have?
+R:
