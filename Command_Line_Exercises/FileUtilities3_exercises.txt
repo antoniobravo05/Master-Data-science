@@ -1,13 +1,14 @@
 File utilities - Quick exercises
 ----------------------------------
 1. Find all files located ONLY inside subdirectories of your home directory which have been modified in last 60min
-R:
+R: cd
+R: find . -type f -mmin -60  
 
 2. Find all empty files inside subdirectories of your home directory which do NOT have read-write-execute permissions given to all users
-R:
+R: find -type f -empty ! -perm 777
 
 3. Expand previous command to grant these permissions using “ok” option.
-R:
+R: find -type f -empty ! -perm 777 -ok chmod 777 {} \;
 
 4. Get top 3 largest files per subdirectory inside ~/Data/
-R:
+R: find Data -maxdepth 1 -mindepth 1 -type d -exec echo {} \; -exec sh -c "ls -S {} | head -3" \; 
