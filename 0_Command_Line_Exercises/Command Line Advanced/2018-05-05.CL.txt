@@ -1,0 +1,494 @@
+   811	seq 1 10
+   812	seq 1 2 10
+   813	seq 1 2 10 > uniq_example.txt
+   814	cat uniq_example.txt
+   815	seq 1 10 >> uniq_example.txt
+   816	cat uniq_example.txt
+   817	cat -n uniq_example.txt
+   818	uniq uniq_example.txt
+   819	cat uniq_example.txt | uniq
+   820	sort uniq_example.txt
+   821	sort uniq_example.txt | uniq 
+   822	sort uniq_example.txt | uniq -d
+   823	sort uniq_example.txt | uniq -c
+   824	sort -n uniq_example.txt
+   825	sort -nr uniq_example.txt
+   826	sort -nr uniq_example.txt uniq_example.txt uniq_example.txt
+   827	sort -nr uniq_example.txt uniq_example.txt uniq_example.txt | uniq -c
+   828	sort -u uniq_example.txt uniq_example.txt uniq_example.txt 
+   829	cd Data/opentraveldata
+   830	ll
+   831	cd ..
+   832	ll
+   833	cd -
+   834	ll
+   835	less optd_aircraft.csv
+   836	less optd_airlines.csv
+   837	sort -t "^" -k 6 optd_aircraft.csv| less 
+   838	sort -t "^" -k 6 optd_aircraft.csv| head
+   839	head optd_aircraft.csv
+   840	sort -t "^" -k 6r optd_aircraft.csv| head
+   841	sort -t "^" -k 6r,6 optd_aircraft.csv| head
+   842	sort -t "^"  -k 2,2 optd_aircraft.csv| wc
+   843	sort -t "^"  -k 2,2 -u optd_aircraft.csv| wc
+   844	sort -t "^"  -k 2,2 -u optd_aircraft.csv head
+   845	sort -t "^"  -k 2,2 -u optd_aircraft.csv | head
+   846	sort -t "^"  -k 2 -u optd_aircraft.csv | wc
+   847	head optd_aircraft.csv
+   848	cd ..
+   849	find 
+   850	find ~ -type f -size +10M | wc
+   851	ls -sh
+   852	ls -sh ./airline_tickets
+   853	ls -sh ./README.md
+   854	find ~ -type f -size +10M -exec ls -sh {} \; | head
+   855	find ~ -type f -size +10M -exec ls -sh {} \; 
+   856	find ~ -type f -size +10M -exec ls -sh {} \; | sort -h
+   857	find ~ -type f -size +10M -exec ls -sh {} \; | sort -hr
+   858	find ~ -type f -size +10M -exec ls -sh {} \; | sort -k 1,1  
+   859	find ~ -type f -size +10M -exec ls -sh {} \; | sort -k 1h,1  
+   860	find ~ -type f -size +10M -exec ls -sh {} \; | sort -k 1hr,1  
+   861	find ~ -type f -size +10M -exec ls -sh {} \; | sort -k 1hr,1  | head
+   862	find ~ -type f -size +10M -exec ls -sh {} \; | sort -k 1nr,1  | head
+   863	find ~ -type f -size -2M -size +500k- -exec ls -sh {} \; | sort -k 1nr,1  | head
+   864	find ~ -type f -size -2M -size +500k -exec ls -sh {} \; | sort -k 1nr,1  | head
+   865	find ~ -type f -size -2M -size +500k -exec ls -sh {} \; | sort -k 1n,1  | head
+   866	find ~ -type f -size -2M -size +500k -exec ls -sh {} \; | sort -k 1n,1  
+   867	seq 15>20lines.txt; seq 9 1 20 >>20lines.txt; echo "20\n20" >>20lines.txt
+   868	cat 20lines.txt
+   869	sort -d 20lines.txt
+   870	sort -n 20lines.txt
+   871	sort -nu 20lines.txt 
+   872	sort -n 20lines.txt | uniq -
+   873	sort -n 20lines.txt | uniq -d
+   874	sort -n 20lines.txt | uniq -c
+   875	sort -n 20lines.txt | uniq -c | sort -k 1,1 
+   876	sort -n 20lines.txt | uniq -c | sort -k 1r,1 
+   877	sort -n 20lines.txt | uniq -c | sort -k 1r,1 | head -1
+   878	sort -n 20lines.txt | uniq -c | sort -k 1r,1 
+   879	sort -n 20lines.txt | uniq -c | sort -k 1,1 
+   880	seq 0 2 40 >20lineas2.txt
+   881	sort 20lineas2.txt 20lines.txt 
+   882	sort -u 20lineas2.txt 20lines.txt 
+   883	sort -u 20lineas2.txt 20lines.txt > 20lines3.txt
+   884	sort 20lineas2.txt 20lines.txt |uniq -c 
+   885	sort 20lineas2.txt 20lines.txt |uniq -c | sort -t " " k 8,8
+   886	sort 20lineas2.txt 20lines.txt |uniq -c | sort -t " " -k 8,8
+   887	sort 20lineas2.txt 20lines.txt |uniq -c | sort -k2,2
+   888	sort 20lineas2.txt 20lines.txt |uniq -c | sort -k2n,2
+   889	sort 20lineas2.txt 20lines3.txt 20lines.txt  |uniq -c | sort -k2n,2
+   890	cd opentraveldata
+   891	less optd_aircraft.csv
+   892	sort -t "^" -k 7nr,7 ./optd_aircraft.csv | head -1 
+   893	sort -t "^" -k 7nr,7 ./optd_aircraft.csv | head -1 | cut -d "^" -f 2
+   894	sort -t "^" -k 7nr,7 ./optd_aircraft.csv | head -1 | cut -d "^" -f 2-4,7
+   895	sort -t "^" -k 7nr,7 ./optd_aircraft.csv | head -1 | cut -d "^" -f 2-4,7 --output-delimiter="OMG"
+   896	sort -t "^" -k 7nr,7 ./optd_aircraft.csv | head -1 | cut -d "^" -f 2-4,7 --output-delimiter="OMG" | cut -d "OMG" -f 1
+   897	seq 10 
+   898	seq 10 | paste
+   899	paste optd_aircraft.csv
+   900	seq 10 |paste -s 
+   901	seq 10 |paste -s -d "^"
+   902	seq 10 |paste -s -d "A B C"
+   903	seq 10 |paste ---
+   904	seq 10 |paste - - -
+   905	seq 10 |paste - -
+   906	seq 10 >numbers.txt
+   907	paste -- <numbers.txt
+   908	paste - - < numbers.txt
+   909	cat numbers.txt| paste - -
+   910	paste - - < numbers.txt
+   911	paste - - < numbers.txt < numbers.txt
+   912	ll
+   913	cd ..
+   914	cd shell
+   915	ll
+   916	paste Text_example.txt
+   917	seq 10 >numbers.txt
+   918	cat numbers.txt
+   919	paste numbers.txt Text_example.txt
+   920	paste numbers.txt numbers.txt
+   921	paste numbers.txt Text_example.txt
+   922	paste Text_example.txt numbers.txt
+   923	paste < ./numbers.txt
+   924	paste < ./numbers.txt < ./Text_example.txt
+   925	paste - - < ./numbers.txt < ./Text_example.txt
+   926	paste <(cat ./numbers.txt) <(cat ./Text_example.txt)
+   927	paste <(seq 1 20) <(cat ./Text_example.txt)
+   928	cd ..
+   929	cd opentraveldata
+   930	head -1 
+   931	head -1 ./optd_aircraft.csv
+   932	head -1 ./optd_aircraft.csv | cut -d "^" 
+   933	echo "master data science" | tr a A
+   934	echo "master data science" | tr "a"  "A"
+   935	echo "master data science" | tr "a"  "\n"
+   936	head -1 ./optd_aircraft.csv | tr "^" "\n"
+   937	paste <(seq 1 20) <(head -1 ./optd_aircraft.csv | tr "^" "\n")
+   938	head -1 ./optd_aircraft.csv | tr "^" "\n" | wc -l 
+   939	echo "master        data       science" | tr -s 
+   940	echo "master        data       science" | tr -s " "
+   941	echo "master        data       science" | tr -s " " "^"
+   942	echo "master        data       science" | tr -s " "
+   943	echo "master        data       science" | tr -s " " "^"
+   944	echo "maaaaaaster        data       science" | tr -s "a"
+   945	echo "maaaaaaster        data       science" | tr -d "a"
+   946	echo "maaaaaaster  1234      data  12     science" | tr -d [:digit:]
+   947	echo "maaaaaaster  1234      data  12     science" | tr -cd [:digit:]
+   948	echo "maaaaaaster  1234      data  12     science" | tr -d "[:digit:]"
+   949	echo "maaaaaaster  1234      data  12     science" | tr  "[:lower:]" "[:upper:]"
+   950	echo "maaaaaaster AAA  1234      data  12     science" | tr -d "[:lower:]" 
+   951	cat optd_aircraft.csv | tr "^" "," > optd_aircraft_comma.csv
+   952	wc ./optd_por_public.csv
+   953	cat ./optd_por_public.csv | tr -s " " | wc
+   954	cat ./optd_por_public.csv | tr -d " " | wc
+   955	echo "lkjlkjlj     jgjgj" | tr -d " "
+   956	echo "lkjlkjlj     jgjgj" | tr -s " "
+   957	cat ./optd_por_public.csv
+   958	less ./optd_por_public.csv
+   959	head -1 optd_por_public.csv | tr "^" "\n" | wc -l
+   960	less ./optd_airlines.csv
+   961	cat optd_airlines.csv| cut -d "^" -f 8,14 | head
+   962	cat optd_airlines.csv| cut -d "^" -f 8,14 | sort -t "^" -k 2nr,2
+   963	cat optd_airlines.csv| cut -d "^" -f 8,14 | sort -t "^" -k 2nr,2 | head
+   964	less ./optd_airlines.csv
+   965	cat optd_airlines.csv| cut -d "^" -f 10 |less
+   966	cat optd_airlines.csv| cut -d "^" -f 10 |sort | uniq -c 
+   967	cd ../shell
+   968	grep this Text_example.txt
+   969	grep this Text_example.txt Text_example.txt
+   970	grep this Text_example.txt Finn.txt
+   971	grep this Text_example.txt
+   972	grep -n this Text_example.txt
+   973	grep -nv this Text_example.txt
+   974	grep -n This Text_example.txt
+   975	grep -ni This Text_example.txt
+   976	grep -ni B 1 This Text_example.txt
+   977	grep -niB 1 This Text_example.txt
+   978	grep -nB 1 This Text_example.txt
+   979	grep -nB 1, -A 1 This Text_example.txt
+   980	grep -nB 2 This Text_example.txt
+   981	grep -nA 2 This Text_example.txt
+   982	grep -nC 2 This Text_example.txt
+   983	less ./Finn.txt
+   984	grep -n -E "^T" Text_example.txt
+   985	grep -n -o -E "^T" Text_example.txt
+   986	seq 5 5 20
+   987	grep -n -E "T" Text_example.txt
+   988	grep -n  "^T" Text_example.txt
+   989	grep -n -E "T" Text_example.txt
+   990	grep -n -E "^T" Text_example.txt
+   991	grep -n "^T" Text_example.txt
+   992	seq 5 5 20 | grep "[1-5]{2}"
+   993	seq 5 5 20 | grep -E "[1-5]{2}"
+   994	seq 5 5 200 | grep -E "[1-5]{2}"
+   995	seq 5 5 20 | grep -E "[3-5]{2}"
+   996	seq 5 5 20 | grep -E "[1]{2}"
+   997	seq 5 5 20 | grep -E "[1-2]{2}"
+   998	seq 5 2 20 | grep -E "[1-2]"
+   999	seq 5 2 20 | grep -E "[1-2]{2}"
+  1000	cd ../opentraveldata
+  1001	grep -E "7[0-9]7" ./optd_aircraft.csv
+  1002	grep -E "7[0-9]7" ./optd_aircraft.csv | head -1
+  1003	grep -E "3[0-9]{2}" ./optd_aircraft.csv
+  1004	grep -E "3[0-9]{2}" ./optd_aircraft.csv | head
+  1005	grep -E "3[0-9]{2}" ./optd_aircraft.csv | head -1
+  1006	grep -E "3[0-9]{2}|7[0-9]7" ./optd_aircraft.csv | head -1
+  1007	head -1 ./optd_aircraft.csv
+  1008	head -1 ./optd_airlines.csv
+  1009	cat ./optd_airlines.csv | cut -d "^" -f 8 | grep -i "^aero" | wc
+  1010	cat ./optd_airlines.csv | cut -d "^" -f 8 | grep -i "aero" | wc
+  1011	cd ../shell
+  1012	echo Sunday | sed ssdaysnights
+  1013	echo Sunday | sed 's/day/night/'
+  1014	echo day.day | sed 's.day.night.'
+  1015	echo day.day | sed 's/day/night/g'
+  1016	echo 's/this/THAT/g' ./Text_example.txt
+  1017	sed 's/this/THAT/g' ./Text_example.txt
+  1018	cat Text_example.txt
+  1019	sed 's/this/THAT/gI' ./Text_example.txt
+  1020	cp Text_example.txt Text_example.copy.txt
+  1021	sed -i 's/this/THAT/gI' ./Text_example.copy.txt
+  1022	cat Text_example.copy.txt
+  1023	seq 3 | sed '2p'
+  1024	seq 3 | sed -n '2p'
+  1025	seq 5 | sed -n '2-4p'
+  1026	seq 5 | sed -n '2,4p'
+  1027	seq 5 | sed -n '2,4d'
+  1028	seq 5 | sed -n '2 4p'
+  1029	seq 5 | sed -n '2;4p'
+  1030	seq 5 | sed -n '2p,4p'
+  1031	seq 5 | sed -n '2p;4p'
+  1032	cat Text_example.copy.txt
+  1033	cat -n Text_example.copy.txt
+  1034	sed -i '3d' Text_example.copy.txt
+  1035	cat -n Text_example.copy.txt
+  1036	seq 5 | sed '3/d'
+  1037	seq 5 | sed '3/d/'
+  1038	seq 5 | sed '/3/d'
+  1039	seq 3 10 | sed '/3/d'
+  1040	sed -i '3d' Text_example.copy.txt
+  1041	echo "This ththisis " | tr "This" "That"
+  1042	echo "This ththisis " | tr "is" "at"
+  1043	zip text_files Text_example.copy.txt Text_example.txt 
+  1044	ll
+  1045	mkdir zipped
+  1046	mv text_files.zip zipped
+  1047	cd zipped
+  1048	ll
+  1049	unzip -l text_files.zip
+  1050	unzip text_files.zip
+  1051	ll
+  1052	unzip -l text_files.zip
+  1053	zipinfo text_files.zip
+  1054	zless text_files.zip
+  1055	cd ..
+  1056	zip text_files2 Text_example.copy.txt Finn.txt
+  1057	mv text_files2.zip zipped
+  1058	cd zipped
+  1059	ll
+  1060	zless text_files2.zip
+  1061	unzip -l text_files2.zip
+  1062	zless text_files2.zip
+  1063	zgrep -n -H "line" text_files2.zip
+  1064	cd ..
+  1065	ll
+  1066	gzip Finn.txt
+  1067	ll
+  1068	gunzip Finn.txt.gz
+  1069	ll
+  1070	gzip Finn.txt numbers.txt Text_example.copy.txt Text_example.txt 
+  1071	ll
+  1072	zless Finn.txt.gz
+  1073	zsh5 Finn.txt.gz
+  1074	sh5 Finn.txt.gz
+  1075	md5sum Finn.txt.gz
+  1076	ll
+  1077	gunzip Finn.txt.gz numbers.txt.gz Text_example.copy.txt.gz Text_example.txt.gz 
+  1078	ll
+  1079	gzip -k Finn.txt
+  1080	ll
+  1081	bzip2 Finn.txt numbers.txt Text_example.copy.txt Text_example.txt 
+  1082	ll
+  1083	bunzip2 Finn.txt.bz2 numbers.txt.bz2 Text_example.copy.txt.bz2 Text_example.txt.bz2 
+  1084	ll
+  1085	bzip2 Finn.txt numbers.txt Text_example.copy.txt Text_example.txt 
+  1086	zless Finn.txt.bz2
+  1087	bzless Finn.txt.bz2
+  1088	ll
+  1089	bunzip2 Finn.txt.bz2 numbers.txt.bz2 Text_example.copy.txt.bz2 Text_example.txt.bz2 
+  1090	ll
+  1091	tar -cvf group.tar Finn.txt numbers.txt Text_example.copy.txt Text_example.txt  
+  1092	ll
+  1093	tar -cfv group_compressed.tar Finn.txt numbers.txt Text_example.copy.txt Text_example.txt  
+  1094	tar -cvzf group_compressed.tar Finn.txt numbers.txt Text_example.copy.txt Text_example.txt  
+  1095	ll
+  1096	tar -cvjf group_compressed2.tar Finn.txt numbers.txt Text_example.copy.txt Text_example.txt  
+  1097	ll
+  1098	mkdir zip
+  1099	mkdir bz2
+  1100	mv group_compressed.tar zip
+  1101	mv group_compressed2.tar bz2
+  1102	mkdir tar
+  1103	mv group.tar tar
+  1104	cd tar
+  1105	tar -xvf group.tar
+  1106	ll
+  1107	cd ..
+  1108	cd zip
+  1109	tar -xvf group_compressed.tar
+  1110	ll
+  1111	cd ..
+  1112	cd bz2
+  1113	tar -xvf group_compressed2.tar
+  1114	cd
+  1115	gedit 
+  1116	dkjxl;kjlkjlkjlkjlkfghlkjfghl;kf
+  1117	klfjglkjfdlkgjfdlkg
+  1118	lkdjflkgjlkdfjgldf
+  1119	cd
+  1120	less
+  1121	gedit &
+  1122	ls
+  1123	find / -name "*.txt" -exec ls -l {} \; -exec sleep 5\;
+  1124	find / -name "*.txt" -exec ls -l {} \; -exec sleep 5 \;
+  1125	ls
+  1126	fg
+  1127	bg
+  1128	ls
+  1129	jobs
+  1130	fg %1
+  1131	jobs
+  1132	fg %2
+  1133	jobs
+  1134	gedit &
+  1135	jobs
+  1136	kill %1 
+  1137	jobs
+  1138	ps -aux
+  1139	ps -U -dsc
+  1140	ps -U dsc
+  1141	pkill -9 4906
+  1142	bg
+  1143	pkill -1 4906
+  1144	pkill 4906
+  1145	ps -U dsc
+  1146	pkill -8 4906
+  1147	ps -U dsc
+  1148	pkill -15 4906
+  1149	ps -U dsc
+  1150	pkill -find
+  1151	pkill find
+  1152	ps -U dsc
+  1153	ll
+  1154	gedit &
+  1155	cd Data/opentraveldata
+  1156	ll
+  1157	history
+  1158	paste <(seq 1 20) <(head -1 ./optd_aircraft.csv | tr "^" "\n")
+  1159	gedit &
+  1160	kwrite
+  1161	sudo apt-get kwrite
+  1162	sudo apt-get install kwrite
+  1163	gedit
+  1164	b
+  1165	bg
+  1166	ll
+  1167	bash ./column_number_name.sh
+  1168	./column_number_name.sh
+  1169	bash
+  1170	./column_number_name.sh
+  1171	ll column_number_name.sh
+  1172	chmod 777 column_number_name.sh
+  1173	ll
+  1174	./column_number_name.sh
+  1175	which bash
+  1176	sudo which bash
+  1177	./column_number_name.sh
+  1178	which script
+  1179	which bash
+  1180	which python
+  1181	./column_number_name.sh
+  1182	./column_number_name.sh test_file
+  1183	echo $0
+  1184	bash
+  1185	echo $0
+  1186	./column_number_name.sh test_file
+  1187	./column_number_name.sh optd_aircraft.csv
+  1188	./column_number_name.sh optd_aircraft_comma.csv
+  1189	./column_number_name.sh optd_aircraft_comma.csv ,
+  1190	./column_number_name.sh optd_aircraft_comma.csv ","
+  1191	./column_number_name.sh optd_aircraft_comma.csv ^
+  1192	./column_number_name.sh optd_aircraft_comma.csv ","
+  1193	./column_number_name.sh optd_aircraft_comma.csv ,
+  1194	./column_number_name.sh optd_aircraft.csv ^
+  1195	./column_number_name.sh optd_aircraft.csv "^"
+  1196	./column_number_name.sh optd_aircraft.csv '^'
+  1197	./column_number_name.sh optd_aircraft.csv "^"
+  1198	ll
+  1199	cd ..
+  1200	ll
+  1201	cd us_dot
+  1202	ll
+  1203	cd otp
+  1204	ll
+  1205	cd ..
+  1206	ll
+  1207	find
+  1208	ll
+  1209	cd airline_tickets
+  1210	ll
+  1211	gunzip sales_segments.csv.gz
+  1212	ll
+  1213	head -1 sales_segments.csv
+  1214	../opentraveldata/column_number_name.sh sales_segments.csv
+  1215	../opentraveldata/column_number_name.sh sales_segments.csv "^"
+  1216	cd
+  1217	mkdir scripts
+  1218	mv Data/opentraveldata/column_number_name.sh scripts
+  1219	ls scripts
+  1220	echo $PATH
+  1221	cd scripts
+  1222	pwd
+  1223	echo $PATH:/home/dsc/scripts\
+  1224	
+  1225	echo $PATH
+  1226	echo $PATH:/home/dsc/scripts\
+  1227	
+  1228	echo $PATH:/home/dsc/scripts | tr ":" "\n"\
+  1229	
+  1230	PATH=$PATH:/home/dsc/scripts
+  1231	pwd
+  1232	echo $PATH
+  1233	echo 'PATH=$PATH:/home/dsc/scripts' >> ~/.zshrc 
+  1234	cd
+  1235	tail .zshrc
+  1236	cd Data/airline_tickets
+  1237	column_number_name.sh sales_segments.csv
+  1238	column_number_name.sh sales_segments.csv "^"
+  1239	cd Repos
+  1240	ll
+  1241	cd csvkit
+  1242	l
+  1243	cd 
+  1244	cd Repos
+  1245	ll
+  1246	cd csvkit
+  1247	cd
+  1248	cd Data/opentraveldata
+  1249	ll
+  1250	csvlook -d "^" optd_aircraft.csv
+  1251	csvlook -d "^" optd_aircraft.csv | less -S
+  1252	csvstat -d "^" optd_aircraft.csv
+  1253	csvstat -d "^" optd_aircraft.csv | less
+  1254	csvstat -d "^" optd_por_public.csv | less
+  1255	kill %1
+  1256	ll
+  1257	head optd_por_public.csv|  csvstat -d "^"  | less
+  1258	csvstat -d "^" -c 15 optd_por_public.csv | less
+  1259	csvstat -d "^" -c 1 optd_por_public.csv | less
+  1260	csvstat -d "^" -c 1 optd_aircraft.csv | less
+  1261	csvstat -d "^" -c manufacturer optd_aircraft.csv | less
+  1262	csvcut -d "^" -c 2 | less
+  1263	csvcut -d "^" -c 2 optd_aircraft.csv | less
+  1264	csvcut -d "^" -c 2,4-6 optd_aircraft.csv | less
+  1265	csvcut -d "^" -c manufacturer,4-6 optd_aircraft.csv | less
+  1266	csvcut -d "^" -c manufacturer,4-6 optd_aircraft.csv | csvlook
+  1267	csvgrep -d "^" -c iata_code -m 380 optd_aircraft.csv| csv look 
+  1268	csvgrep -d "^" -c iata_code -m 380 optd_aircraft.csv| csvlook 
+  1269	csvsort -c nb_engines -r optd_aircraft.csv| csvlook
+  1270	csvsort -d "^" -c nb_engines -r optd_aircraft.csv| csvlook
+  1271	csvsort -d "^" -c nb_engines -r optd_aircraft.csv| csvlook | less -S
+  1272	csvsort -d "^" -c nb_engines  optd_aircraft.csv| csvlook | less -S
+  1273	csvsort -d "^" -c nb_engines -r optd_aircraft.csv| csvlook | less -S
+  1274	csvsql -d "^" optd_aircraft.csv
+  1275	csvsql -d "^" -i mysql optd_aircraft.csv
+  1276	csvsql -d "^" -i postgresql optd_aircraft.csv
+  1277	csvsql -d "^" -i postgresql optd_aircraft.csv > create_optd_aircraft.sql
+  1278	gedit ./create_optd_aircraft.sql
+  1279	ll
+  1280	cd
+  1281	psql 
+  1282	psql /l
+  1283	psql -l
+  1284	psql -d postgres
+  1285	wget https://raw.githubusercontent.com/masterdatascience/postgres/master/my_fb_friends.csv
+  1286	wget https://raw.githubusercontent.com/masterdatascience/postgres/master/my_ldin_contacts.csv
+  1287	ll
+  1288	rm my_fb_friends.csv.1
+  1289	ll
+  1290	cat my_fb_friends.csv
+  1291	cat my_ldin_contacts.csv
+  1292	csvsql -d "^" -i postgresql my_ldin_contacts.csv
+  1293	csvsql -d "^" -i postgresql my_ldin_contacts.csv > llin_create.sql
+  1294	csvsql -d "^" -i postgresql my_ldin_contacts.csv > ldin_create.sql
+  1295	rm llin_create.sql
+  1296	gedit ldin_create.sql &
+  1297	psql -d networking -f ldin_create.sql
+  1298	cd  Data/opentraveldata
+  1299	ll
+  1300	csvsql -d "^" -i postgresql ./optd_aircraft.csv
+  1301	csvsql -d "^" -i postgresql ./optd_aircraft.csv > create_aircraft.sql
+  1302	less .psql_history
+  1303	psql -d networking
+  1304	cat -n .history > ./2018-05-05.CL.txt
