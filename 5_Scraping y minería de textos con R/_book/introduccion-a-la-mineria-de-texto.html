@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introducción al scraping y a la minería de texto</title>
+  <meta name="description" content="Introducción al scraping y a la minería de texto">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introducción al scraping y a la minería de texto" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introducción al scraping y a la minería de texto" />
+  
+  
+  
+
+<meta name="author" content="Olivier Nuñez">
+
+
+<meta name="date" content="2018-06-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="scraping-con-r.html">
+<link rel="next" href="referencias.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="scraping-con-r.html"><a href="scraping-con-r.html"><i class="fa fa-check"></i><b>1</b> Scraping con R</a><ul>
+<li class="chapter" data-level="1.1" data-path="scraping-con-r.html"><a href="scraping-con-r.html#que-se-puede-rascar-de-la-web"><i class="fa fa-check"></i><b>1.1</b> Qué se puede “rascar” de la web?</a></li>
+<li class="chapter" data-level="1.2" data-path="scraping-con-r.html"><a href="scraping-con-r.html#formato-html"><i class="fa fa-check"></i><b>1.2</b> Formato HTML</a></li>
+<li class="chapter" data-level="1.3" data-path="scraping-con-r.html"><a href="scraping-con-r.html#identificar-elementos-de-interes-en-una-pagina"><i class="fa fa-check"></i><b>1.3</b> Identificar elementos de interés en una página</a></li>
+<li class="chapter" data-level="1.4" data-path="scraping-con-r.html"><a href="scraping-con-r.html#el-paquete-rvest"><i class="fa fa-check"></i><b>1.4</b> El paquete <code>rvest</code></a><ul>
+<li class="chapter" data-level="1.4.1" data-path="scraping-con-r.html"><a href="scraping-con-r.html#cargar-la-pagina"><i class="fa fa-check"></i><b>1.4.1</b> Cargar la pagina</a></li>
+<li class="chapter" data-level="1.4.2" data-path="scraping-con-r.html"><a href="scraping-con-r.html#extraccion"><i class="fa fa-check"></i><b>1.4.2</b> Extracción</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="scraping-con-r.html"><a href="scraping-con-r.html#navegacion"><i class="fa fa-check"></i><b>1.5</b> Navegación</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="scraping-con-r.html"><a href="scraping-con-r.html#inicion-de-la-navegacion"><i class="fa fa-check"></i><b>1.5.1</b> Inición de la navegación</a></li>
+<li class="chapter" data-level="1.5.2" data-path="scraping-con-r.html"><a href="scraping-con-r.html#funciones-jump_to-y-follow_link"><i class="fa fa-check"></i><b>1.5.2</b> Funciones <code>jump_to</code> y <code>follow_link</code></a></li>
+<li class="chapter" data-level="1.5.3" data-path="scraping-con-r.html"><a href="scraping-con-r.html#html_formsesion"><i class="fa fa-check"></i><b>1.5.3</b> html_form(sesion)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html"><i class="fa fa-check"></i><b>2</b> Introducción a la minería de texto</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#aplicaciones"><i class="fa fa-check"></i><b>2.1</b> Aplicaciones</a></li>
+<li class="chapter" data-level="2.2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#conceptos-basicos"><i class="fa fa-check"></i><b>2.2</b> Conceptos básicos</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#formato-de-los-datos-textuales"><i class="fa fa-check"></i><b>2.2.1</b> Formato de los datos textuales</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#unidad-de-analisis-el-token"><i class="fa fa-check"></i><b>2.2.2</b> Unidad de análisis: el token</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#preparacion-de-los-datos-textuales"><i class="fa fa-check"></i><b>2.2.3</b> Preparación de los datos textuales</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#manipulacion-y-analisis-basicos-de-texto"><i class="fa fa-check"></i><b>2.3</b> Manipulación y análisis básicos de texto</a></li>
+<li class="chapter" data-level="2.4" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#creacion-de-un-corpus-con-tidytext"><i class="fa fa-check"></i><b>2.4</b> Creación de un Corpus con <code>tidytext</code></a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#tokenizacion-con-la-funcion-unnest_tokens"><i class="fa fa-check"></i><b>2.4.1</b> Tokenización con la función <code>unnest_tokens</code></a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#tokenizacion-de-la-obra-de-jane-austen"><i class="fa fa-check"></i><b>2.4.2</b> Tokenización de la obra de Jane Austen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#analisis-de-frecuencias-de-tokens"><i class="fa fa-check"></i><b>2.5</b> Análisis de frecuencias de tokens</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>3</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al scraping y a la minería de texto</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduccion-a-la-mineria-de-texto" class="section level1">
+<h1><span class="header-section-number">2</span> Introducción a la minería de texto</h1>
+<div id="aplicaciones" class="section level2">
+<h2><span class="header-section-number">2.1</span> Aplicaciones</h2>
+<p>La minería de texto nace de una combinación de minería de datos, análisis de texto cuantitativo y procesamiento automático del lenguaje.</p>
+<p>Las principales aplicaciones son:</p>
+<ul>
+<li>Motores de búsqueda</li>
+<li>Detección de plagio</li>
+<li>Clasificación de correo electrónico (detección de SPAM)</li>
+<li>Búsqueda de opiniones (evaluaciones positivas o negativas de un servicio, etc.)</li>
+<li>Organización de información (tipologías, ontologías)</li>
+<li>Traducción automática</li>
+<li>…</li>
+</ul>
+</div>
+<div id="conceptos-basicos" class="section level2">
+<h2><span class="header-section-number">2.2</span> Conceptos básicos</h2>
+<div id="formato-de-los-datos-textuales" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Formato de los datos textuales</h3>
+<p>Podemos distinguir tres tipos principales de textos:</p>
+<ol style="list-style-type: decimal">
+<li>Tablas que consisten en filas y columnas</li>
+<li>Textos sin formato (extracción de pdf, …)</li>
+<li>Documentos semiestructurados (paginas web, correos electrónicos, RSS)</li>
+</ol>
+</div>
+<div id="unidad-de-analisis-el-token" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Unidad de análisis: el token</h3>
+<p>Un <strong>token</strong> es una unidad significativa de texto, a menudo una palabra (o una secuencia de palabras, oración, ..), en la cual estamos interesados en utilizar para un análisis posterior. La <strong>tokenización</strong> es el proceso de dividir el texto en tokens y es uno de los primeros pasos del análisis de textos.</p>
+</div>
+<div id="preparacion-de-los-datos-textuales" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Preparación de los datos textuales</h3>
+<p>Antes de poder utilizar métodos puramente cuantitativos de minería de textos, se debe preparar los documentos. Como regla general, pasamos por los siguientes pasos (no necesariamente en este orden preciso):</p>
+<ol style="list-style-type: decimal">
+<li>Creación del corpus</li>
+<li>Limpieza y filtraje de la información relevante</li>
+<li>Análisis del texto e interpretación de los resultados</li>
+</ol>
+</div>
+</div>
+<div id="manipulacion-y-analisis-basicos-de-texto" class="section level2">
+<h2><span class="header-section-number">2.3</span> Manipulación y análisis básicos de texto</h2>
+<p>Las tablas bajadas de Internet (y datos procedentes de otras fuentes) exigen frecuentemente un proceso de limpieza de datos o de extracción de la información que contienen.</p>
+<p>La función <code>gsub</code> se usa muy a menudo para dicha limpieza de datos. Una llamada a <code>gsub</code> tiene la forma</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gsub</span>(<span class="st">&quot;h&quot;</span>, <span class="st">&quot;H&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>, <span class="st">&quot;búho&quot;))</span></code></pre></div>
+<pre><code>## [1] &quot;Hola&quot; &quot;búHo&quot;</code></pre>
+<p>donde el primer argumento, <code>&quot;h&quot;</code> es una <a href="https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular">expresión regular</a>; la función <code>gsub</code> modifica las ocurrencias de esta expresión regular por el segundo argumento, <code>&quot;H&quot;</code> en este caso. El tercer argumento es un vector que contiene cadenas de texto en las que se realiza la sustitución.</p>
+<p>Las expresiones regulares son muy útiles para manipular texto. Conviene aprender algunas de las más frecuentes, como por ejemplo, las que identifican caracteres que aparecen al principio de un texto,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gsub</span>(<span class="st">&quot;^h&quot;</span>, <span class="st">&quot;H&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>, <span class="st">&quot;búho&quot;))</span></code></pre></div>
+<pre><code>## [1] &quot;Hola&quot; &quot;búho&quot;</code></pre>
+<p>o al final del mismo,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gsub</span>(<span class="st">&quot;o$&quot;</span>, <span class="st">&quot;os&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>, <span class="st">&quot;búho&quot;))</span></code></pre></div>
+<pre><code>## [1] &quot;hola&quot;  &quot;búhos&quot;</code></pre>
+<p>Una función emparentada con <code>gsub</code> es <code>grep</code>, que busca cadenas en las que aparece una determinada expresión regular:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grep</span>(<span class="st">&quot;^h&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>, <span class="st">&quot;búho&quot;))</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>La salida de la expresión anterior nos indica que el patrón <em>cadena de texto que comienza con la letra h</em> aparece solo en la posición número 1 del vector.</p>
+<div class="ej">
+<p>
+<code>colors()</code> es una función que devuelve el nombre de más de 600 colores en R. Usándolo,
+</p>
+<p>
+Encontrar * Aquellos cuyo nombre contenga un número (posiblemente tengas que investigar cómo se expresa <em>cualquier número</em> como expresión regular) * Aquellos que comiencen con <code>yellow</code> * Aquellos que contengan <code>blue</code>
+</p>
+</div>
+<div class="ej">
+<p>
+Los números que aparecen en la tabla descargada en la sección anterior (y contenidos en <code>ibex</code>) no tienen formato numérico. Para convertirlos en números <em>de verdad</em>, transfórmalos adecuadamente:
+</p>
+<ul>
+<li>
+Usar <code>gsub</code> para cambiar “.” por “” (i.e., nada) en las columnas de interés. Ten en cuenta que <code>.</code> es el comodín de las expresiones regulares; el punto es <code>\.</code>.
+</li>
+<li>
+Usar <code>gsub</code> para cambiar <code>,</code> por <code>.</code> en las columnas de interés.
+</li>
+<li>
+Finalmente, usar <code>as.numeric</code> para cambiar texto resultante por valores numéricos.
+</li>
+</ul>
+</div>
+<p>Otra función muy útil para procesar texto es <code>paste</code>, que tiene un comportamiento distinto según se use con el argumento <code>sep</code> o <code>collapse</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;A,1&quot; &quot;A,2&quot; &quot;A,3&quot; &quot;A,4&quot; &quot;A,5&quot; &quot;A,6&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;Hoy es &quot;</span>, <span class="kw">date</span>(), <span class="st">&quot; y tengo clase de R&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Hoy es Fri Jun 01 10:12:49 2018 y tengo clase de R&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">collapse =</span> <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;A 1,A 2,A 3,A 4,A 5,A 6&quot;</code></pre>
+<p><code>sep</code> y <code>collapse</code> pueden combinarse:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;A_1,A_2,A_3,A_4,A_5,A_6&quot;</code></pre>
+<p>Para la operación inversa, la de partir cadenas de texto, se usa la función <code>strsplit</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">strsplit</span>(<span class="st">&quot;Hoy es martes&quot;</span>, <span class="dt">split =</span> <span class="st">&quot; &quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Hoy&quot;    &quot;es&quot;     &quot;martes&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">strsplit</span>(<span class="kw">c</span>(<span class="st">&quot;hoy es martes&quot;</span>, <span class="st">&quot;mañana es miércoles&quot;</span>), <span class="dt">split =</span> <span class="st">&quot; &quot;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;hoy&quot;    &quot;es&quot;     &quot;martes&quot;
+## 
+## [[2]]
+## [1] &quot;mañana&quot;    &quot;es&quot;        &quot;miércoles&quot;</code></pre>
+<p>Advierte que esta función devuelve una lista de cadenas de texto.</p>
+<div class="ej">
+<p>
+Crea una función que tome los nombres de ficheros
+</p>
+<p>
+<code>ficheros &lt;- c(“ventas_20160522_zaragoza.csv”, “pedidos_firmes_20160422_soria.csv”)</code>
+</p>
+<p>
+y genere una tabla con una fila por fichero y tres columnas: el nombre del fichero, la fecha y y la provincia. Nota: puedes crear una función que procese solo un nombre de fichero y aplicársela <em>convenientemente</em> al vector de nombres.
+</p>
+</div>
+<p>Esas son las funciones fundamentales para la manipulación básica de texto en R. Existen funciones más ágiles en otros paquetes como <code>stringr</code>o <code>tidyr</code>.</p>
+<p>A continuación una aplicación de uso del paquete <code>stringr</code> donde se describe como se distribuyen las Medallas Fields (el “nobel” en matemáticas) entre los países, utilizando la información proporcionada por la wikipedia.</p>
+<p>Empezamos extrayendo la tabla de interés desde la Wikipedia:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(rvest)
+mfield&lt;-<span class="kw">read_html</span>(<span class="st">&quot;https://es.wikipedia.org/w/index.php?title=Medalla_Fields&amp;oldid=103644843&quot;</span>)
+mfield <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;table&quot;</span>) </code></pre></div>
+<pre><code>## {xml_nodeset (2)}
+## [1] &lt;table class=&quot;infobox&quot; style=&quot;width:22.7em; line-height: 1.4em; text ...
+## [2] &lt;table class=&quot;wikitable&quot; border=&quot;1&quot;&gt;\n&lt;tr&gt;\n&lt;th&gt;Año&lt;/th&gt;\n&lt;th&gt;Medall ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tabla &lt;-<span class="st"> </span>mfield <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;table&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[[<span class="dv">2</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_table</span>(<span class="dt">header=</span><span class="ot">TRUE</span>)
+knitr<span class="op">:::</span><span class="kw">kable</span>(tabla <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Año</th>
+<th align="left">Medallistas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1936</td>
+<td align="left">Lars Ahlfors ( Finlandia), Universidad Harvard</td>
+</tr>
+<tr class="even">
+<td align="right">1936</td>
+<td align="left">Jesse Douglas ( Estados Unidos), Instituto Tecnológico de Massachusetts</td>
+</tr>
+<tr class="odd">
+<td align="right">1950</td>
+<td align="left">Laurent Schwartz ( Francia), Universidad de Nancy</td>
+</tr>
+<tr class="even">
+<td align="right">1950</td>
+<td align="left">Atle Selberg (Noruega), Instituto de Estudios Avanzados de Princeton</td>
+</tr>
+<tr class="odd">
+<td align="right">1954</td>
+<td align="left">Kunihiko Kodaira ( Japón), Universidad de Princeton</td>
+</tr>
+<tr class="even">
+<td align="right">1954</td>
+<td align="left">Jean-Pierre Serre ( Francia), Universidad de París</td>
+</tr>
+<tr class="odd">
+<td align="right">1958</td>
+<td align="left">Klaus Friedrich Roth ( Reino Unido), Universidad de Londres</td>
+</tr>
+<tr class="even">
+<td align="right">1958</td>
+<td align="left">René Thom ( Francia), Universidad de Estrasburgo</td>
+</tr>
+<tr class="odd">
+<td align="right">1962</td>
+<td align="left">Lars V. Hörmander (Suecia), Universidad de Estocolmo</td>
+</tr>
+<tr class="even">
+<td align="right">1962</td>
+<td align="left">John Willard Milnor ( Estados Unidos), Universidad de Princeton</td>
+</tr>
+</tbody>
+</table>
+<p>Ahora, se extraen los países que vienen entre paréntesis usando expresiones regulares (<a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html%20(ayuda%20de%20R)">ver ayuda de R sobre estas expresiones</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tidyverse)
+tmp &lt;-<span class="st"> </span>tabla<span class="op">$</span>Medallistas <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_extract</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">([^()]+</span><span class="ch">\\</span><span class="st">)&quot;</span>) <span class="co">#extrae contenido entre parentesis </span>
+tmp &lt;-<span class="st"> </span><span class="kw">substring</span>(tmp,<span class="dv">2</span>,<span class="kw">nchar</span>(tmp)<span class="op">-</span><span class="dv">1</span>)
+paises&lt;-<span class="st"> </span>tmp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split_fixed</span>(<span class="st">&quot; y &quot;</span>, <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_trim</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">c</span>()</code></pre></div>
+<p>Representación de distribución de medallas entre los países:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freq=<span class="kw">c</span>(<span class="kw">table</span>(paises))[<span class="op">-</span><span class="dv">1</span>] <span class="co">#el -1 es para quitar la frecuencia de &quot;&quot;</span>
+<span class="kw">qplot</span>(freq,<span class="kw">reorder</span>(<span class="kw">names</span>(freq),freq),<span class="dt">ylab=</span><span class="st">&quot;paises&quot;</span>)</code></pre></div>
+<p><img src="IntroTextMining_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+</div>
+<div id="creacion-de-un-corpus-con-tidytext" class="section level2">
+<h2><span class="header-section-number">2.4</span> Creación de un Corpus con <code>tidytext</code></h2>
+<p>El formato de texto <code>tidy</code> es básicamente una tabla con un <strong>token</strong> por fila. Este formato se presta muy bien a la minería de datos textuales.</p>
+<div id="tokenizacion-con-la-funcion-unnest_tokens" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Tokenización con la función <code>unnest_tokens</code></h3>
+<p>Aquí unas frases extraídas del libro “Niebla” de Unamuno:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">texto&lt;-<span class="kw">c</span>(<span class="st">&quot;Eso es insultar al lector, es llamarle torpe&quot;</span>,<span class="st">&quot;Es decirle: ¡fíjate, hombre, fíjate, que aquí hay intención!&quot;</span>,<span class="st">&quot;Y por eso le recomendaba yo a un señor que escribiese sus artículos todo en bastardilla&quot;</span>,<span class="st">&quot;Para que el público se diese cuenta de que eran intencionadísimos desde la primera palabra a la última.&quot;</span>)
+texto</code></pre></div>
+<pre><code>## [1] &quot;Eso es insultar al lector, es llamarle torpe&quot;                                                           
+## [2] &quot;Es decirle: ¡fíjate, hombre, fíjate, que aquí hay intención!&quot;                                           
+## [3] &quot;Y por eso le recomendaba yo a un señor que escribiese sus artículos todo en bastardilla&quot;                
+## [4] &quot;Para que el público se diese cuenta de que eran intencionadísimos desde la primera palabra a la última.&quot;</code></pre>
+<p>Para analizar este tipo de información textual con <code>tidytext</code>, se le da un formato de tabla:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tidyverse)
+texto_df &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">fila =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">texto =</span> texto)
+texto_df</code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##    fila texto                                                             
+##   &lt;int&gt; &lt;chr&gt;                                                             
+## 1     1 Eso es insultar al lector, es llamarle torpe                      
+## 2     2 Es decirle: ¡fíjate, hombre, fíjate, que aquí hay intención!      
+## 3     3 Y por eso le recomendaba yo a un señor que escribiese sus artícul~
+## 4     4 Para que el público se diese cuenta de que eran intencionadísimos~</code></pre>
+<p>Todavía esta tabla no permite un análisis del texto. No podemos filtrar las palabras o calcular sus frecuencias, puesto que cada fila se compone de varias palabras combinadas. Necesitamos transformarla de manera que un <strong>token</strong> por fila .</p>
+<p>A menudo, el token es una secuencia de caracteres entre dos separadores. Un separador puede ser un “blanco”, una puntuación, un paréntesis, etc. Para segmentar el texto en tokens individuales y transformarlo en una estructura de datos utilizamos aquí la función ’unnest_tokens<code>del paquete</code>tidytext`:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tidytext)
+texto_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest_tokens</span>(palabra, texto)</code></pre></div>
+<pre><code>## # A tibble: 51 x 2
+##     fila palabra 
+##    &lt;int&gt; &lt;chr&gt;   
+##  1     1 eso     
+##  2     1 es      
+##  3     1 insultar
+##  4     1 al      
+##  5     1 lector  
+##  6     1 es      
+##  7     1 llamarle
+##  8     1 torpe   
+##  9     2 es      
+## 10     2 decirle 
+## # ... with 41 more rows</code></pre>
+<p>Los dos argumentos básicos de esta función son nombres de columnas. Primero tenemos el nombre de la columna de salida que se creará cuando el texto se procese (‘palabra’ en este caso) y luego la columna de entrada de la que proviene el texto (‘texto’ en este caso).</p>
+<p>Esta función usa el paquete <code>tokenizers</code> para separar cada línea de texto en tokens. La tokenización predeterminada es para palabras, pero otras opciones incluyen caracteres, n-grams, oraciones, líneas, párrafos o expresiones regulares. A continuación extraemos bigramms que pueden ser muy útiles para identificar el idioma:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tidytext)
+texto_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest_tokens</span>(palabra, texto, <span class="dt">token=</span><span class="st">&quot;ngrams&quot;</span>, <span class="dt">n=</span><span class="dv">2</span>) <span class="co"># bigramm</span></code></pre></div>
+<pre><code>## # A tibble: 47 x 2
+##     fila palabra       
+##    &lt;int&gt; &lt;chr&gt;         
+##  1     1 eso es        
+##  2     1 es insultar   
+##  3     1 insultar al   
+##  4     1 al lector     
+##  5     1 lector es     
+##  6     1 es llamarle   
+##  7     1 llamarle torpe
+##  8     2 es decirle    
+##  9     2 decirle fíjate
+## 10     2 fíjate hombre 
+## # ... with 37 more rows</code></pre>
+<p>Después de usar <code>unnest_tokens</code>, hemos dividido cada fila para que haya un token (palabra) en cada fila de la nueva base de datos; la tokenización predeterminada en unnest_tokens() es para palabras sueltas. Cabe mencionar que en el resultado:</p>
+<ul>
+<li>Se conservan otras columnas, como el número de la fila de cada palabra.</li>
+<li>La puntuación ha sido eliminada.</li>
+<li>Por defecto, los tokens están en minúsculas, lo que hace más fácil la comparación con otros textos (usar el <code>to_lower = FALSE</code> para desactivarlo).</li>
+</ul>
+</div>
+<div id="tokenizacion-de-la-obra-de-jane-austen" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Tokenización de la obra de Jane Austen</h3>
+<p>Con el formato anterior se puede manejar varios documentos incluyéndolos en una única base. Para ilustrarlo, se considera el texto de las seis novelas publicadas por Jane Austen incluidas en el paquete <code>janeaustenr</code>.</p>
+<p>En este paquete, los textos vienen en filas que son parecidas a las líneas impresas en un libro físico. A continuación, se anota cada fila por su numero, el capitulo y libro al que pertenece.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(janeaustenr)
+libros &lt;-<span class="st"> </span><span class="kw">austen_books</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(book) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">linenumber =</span> <span class="kw">row_number</span>(),
+         <span class="dt">chapter =</span> <span class="kw">cumsum</span>(<span class="kw">str_detect</span>(text, <span class="kw">regex</span>(<span class="st">&quot;^chapter [[:digit:]ivxlc]&quot;</span>, <span class="dt">ignore_case=</span><span class="ot">TRUE</span>)))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>()</code></pre></div>
+<p>A partir de esta base de datos textuales ordenados, se puede generar corpus de tokens tal y como se hizo anteriormente mediante la función <code>unnest_tokens</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tokens &lt;-<span class="st"> </span>libros <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest_tokens</span>(word, text)
+tokens</code></pre></div>
+<pre><code>## # A tibble: 725,055 x 4
+##    book                linenumber chapter word       
+##    &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt; &lt;chr&gt;      
+##  1 Sense &amp; Sensibility          1       0 sense      
+##  2 Sense &amp; Sensibility          1       0 and        
+##  3 Sense &amp; Sensibility          1       0 sensibility
+##  4 Sense &amp; Sensibility          3       0 by         
+##  5 Sense &amp; Sensibility          3       0 jane       
+##  6 Sense &amp; Sensibility          3       0 austen     
+##  7 Sense &amp; Sensibility          5       0 1811       
+##  8 Sense &amp; Sensibility         10       1 chapter    
+##  9 Sense &amp; Sensibility         10       1 1          
+## 10 Sense &amp; Sensibility         13       1 the        
+## # ... with 725,045 more rows</code></pre>
+</div>
+</div>
+<div id="analisis-de-frecuencias-de-tokens" class="section level2">
+<h2><span class="header-section-number">2.5</span> Análisis de frecuencias de tokens</h2>
+<p>Una pregunta recurrente en la minería de textos y el procesamiento del lenguaje natural es tener una idea global de su contenido. Para este propósito se puede proporcionar las palabras más frecuente incluidas en el texto.</p>
+<p>Sin embargo, hay palabras que ocurren muchas veces pero que no caracterizan el texto; en castellano, palabras como “del”, “es”, “para”, … Es por lo tanto, importante disponer de una lista de dichas palabras para eliminarlas antes del análisis.</p>
+<p>Estas palabras “inútiles” están incluidas en el paquete <code>stopwords</code> y se pueden quitar del corpus mediante la función <code>anti_join</code>. El propio paquete <code>tidytext</code>contiene una base llamada <code>stop_words</code>de estas palabras, pero sólo en ingles.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tokens &lt;-<span class="st"> </span>tokens <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anti_join</span>(stop_words)</code></pre></div>
+<p>Podemos ahora procurar caracterizar la obra de Jane Austeen calculando las frecuencias de las palabras incluidas en sus novelas:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freq &lt;-<span class="st"> </span>tokens <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) </code></pre></div>
+<p>Y representar la distribución de las palabras más frecuentes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(ggplot2)
+freq <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">600</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">reorder</span>(word, n)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(word, n)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="IntroTextMining_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p>O, mediante una nube de palabras utilizando el paquete <code>wordcloud</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(wordcloud)
+<span class="kw">wordcloud</span>(<span class="dt">words =</span> freq<span class="op">$</span>word, <span class="dt">freq =</span> freq<span class="op">$</span>n, <span class="dt">min.freq =</span> <span class="dv">300</span>,
+          <span class="dt">max.words=</span><span class="dv">100</span>, <span class="dt">random.order=</span><span class="ot">FALSE</span>, <span class="dt">rot.per=</span><span class="fl">0.35</span>, 
+          <span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</code></pre></div>
+<p><img src="IntroTextMining_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p>Otro enfoque es observar la frecuencia inversa de documentos (<code>idf</code>) para una palabra dada, que aumenta su peso si se usa en pocos documentos de la colección:</p>
+<p>Si <span class="math inline">\(N\)</span> denota el número total de documentos y <span class="math inline">\(N_p\)</span> el número de documentos que contienen la palabra <span class="math inline">\(p\)</span>, entonces el <code>idf</code> de dicha palabra es: <span class="math display">\[
+\mbox{idf} = - \log\left(\frac{N_p}{N}\right)
+\]</span></p>
+<p>Esto se puede combinar con la frecuencia de la palabra <code>tf</code> para calcular el <code>tf-idf</code> de un término (<code>producto de ìdf</code>y <code>tf</code>), es decir, la frecuencia de una palabra multiplicado por su especificidad al documento.</p>
+<p>Por lo tanto, la medida <code>tf-idf</code> mide hasta que punto una palabra caracteriza un documento dado dentro de una colección (o corpus) al cual pertenece dicho documento.</p>
+<p>Si lo aplicamos a las novelas de Jane Austeen, obtenemos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">book_words &lt;-<span class="st"> </span><span class="kw">austen_books</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest_tokens</span>(word, text) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">count</span>(book, word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>()
+
+freq_rel &lt;-<span class="st"> </span>book_words <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">bind_tf_idf</span>(word, book, n)
+freq_rel</code></pre></div>
+<pre><code>## # A tibble: 40,379 x 6
+##    book              word      n     tf   idf tf_idf
+##    &lt;fct&gt;             &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Mansfield Park    the    6206 0.0387    0.     0.
+##  2 Mansfield Park    to     5475 0.0341    0.     0.
+##  3 Mansfield Park    and    5438 0.0339    0.     0.
+##  4 Emma              to     5239 0.0325    0.     0.
+##  5 Emma              the    5201 0.0323    0.     0.
+##  6 Emma              and    4896 0.0304    0.     0.
+##  7 Mansfield Park    of     4778 0.0298    0.     0.
+##  8 Pride &amp; Prejudice the    4331 0.0354    0.     0.
+##  9 Emma              of     4291 0.0267    0.     0.
+## 10 Pride &amp; Prejudice to     4162 0.0341    0.     0.
+## # ... with 40,369 more rows</code></pre>
+<p>Podemos observar que para estas palabras de uso muy corriente <code>idf</code> es igual a cero. Para ver las palabras con una elevada importancia escribimos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freq_rel <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(tf_idf))</code></pre></div>
+<pre><code>## # A tibble: 40,379 x 6
+##    book                word          n      tf   idf  tf_idf
+##    &lt;fct&gt;               &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Sense &amp; Sensibility elinor      623 0.00519  1.79 0.00931
+##  2 Sense &amp; Sensibility marianne    492 0.00410  1.79 0.00735
+##  3 Mansfield Park      crawford    493 0.00307  1.79 0.00551
+##  4 Pride &amp; Prejudice   darcy       373 0.00305  1.79 0.00547
+##  5 Persuasion          elliot      254 0.00304  1.79 0.00544
+##  6 Emma                emma        786 0.00488  1.10 0.00536
+##  7 Northanger Abbey    tilney      196 0.00252  1.79 0.00452
+##  8 Emma                weston      389 0.00242  1.79 0.00433
+##  9 Pride &amp; Prejudice   bennet      294 0.00241  1.79 0.00431
+## 10 Persuasion          wentworth   191 0.00228  1.79 0.00409
+## # ... with 40,369 more rows</code></pre>
+<p>Y así podemos representar una caracterización de cada novela mediante dichas palabras:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freq_rel <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(tf_idf)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">factor</span>(word, <span class="dt">levels =</span> <span class="kw">rev</span>(<span class="kw">unique</span>(word)))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(book) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">15</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(word, tf_idf, <span class="dt">fill =</span> book)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;tf-idf&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>book, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="IntroTextMining_files/figure-html/unnamed-chunk-44-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="ej">
+<p>
+Caracterizar algunos capítulos de “Pride and Prejudice” mediante el indicador <code>tf-idf</code>.
+</p>
+</div>
+<div class="ej">
+<p>
+Descargar 20 discursos del rey de España y caracterizarlos. Utilizar la dirección siguiente donde <em>data</em> corresponde al número del discurso.
+</p>
+<p>
+<a href="http://www.casareal.es/ES/Actividades/Paginas/actividades_discursos_detalle.aspx?data=5738" class="uri">http://www.casareal.es/ES/Actividades/Paginas/actividades_discursos_detalle.aspx?data=5738</a>
+</p>
+</div>
+<div class="nota">
+<p>
+De manera general, se puede importar libros mediante el <a href="!https://www.gutenberg.org/">proyecto Gutenberg</a> y el paquete <code>gutenbergr</code> (Robinson, 2016). Así, se puede importar la novela “Niebla” de Unamuno, de la siguiente manera:
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(gutenbergr)
+unamuno &lt;-<span class="st"> </span><span class="kw">gutenberg_works</span>(title<span class="op">==</span><span class="st">&quot;Niebla</span><span class="ch">\n</span><span class="st">(Nivola)&quot;</span>,<span class="dt">languages=</span><span class="st">&quot;es&quot;</span>)<span class="op">$</span>gutenberg_id <span class="op">%&gt;%</span>
+<span class="kw">gutenberg_download</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="kw">gutenberg_strip</span>() <span class="co">#quita encabezado y pie de pagina</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="scraping-con-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["IntroTextMining.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

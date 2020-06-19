@@ -1,0 +1,1 @@
+acusados <- str_match_all(pattern = "(?:\\d\\.\\s{3,}D?\\.?\\s)(.+?(?=,|\\.| nac))", string =  text[c(1:11)])

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introducción al scraping y a la minería de texto</title>
+  <meta name="description" content="Introducción al scraping y a la minería de texto">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introducción al scraping y a la minería de texto" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introducción al scraping y a la minería de texto" />
+  
+  
+  
+
+<meta name="author" content="Olivier Nuñez">
+
+
+<meta name="date" content="2018-06-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="introduccion-a-la-mineria-de-texto.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="scraping-con-r.html"><a href="scraping-con-r.html"><i class="fa fa-check"></i><b>1</b> Scraping con R</a><ul>
+<li class="chapter" data-level="1.1" data-path="scraping-con-r.html"><a href="scraping-con-r.html#que-se-puede-rascar-de-la-web"><i class="fa fa-check"></i><b>1.1</b> Qué se puede “rascar” de la web?</a></li>
+<li class="chapter" data-level="1.2" data-path="scraping-con-r.html"><a href="scraping-con-r.html#formato-html"><i class="fa fa-check"></i><b>1.2</b> Formato HTML</a></li>
+<li class="chapter" data-level="1.3" data-path="scraping-con-r.html"><a href="scraping-con-r.html#identificar-elementos-de-interes-en-una-pagina"><i class="fa fa-check"></i><b>1.3</b> Identificar elementos de interés en una página</a></li>
+<li class="chapter" data-level="1.4" data-path="scraping-con-r.html"><a href="scraping-con-r.html#el-paquete-rvest"><i class="fa fa-check"></i><b>1.4</b> El paquete <code>rvest</code></a><ul>
+<li class="chapter" data-level="1.4.1" data-path="scraping-con-r.html"><a href="scraping-con-r.html#cargar-la-pagina"><i class="fa fa-check"></i><b>1.4.1</b> Cargar la pagina</a></li>
+<li class="chapter" data-level="1.4.2" data-path="scraping-con-r.html"><a href="scraping-con-r.html#extraccion"><i class="fa fa-check"></i><b>1.4.2</b> Extracción</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="scraping-con-r.html"><a href="scraping-con-r.html#navegacion"><i class="fa fa-check"></i><b>1.5</b> Navegación</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="scraping-con-r.html"><a href="scraping-con-r.html#inicion-de-la-navegacion"><i class="fa fa-check"></i><b>1.5.1</b> Inición de la navegación</a></li>
+<li class="chapter" data-level="1.5.2" data-path="scraping-con-r.html"><a href="scraping-con-r.html#funciones-jump_to-y-follow_link"><i class="fa fa-check"></i><b>1.5.2</b> Funciones <code>jump_to</code> y <code>follow_link</code></a></li>
+<li class="chapter" data-level="1.5.3" data-path="scraping-con-r.html"><a href="scraping-con-r.html#html_formsesion"><i class="fa fa-check"></i><b>1.5.3</b> html_form(sesion)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html"><i class="fa fa-check"></i><b>2</b> Introducción a la minería de texto</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#aplicaciones"><i class="fa fa-check"></i><b>2.1</b> Aplicaciones</a></li>
+<li class="chapter" data-level="2.2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#conceptos-basicos"><i class="fa fa-check"></i><b>2.2</b> Conceptos básicos</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#formato-de-los-datos-textuales"><i class="fa fa-check"></i><b>2.2.1</b> Formato de los datos textuales</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#unidad-de-analisis-el-token"><i class="fa fa-check"></i><b>2.2.2</b> Unidad de análisis: el token</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#preparacion-de-los-datos-textuales"><i class="fa fa-check"></i><b>2.2.3</b> Preparación de los datos textuales</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#manipulacion-y-analisis-basicos-de-texto"><i class="fa fa-check"></i><b>2.3</b> Manipulación y análisis básicos de texto</a></li>
+<li class="chapter" data-level="2.4" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#creacion-de-un-corpus-con-tidytext"><i class="fa fa-check"></i><b>2.4</b> Creación de un Corpus con <code>tidytext</code></a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#tokenizacion-con-la-funcion-unnest_tokens"><i class="fa fa-check"></i><b>2.4.1</b> Tokenización con la función <code>unnest_tokens</code></a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#tokenizacion-de-la-obra-de-jane-austen"><i class="fa fa-check"></i><b>2.4.2</b> Tokenización de la obra de Jane Austen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduccion-a-la-mineria-de-texto.html"><a href="introduccion-a-la-mineria-de-texto.html#analisis-de-frecuencias-de-tokens"><i class="fa fa-check"></i><b>2.5</b> Análisis de frecuencias de tokens</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>3</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al scraping y a la minería de texto</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="scraping-con-r" class="section level1">
+<h1><span class="header-section-number">1</span> Scraping con R</h1>
+<div id="que-se-puede-rascar-de-la-web" class="section level2">
+<h2><span class="header-section-number">1.1</span> Qué se puede “rascar” de la web?</h2>
+<blockquote>
+<p>“<em>Si puedes verlo, puedes rascarlo</em>”</p>
+</blockquote>
+<p>Cualquier cosa en una página web:</p>
+<ul>
+<li>Tablas</li>
+<li>Texto</li>
+<li>Vínculos</li>
+<li>Metadatos (tiempo de publicación, actualización, …)</li>
+<li>Atributos de página web (colores, fuentes, tamaño de texto utilizado, ..)</li>
+<li>Imágenes</li>
+</ul>
+</div>
+<div id="formato-html" class="section level2">
+<h2><span class="header-section-number">1.2</span> Formato HTML</h2>
+<p>El código HTML está compuesto de etiquetas predefinidas que le dicen al navegador cómo mostrar los datos. A menudo, estas etiquetas están anidadas:</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Articulo 1&lt;/li&gt;
+    &lt;li&gt;Articulo 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>Dará:</p>
+<blockquote>
+<ul>
+<li>Artículo 1</li>
+<li>Artículo 2</li>
+</ul>
+</blockquote>
+<p>La etiqueta “&lt;ul&gt;” indica una lista desordenada y “&lt;li&gt;” indica un elemento de la lista. Una etiqueta que comienza con una barra inclinada finaliza la etiqueta anterior de ese tipo.</p>
+<p>HTML se vuelve más complicado, pero entender las etiquetas es suficiente para comenzar a rascar.</p>
+</div>
+<div id="identificar-elementos-de-interes-en-una-pagina" class="section level2">
+<h2><span class="header-section-number">1.3</span> Identificar elementos de interés en una página</h2>
+<p>Puede ser útil ilustrar brevemente algunas prácticas para identificar elementos en una página de la cual uno desea extraer los datos. En este sentido, la mayoría de los navegadores web ofrecen no solo la posibilidad de ver el código fuente de una página, sino también analizar los elementos.</p>
+<p>Esta función de <em>inspección</em> suele estar disponible directamente en el menú contextual del navegador. Se señala el elemento que nos interesa, se hace clic con el botón derecho y se elige el elemento del menú contextual que permite analizarlo.</p>
+<p>Captura de pantalla de la pagina de IMDB dedicada a la película “Amanece que no es poco” <img src="images/amanece.png" /></p>
+<p>Aquí hay una lista de criterios para la identificación de los elementos:</p>
+<ul>
+<li><p><strong>ID</strong> de atributo : si el elemento tiene un atributo id (caracterizado en el identificador con el carácter #), se supone que este atributo es exclusivo del elemento. Por lo tanto, es muy útil para extraerlo de la página, pero no es adecuado para extraer elementos recursivos (por ejemplo, varios párrafos), ya que cada uno debe tener una identificación única.</p></li>
+<li><p><strong>Clases</strong> : Las clases son una buena forma de identificar elementos recursivos en el mismo nivel jerárquico. Por ejemplo, los comentarios de blog a menudo comparten la misma clase (por ejemplo, class = “comment”). Para maximizar la probabilidad de identificar el elemento correcto, en el caso de que múltiples elementos en diferentes ubicaciones en la página tengan la misma clase, este criterio puede estar asociado con el nombre de la etiqueta (por ejemplo, div.comment).</p></li>
+<li><p><strong>Posición jerárquica</strong> : el análisis de elementos a menudo propone la posición relativa a la raíz del DOM ocupado por el elemento seleccionado. Se usa si las etiquetas nunca tienen atributos de identificación o clase.</p></li>
+</ul>
+</div>
+<div id="el-paquete-rvest" class="section level2">
+<h2><span class="header-section-number">1.4</span> El paquete <code>rvest</code></h2>
+<p>Este paquete de “cosecha” extrae contenidos de páginas web en HTML/XML usando la sintaxis de los <a href="https://www.w3schools.com/cssref/css_selectors.asp">selectores de CSS</a>. Por ejemplo, un párrafo que está directamente dentro de una etiqueta de tipo <em>div</em> puede identificarse usando la notación <em>div &gt; p</em>.</p>
+<p>Este paquete es bastante simple, porque no tiene muchas funciones, pero proporciona las principales características necesarias para la identificación y extracción de datos en una página, así como algunas funciones que permiten explorar las páginas emulando un navegador web.</p>
+<div id="cargar-la-pagina" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Cargar la pagina</h3>
+<p>Para ilustrar el uso de <code>rvest</code>, vamos a extraer información sobre la película “Amanece, que no es poco” de su pagina en el <a href="http://www.imdb.com/title/tt0094641/">IMDb</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(rvest)
+amanece &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;http://www.imdb.com/title/tt0094641/&quot;</span>)</code></pre></div>
+<p>La función <code>read_html</code>permite importar en R el contenido html de una página web. El argumento principal de esta función es la dirección de la pagina web ( o el path de fichero html local).</p>
+</div>
+<div id="extraccion" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> Extracción</h3>
+<p>La función <code>html_nodes</code> acepta dos argumentos, ambos necesarios:</p>
+<pre><code>html_nodes(x, css)</code></pre>
+<ul>
+<li>El argumento x representa el código HTML importado mediante la función <code>read_html</code></li>
+<li>El segundo argumento es un criterio de selección que utiliza la gramática de los selectores de CSS.</li>
+</ul>
+<p>Esta función devuelve una lista (matriz) de las ocurrencias encontradas en la pagina de acuerdo al criterio de selección. Así, el comando siguiente da la lista de las tablas incluidas en la pagina:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_nodes</span>(amanece, <span class="st">&quot;table&quot;</span>) </code></pre></div>
+<pre><code>## {xml_nodeset (2)}
+## [1] &lt;table class=&quot;cast_list&quot;&gt;\n&lt;tr&gt;&lt;td colspan=&quot;4&quot; class=&quot;castlist_label ...
+## [2] &lt;table class=&quot;footer&quot; id=&quot;amazon-affiliates&quot;&gt;\n&lt;tr&gt;\n&lt;td colspan=&quot;8&quot; ...</code></pre>
+<div id="extraccion-de-texto" class="section level4">
+<h4><span class="header-section-number">1.4.2.1</span> Extracción de texto</h4>
+<p>Se puede también extraer su titulo</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titulo &lt;-<span class="st"> </span><span class="kw">html_node</span>(amanece, <span class="st">&quot;title&quot;</span>)
+<span class="kw">html_text</span>(titulo)</code></pre></div>
+<pre><code>## [1] &quot;Amanece, que no es poco (1989) - IMDb&quot;</code></pre>
+<p>Sólo hay una etiqueta “title” en una página, por lo que utilizaremos <code>html_node()</code> (sin la <em>s</em> final) en lugar de <code>html_nodes()</code>, porque sólo devuelve un elemento en vez de una lista.</p>
+<p>La función <code>html_text</code> elimina todas las etiquetas del código y muestra solo el contenido textual. Una opción muy útil de esta función es <code>trim = TRUE</code> que elimina los espacios antes y después del texto.</p>
+<p>Cabe mencionar, que mediante la gramática de “tuberias”, la secuencia anterior de comandos, puede ser expresada en una solo linea:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">amanece <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_node</span>(<span class="st">&quot;title&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_text</span>()</code></pre></div>
+<div class="ej">
+<p>
+Descargar el ultimo discurso del rey de España desde la siguiente dirección:
+</p>
+<p>
+<a href="http://www.casareal.es/ES/Actividades/Paginas/actividades_discursos_detalle.aspx?data=5738" class="uri">http://www.casareal.es/ES/Actividades/Paginas/actividades_discursos_detalle.aspx?data=5738</a>
+</p>
+</div>
+</div>
+<div id="extraccion-de-tablas" class="section level4">
+<h4><span class="header-section-number">1.4.2.2</span> Extracción de tablas</h4>
+<p>La función <code>html_table</code>, como su nombre indica, está especialmente diseñada para extraer los contenidos de una tabla HTML, manteniendo la estructura en filas y columnas-</p>
+<p>Así, el comando siguiente permite extraer la lista de actores de la película que viene en la segunda columna de la tabla con clase “cast_list”:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_node</span>(amanece, <span class="st">&quot;table.cast_list&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_table</span>(<span class="dt">header=</span><span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[[<span class="dv">2</span>]] <span class="co"># .[[2]] para segunda columna</span></code></pre></div>
+<pre><code>##  [1] &quot;José Sazatornil&quot;     &quot;Carmen de Lirio&quot;     &quot;Francisco Martínez&quot; 
+##  [4] &quot;Ovidi Montllor&quot;      &quot;Carmen Rodríguez&quot;    &quot;Rafael Díaz&quot;        
+##  [7] &quot;Amada Tercero&quot;       &quot;Cassen&quot;              &quot;Manuel Alexandre&quot;   
+## [10] &quot;María Ángeles Ariza&quot; &quot;Rafael Alonso&quot;       &quot;Fedra Lorente&quot;      
+## [13] &quot;Cris Huerta&quot;         &quot;Elisa Belmonte&quot;      &quot;María I. González&quot;</code></pre>
+<div class="ej">
+<p>
+Descargar las cotizaciones del IBEX 35 en tiempo real desde la siguiente pagina
+</p>
+<p>
+ibex35 &lt;- “<a href="http://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx?indice=ESI100000000" class="uri">http://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx?indice=ESI100000000</a>”
+</p>
+</div>
+</div>
+<div id="extraccion-de-vinculos" class="section level4">
+<h4><span class="header-section-number">1.4.2.3</span> Extracción de vinculos</h4>
+<p>Para ilustrar este tipo de extracción, vamos a importar las direcciones de las paginas de los actores de la película. Empezamos importando todos los enlaces (etiqueta `&lt;a&gt;´de “ancla”) contenidos en una tabla:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">enlaces &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(amanece, <span class="st">&quot;table a&quot;</span>)
+enlaces</code></pre></div>
+<pre><code>## {xml_nodeset (41)}
+##  [1] &lt;a href=&quot;/name/nm0768574/?ref_=tt_cl_i1&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+##  [2] &lt;a href=&quot;/name/nm0768574/?ref_=tt_cl_t1&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+##  [3] &lt;a href=&quot;/title/tt0094641/characters/nm0768574?ref_=tt_cl_t1&quot;&gt;Cabo  ...
+##  [4] &lt;a href=&quot;/name/nm0513922/?ref_=tt_cl_i2&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+##  [5] &lt;a href=&quot;/name/nm0513922/?ref_=tt_cl_t2&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+##  [6] &lt;a href=&quot;/name/nm1771790/?ref_=tt_cl_i3&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+##  [7] &lt;a href=&quot;/name/nm1771790/?ref_=tt_cl_t3&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+##  [8] &lt;a href=&quot;/name/nm0600120/?ref_=tt_cl_i4&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+##  [9] &lt;a href=&quot;/name/nm0600120/?ref_=tt_cl_t4&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+## [10] &lt;a href=&quot;/name/nm1771909/?ref_=tt_cl_i5&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+## [11] &lt;a href=&quot;/name/nm1771909/?ref_=tt_cl_t5&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+## [12] &lt;a href=&quot;/name/nm0246717/?ref_=tt_cl_i6&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+## [13] &lt;a href=&quot;/name/nm0246717/?ref_=tt_cl_t6&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+## [14] &lt;a href=&quot;/name/nm1773519/?ref_=tt_cl_i7&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+## [15] &lt;a href=&quot;/name/nm1773519/?ref_=tt_cl_t7&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+## [16] &lt;a href=&quot;/name/nm0144107/?ref_=tt_cl_i8&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+## [17] &lt;a href=&quot;/name/nm0144107/?ref_=tt_cl_t8&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+## [18] &lt;a href=&quot;/title/tt0094641/characters/nm0144107?ref_=tt_cl_t8&quot;&gt;Cura  ...
+## [19] &lt;a href=&quot;/name/nm0018872/?ref_=tt_cl_i9&quot;&gt;&lt;img height=&quot;44&quot; width=&quot;32 ...
+## [20] &lt;a href=&quot;/name/nm0018872/?ref_=tt_cl_t9&quot; itemprop=&quot;url&quot;&gt; &lt;span clas ...
+## ...</code></pre>
+<p>Luego extraemos las direcciones (atributo <code>href</code>) a las que apuntan dichos enlaces utilizando la función <code>html_attr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">actores &lt;-<span class="st"> </span>enlaces <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_attr</span>(<span class="st">&quot;href&quot;</span>)
+raiz=<span class="st">&quot;http://www.imdb.com&quot;</span>
+<span class="kw">browseURL</span>(<span class="kw">paste</span>(raiz,actores[<span class="dv">1</span>],<span class="dt">sep=</span><span class="st">&quot;/&quot;</span>)) <span class="co">#pagina de José Sazatornil </span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="navegacion" class="section level2">
+<h2><span class="header-section-number">1.5</span> Navegación</h2>
+<p>El paquete <code>rvest</code> proporciona también funciones para emular un navegador web.</p>
+<div id="inicion-de-la-navegacion" class="section level3">
+<h3><span class="header-section-number">1.5.1</span> Inición de la navegación</h3>
+<p>Con la función <code>html_session</code>se crea un punto de entrada para la navegación.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sesion &lt;-<span class="st"> </span><span class="kw">html_session</span>(<span class="st">&quot;http://www.imdb.com&quot;</span>)</code></pre></div>
+<p>La variable “sesion” contiene ahora información de la página “visitada”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sesion </code></pre></div>
+<pre><code>## &lt;session&gt; https://www.imdb.com/
+##   Status: 200
+##   Type:   text/html;charset=UTF-8
+##   Size:   195073</code></pre>
+</div>
+<div id="funciones-jump_to-y-follow_link" class="section level3">
+<h3><span class="header-section-number">1.5.2</span> Funciones <code>jump_to</code> y <code>follow_link</code></h3>
+<p>Estas dos funciones tienen el mismo propósito, es decir, seguir un enlace para ir de una página a otra. La diferencia entre las dos funciones se refiere a la forma de referirse al enlace.</p>
+<p>La función <code>jump_to</code> toma una url (ya sea relativa o absoluta)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sesion <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">jump_to</span>(<span class="st">&quot;boxoffice&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">session_history</span>()</code></pre></div>
+<pre><code>##   https://www.imdb.com/
+## - https://www.imdb.com/chart/boxoffice</code></pre>
+<p>Mientras que la función <code>follow_link</code> acepta la referencia a un enlace en una página en tres formas distintas:</p>
+<ul>
+<li>Un número cardinal (ej., “5” para la quinta etiqueta <code>a</code> presente en el HTML de la página).</li>
+<li>Un selector CSS (ej., “p a” para enlaces en un párrafo)</li>
+<li>Una palabra o frase que representa la etiqueta textual del enlace (ej. )</li>
+</ul>
+<p>toma una expresión que hace referencia a un enlace (una etiqueta <em>&lt;a&gt;</em>) de la página:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sesion <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">follow_link</span>(<span class="dv">5</span>)</code></pre></div>
+<pre><code>## Navigating to /chart/toptv/?ref_=nv_tp_tv250_2</code></pre>
+<pre><code>## &lt;session&gt; https://www.imdb.com/chart/toptv/?ref_=nv_tp_tv250_2
+##   Status: 200
+##   Type:   text/html;charset=UTF-8
+##   Size:   572857</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sesion <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">follow_link</span>(<span class="dt">css =</span> <span class="st">&quot;p a&quot;</span>) <span class="co">#enlace en un parráfo</span></code></pre></div>
+<pre><code>## Navigating to /movies-in-theaters/?ref_=nv_tp_inth_1</code></pre>
+<pre><code>## &lt;session&gt; https://www.imdb.com/movies-in-theaters/?ref_=nv_tp_inth_1
+##   Status: 200
+##   Type:   text/html;charset=UTF-8
+##   Size:   198262</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sesion <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">follow_link</span>(<span class="st">&quot;Indian&quot;</span>)</code></pre></div>
+<pre><code>## Navigating to /india/top-rated-indian-movies?ref_=nv_mv_250_in_7</code></pre>
+<pre><code>## &lt;session&gt; https://www.imdb.com/india/top-rated-indian-movies/?ref_=nv_mv_250_in_7
+##   Status: 200
+##   Type:   text/html;charset=UTF-8
+##   Size:   592326</code></pre>
+<p>Cualquier movimiento con estas funciones se grabará en la sesión de navegación, de modo que se pueda realizar un seguimiento de la navegación. La función <code>session_history</code> muestra la cronología completa de las páginas visitadas en la misma sesión:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sesion <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">jump_to</span>(<span class="st">&quot;boxoffice&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">session_history</span>()</code></pre></div>
+<pre><code>##   https://www.imdb.com/
+## - https://www.imdb.com/chart/boxoffice</code></pre>
+</div>
+<div id="html_formsesion" class="section level3">
+<h3><span class="header-section-number">1.5.3</span> html_form(sesion)</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_form</span>(sesion)</code></pre></div>
+<pre><code>## [[1]]
+## &lt;form&gt; &#39;navbar-form&#39; (GET /find)
+##   &lt;button submit&gt; &#39;&lt;unnamed&gt;
+##   &lt;input hidden&gt; &#39;ref_&#39;: nv_sr_fn
+##   &lt;input text&gt; &#39;q&#39;: 
+##   &lt;select&gt; &#39;s&#39; [0/6]
+## 
+## [[2]]
+## &lt;form&gt; &#39;ue_backdetect&#39; (GET get)
+##   &lt;input hidden&gt; &#39;ue_back&#39;: 1</code></pre>
+<p>Buscamos las películas con “amanece” en su título:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">busqueda &lt;-<span class="kw">html_form</span>(sesion)[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">set_values</span>(<span class="st">`</span><span class="dt">q</span><span class="st">`</span> =<span class="st"> &quot;amanece&quot;</span>, <span class="dt">s=</span><span class="st">&quot;Titles&quot;</span>) 
+busqueda <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">submit_form</span>(<span class="dt">session=</span>sesion) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;td.result_text&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_text</span>()</code></pre></div>
+<pre><code>## Submitting with &#39;&lt;unnamed&gt;&#39;</code></pre>
+<pre><code>##  [1] &quot; Le jour se lève (1939) aka \&quot;Amanece\&quot; &quot;       
+##  [2] &quot; Amanece (2017) (Short) &quot;                       
+##  [3] &quot; Amanece (2010) (Short) &quot;                       
+##  [4] &quot; La saga Crepúsculo: Amanecer - Parte 2 (2012) &quot;
+##  [5] &quot; Amanda Jane Cooper (Actress, Selfie (2014))&quot;   
+##  [6] &quot; Dan Eckman (Director, Checkout (2006))&quot;        
+##  [7] &quot; breaking-a-man&#39;s-neck (4 titles) &quot;             
+##  [8] &quot; andaman-sea (2 titles) &quot;                       
+##  [9] &quot; Amanecer Latino [es] (Production) &quot;            
+## [10] &quot; Amanecer Films [es] (Production) &quot;</code></pre>
+<div class="ej">
+<p>
+Extraer cotizaciones del ibex 35 utilizando navegación virtual. Inicio de sesión:
+</p>
+<p>
+cotiz &lt;- html_session(“<a href="http://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx" class="uri">http://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx</a>”)
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduccion-a-la-mineria-de-texto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["IntroTextMining.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
