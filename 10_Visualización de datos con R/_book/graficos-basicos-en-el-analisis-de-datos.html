@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gráficos con R</title>
+  <meta name="description" content="Gráficos con R">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gráficos con R" />
+  
+  
+  
+
+<meta name="author" content="Olivier Nuñez">
+
+
+<meta name="date" content="2018-05-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="graficos-avanzados.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html"><i class="fa fa-check"></i><b>1</b> Gráficos básicos en el análisis de datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#distribucion-de-una-variable"><i class="fa fa-check"></i><b>1.1</b> Distribución de una variable</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#histograma"><i class="fa fa-check"></i><b>1.1.1</b> Histograma</a></li>
+<li class="chapter" data-level="1.1.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-caja-boxplot"><i class="fa fa-check"></i><b>1.1.2</b> Diagrama de caja (boxplot)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-barras"><i class="fa fa-check"></i><b>1.1.3</b> Diagrama de barras</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#relacion-entre-dos-variables"><i class="fa fa-check"></i><b>1.2</b> Relación entre dos variables</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-dispersion"><i class="fa fa-check"></i><b>1.2.1</b> Diagrama de dispersión</a></li>
+<li class="chapter" data-level="1.2.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#dotchart"><i class="fa fa-check"></i><b>1.2.2</b> Dotchart</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html"><i class="fa fa-check"></i><b>2</b> Gráficos avanzados</a><ul>
+<li class="chapter" data-level="2.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#elementos-de-un-grafico-en-ggplot2"><i class="fa fa-check"></i><b>2.1</b> Elementos de un gráfico en <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.1.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#datos"><i class="fa fa-check"></i><b>2.1.1</b> Datos</a></li>
+<li class="chapter" data-level="2.1.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#esteticas-aes"><i class="fa fa-check"></i><b>2.1.2</b> Estéticas (<code>aes</code>)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#capas-geoms"><i class="fa fa-check"></i><b>2.1.3</b> Capas (<code>geoms</code>)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#facetas"><i class="fa fa-check"></i><b>2.1.4</b> Facetas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#toque-final"><i class="fa fa-check"></i><b>2.2</b> Toque final</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#etiquetas"><i class="fa fa-check"></i><b>2.2.1</b> Etiquetas</a></li>
+<li class="chapter" data-level="2.2.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#escalas"><i class="fa fa-check"></i><b>2.2.2</b> Escalas</a></li>
+<li class="chapter" data-level="2.2.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#temas"><i class="fa fa-check"></i><b>2.2.3</b> Temas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#exportacion-de-los-graficos"><i class="fa fa-check"></i><b>2.3</b> Exportación de los graficos</a></li>
+<li class="chapter" data-level="2.4" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#introduccion-a-ggmap"><i class="fa fa-check"></i><b>2.4</b> Introducción a ggmap</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#mas-ejemplos-de-mapas-con-puntos"><i class="fa fa-check"></i><b>2.4.1</b> Más ejemplos de mapas con puntos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#mas-alla-de-los-puntos-densidades-y-poligonos"><i class="fa fa-check"></i><b>2.4.2</b> Más allá de los puntos: densidades y poligonos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#extension-dinamica-de-los-graficos"><i class="fa fa-check"></i><b>2.5</b> Extensión dinamica de los graficos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html"><i class="fa fa-check"></i><b>3</b> Rmarkdown y shiny</a><ul>
+<li class="chapter" data-level="3.1" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#rmarkdown"><i class="fa fa-check"></i><b>3.1</b> Rmarkdown</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#rmarkdown-en-15-mn"><i class="fa fa-check"></i><b>3.1.1</b> Rmarkdown en 15 mn</a></li>
+<li class="chapter" data-level="3.1.2" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#elementos-de-un-documento-rmarkdown"><i class="fa fa-check"></i><b>3.1.2</b> Elementos de un documento Rmarkdown</a></li>
+<li class="chapter" data-level="3.1.3" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#tablas-con-rmarkdown"><i class="fa fa-check"></i><b>3.1.3</b> Tablas con Rmarkdown</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#shiny"><i class="fa fa-check"></i><b>3.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graficos-basicos-en-el-analisis-de-datos" class="section level1">
+<h1><span class="header-section-number">1</span> Gráficos básicos en el análisis de datos</h1>
+<p>Esta sección es una breve introducción a los gráficos más comunes para analizar conjuntos de datos. Para ello, utilizaremos el paquete <code>ggplot2</code> (“gg” para “Grammar of Graphics”).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;tidyverse&quot;)</span>
+<span class="kw">library</span>(tidyverse) <span class="co">#incluye ggplot2</span></code></pre></div>
+<p>Empezaremos con la función básica <code>qplot</code>(“quick plot”) de este paquete. Una descripción abreviada de esta función es</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(x, <span class="dt">y=</span><span class="ot">NULL</span>, data, <span class="dt">geom=</span><span class="st">&quot;auto&quot;</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="ot">NA</span>), <span class="dt">ylim =</span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="ot">NA</span>))</code></pre></div>
+<div class="nota">
+<ul>
+<li>
+<code>x</code> : valores en el eje de abscisas.
+</li>
+<li>
+<code>y</code> : valores en el de ordenadas (opcional).
+</li>
+<li>
+<code>data</code> : data.frame de donde salen los datos (opcional).
+</li>
+<li>
+<code>geom</code> : elementos gráficos o geometrías (“point”,line“,”bar“,…). Por defecto, “point” si <code>y</code> viene especificado, e “histogram” si sólo se especifica <code>x</code>.
+</li>
+<li>
+<code>xlim</code>, <code>ylim</code>: limites en los ejes de <code>x</code> e <code>y</code>.
+</li>
+</ul>
+<p>
+Otros argumentos relacionados con los ejes y el titulo del gráfico son: <code>main</code>: titulo del gráfico; <code>xlab</code>, <code>ylab</code>: etiquetas los los ejes; <code>log</code>: ejes en escala log. Los valores permitidos son “x”, “y” o bien “xy”.
+</p>
+</div>
+<div id="distribucion-de-una-variable" class="section level2">
+<h2><span class="header-section-number">1.1</span> Distribución de una variable</h2>
+<p>Para intentar ver algo en un conjunto de datos, lo primero que se puede hacer es averiguar como se distribuyen sus valores. En R, hay funciones básicas (summary, stem, table, …) que permiten tener una idea de esta distribución.</p>
+<p>El tipo de representación gráfica de la distribución cambia según la naturaleza de la variable en estudio. Una variable cuantitativa toma valores numéricos. Para una variable cuantitativa, se suele recurrir a un <strong>histograma</strong> o bien a un <strong>diagrama de caja</strong> para describir su distribución. Mientras que para variables cualitativas (o categóricas), se utilizará un <em>diagrama de barras</em>.</p>
+<div id="histograma" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Histograma</h3>
+<p>Para ilustrar la descripción gráfica de una variable numérica, se utiliza la base de datos <code>mpg</code> que contiene información sobre el consumo (en millas/galón) según las características de un conjunto de modelos de coche:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mpg <span class="co"># ?mpg para más detalles</span></code></pre></div>
+<pre><code>## # A tibble: 234 x 13
+## # Groups:   model [38]
+##    manufacturer model    displ  year   cyl trans   drv     cty   hwy fl   
+##    &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;
+##  1 audi         a4        1.80  1999     4 auto(l~ f        18    29 p    
+##  2 audi         a4        1.80  1999     4 manual~ f        21    29 p    
+##  3 audi         a4        2.00  2008     4 manual~ f        20    31 p    
+##  4 audi         a4        2.00  2008     4 auto(a~ f        21    30 p    
+##  5 audi         a4        2.80  1999     6 auto(l~ f        16    26 p    
+##  6 audi         a4        2.80  1999     6 manual~ f        18    26 p    
+##  7 audi         a4        3.10  2008     6 auto(a~ f        18    27 p    
+##  8 audi         a4 quat~  1.80  1999     4 manual~ 4        18    26 p    
+##  9 audi         a4 quat~  1.80  1999     4 auto(l~ 4        16    25 p    
+## 10 audi         a4 quat~  2.00  2008     4 manual~ 4        20    28 p    
+## # ... with 224 more rows, and 3 more variables: class &lt;chr&gt;,
+## #   consumo &lt;dbl&gt;, media &lt;dbl&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mpg &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">consumo=</span><span class="dv">235</span><span class="op">/</span>hwy) <span class="co"># conversión  litros/100 km = 235/mpg</span>
+<span class="kw">summary</span>(mpg<span class="op">$</span>consumo) <span class="co">#consumo en autopista (en litros/100km)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   5.341   8.704   9.792  10.724  13.056  19.583</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stem</span>(mpg<span class="op">$</span>consumo)</code></pre></div>
+<pre><code>## 
+##   The decimal point is at the |
+## 
+##    5 | 337
+##    6 | 455779
+##    7 | 11333366666668888
+##    8 | 1111111111111111111111444444477777777777777
+##    9 | 000000000000000000000000000000004444444444444448888888888888
+##   10 | 22222227777777
+##   11 | 2288888888888
+##   12 | 4444444444444
+##   13 | 11111111118888888888888888888888888888888
+##   14 | 7777777
+##   15 | 7777777777
+##   16 | 88
+##   17 | 
+##   18 | 
+##   19 | 66666</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(consumo,<span class="dt">data=</span>mpg) <span class="co">#histograma </span></code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>La altura de cada barra en el histograma es proporcional a la frecuencia de datos que caen en el intervalo correspondiente. Por defecto, en la función <code>qplot</code>el número de barras es igual a <code>bins=30</code>. Este valor es muy arbitrario. Otra alternativa consiste en elegir un número <span class="math inline">\(k\)</span> de barras en función del tamaña muestral <span class="math inline">\(n\)</span>, como por ejemplo, el criterio de Sturges (<span class="math inline">\(k=1+\log_2(n)\)</span>) o el criterio de Rule (<span class="math inline">\(k=2n^{1/3}\)</span>). Abajo, un histograma con un número de barras que sigue este ultimo criterio:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(consumo,<span class="dt">data=</span>mpg,<span class="dt">bins=</span><span class="dv">12</span>,<span class="dt">color=</span><span class="kw">I</span>(<span class="st">&quot;blue4&quot;</span>),<span class="dt">fill=</span><span class="kw">I</span>(<span class="st">&quot;lightblue&quot;</span>))</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="nota">
+<p>
+El argumento <code>fill</code>controla el color de relleno de las barras y el argumento <code>color</code> el color del borde. Para especificar un color concreto se utiliza la función I(). Si el color varía con otra variable <strong>z</strong>, se especifica esta dependencia escribiendo fill=<strong>z</strong>.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(consumo,<span class="dt">data=</span>mpg,<span class="dt">bins=</span><span class="dv">12</span>,<span class="dt">fill=</span>class) <span class="co">#distribución del consumo según tipo de coche. Poco adecuado en general.</span></code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="diagrama-de-caja-boxplot" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Diagrama de caja (boxplot)</h3>
+<p>Otra representación similar es el diagrama de caja. Este diagrama describe la distribución de una variable numérica mediante una caja y unos segmentos que acotan las regiones donde la variable tiene el grueso de sus valores. Esta representación es menos fina que la del histograma pero es más robusta (menos sensible a valores extremos).</p>
+<p align="center">
+<img src="imagenes/boxplot.png" width="400" />
+</p>
+<p>Esta representación es especialmente adecuada cuando se quiere describir como varía la distribución de una variable numérica en función de una variable categórica. Así, la distribución del consumo en consumo según el tipo de coche se puede representar de la siguiente manera:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(class,consumo,<span class="dt">data=</span>mpg,<span class="dt">geom=</span><span class="st">&quot;boxplot&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="ej">
+<p>
+Representar la distribución de la altura de los alumnos de la universidad de Adelaide y su variación con el sexo, a partir de la base de datos <code>survey</code> del paquete <code>MASS</code>.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(MASS)
+?survey
+survey &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(survey) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(Sex)) <span class="co">#quitamos el alumno sin información sobre su sexo</span></code></pre></div>
+</div>
+<div id="diagrama-de-barras" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Diagrama de barras</h3>
+<p>Los diagramas de barras permiten representar la distribución de una variable categórica. En esta representación, cada categoría viene representada por una barra cuya altura es proporcional a su frecuencia en la base de datos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(class,<span class="dt">data=</span>mpg,<span class="dt">fill=</span><span class="kw">I</span>(<span class="st">&quot;lightblue&quot;</span>)) <span class="co">#Distribución de los tipos de coche en la base mpg</span></code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(class,<span class="dt">data=</span>mpg,<span class="dt">fill=</span>drv,<span class="dt">color=</span><span class="kw">I</span>(<span class="st">&quot;gray60&quot;</span>)) <span class="co">#Distribución de los tipos de coche según tracción</span></code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<p>Utilizando el argumento <code>fill</code> se puede ver como varia esta distribución de acuerdo a otra variable (aquí el tipo de tracción del coche). El gráfico obtenido resulta poco claro y veremos más adelante como mejorarlo.</p>
+<div class="ej">
+<p>
+Representar la distribución de los hábitos con el tabaco según el sexo, en la muestra de alumnos de la universidad de Adelaide. Averiguar cual podría ser la mejor representación (¡hay tantos chicos como chicas!).
+</p>
+</div>
+</div>
+</div>
+<div id="relacion-entre-dos-variables" class="section level2">
+<h2><span class="header-section-number">1.2</span> Relación entre dos variables</h2>
+<div id="diagrama-de-dispersion" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Diagrama de dispersión</h3>
+<p>Para describir la relación entre dos variables cuantitativas se suele utilizar gráficos de dispersión. Estos gráficos describen esta relación mediante una nube de puntos en un plano cartesiano. Cada punto de la nube corresponde a una fila de la base de datos y cada una de las variables corresponde a un eje. En el gráfico siguiente se describe la relación entre el consumo en autopista y la potencia (cilindradas) del coche:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(displ,consumo,<span class="dt">data=</span>mpg,<span class="dt">xlab=</span><span class="st">&quot;cilindrada&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####### Para subsanar problemas de solapamiento de puntos
+<span class="co">#qplot(displ,consumo,data=mpg, alpha=I(.1))</span>
+<span class="co">#qplot(displ,consumo,data=mpg, alpha=I(.25), geom=&quot;jitter&quot;) #Mejor resultado añadiendo algo de ruido</span></code></pre></div>
+<p>Ajustando una curva suave (“smooth”) a la nube de puntos, se puede apreciar mejor la tendencia en esta relación:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(displ,consumo,<span class="dt">data=</span>mpg,<span class="dt">geom=</span><span class="st">&quot;smooth&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;cilindrada&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#qplot(ciudad,consumo,data=mpg,geom=&quot;smooth&quot;, method=&quot;lm&quot;) ## para ajutar una recta; &quot;lm&quot;: linear model</span></code></pre></div>
+<div class="ej">
+<p>
+Utilizando los base de datos <code>survey</code>, describir la relación entre la altura del alumno y la distancia entre sus dedos (pulgar y auricular) de la mano usada para escribir. En un mismo gráfico, describir como esta relación cambia con el sexo.
+</p>
+</div>
+</div>
+<div id="dotchart" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Dotchart</h3>
+<p>Si una de las variables es categórica, el gráfico de dispersión puede ser también apropiado.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(consumo,model,<span class="dt">data=</span>mpg,<span class="dt">col=</span>cyl)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Pero, es recomendable para mayor claridad ordenar la variable categórica de acuerdo a la otra variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mpg &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(model) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">media=</span><span class="kw">mean</span>(consumo))
+<span class="kw">qplot</span>(consumo,<span class="kw">reorder</span>(model,media),<span class="dt">data=</span>mpg,<span class="dt">col=</span>cyl,<span class="dt">xlab=</span><span class="st">&quot;modelo de coche&quot;</span>)</code></pre></div>
+<p><img src="graficosConR_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="ej">
+<p>
+Describir con un gráfico similar al anterior, los datos de la base de datos <code>islands</code> sobre superficies de islas. Puede ser oportuno recurrir a una escala log.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graficos-avanzados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["graficosConR.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

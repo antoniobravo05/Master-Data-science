@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+
+<script src="https://cdn.jsdelivr.net/npm//vega@3.3.1"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-embed@3.14"></script>
+
+</head>
+<body>
+  <div id="vis"></div>
+  <script type="text/javascript">
+    var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"hconcat": [{"data": {"name": "data-c3f1d169386444fd3f2894e6f80b96b0"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": {"maxbins": 100}, "field": "Body Weight"}, "y": {"type": "quantitative", "aggregate": "count"}}}, {"data": {"name": "data-c3f1d169386444fd3f2894e6f80b96b0"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": {"maxbins": 100}, "field": "Brain Weight"}, "y": {"type": "quantitative", "aggregate": "count"}}}]}, {"data": {"name": "data-c3f1d169386444fd3f2894e6f80b96b0"}, "mark": "point", "encoding": {"x": {"type": "quantitative", "field": "Brain Weight"}, "y": {"type": "quantitative", "field": "Body Weight"}}, "height": 200, "selection": {"selector002": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "title": "Relaci\u00f3n cuerpo-cerebro", "width": 900}], "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-c3f1d169386444fd3f2894e6f80b96b0": [{"Index": 1, "Brain Weight": 3.385, "Body Weight": 44.5}, {"Index": 2, "Brain Weight": 0.48, "Body Weight": 15.5}, {"Index": 3, "Brain Weight": 1.35, "Body Weight": 8.1}, {"Index": 4, "Brain Weight": 465.0, "Body Weight": 423.0}, {"Index": 5, "Brain Weight": 36.33, "Body Weight": 119.5}, {"Index": 6, "Brain Weight": 27.66, "Body Weight": 115.0}, {"Index": 7, "Brain Weight": 14.83, "Body Weight": 98.2}, {"Index": 8, "Brain Weight": 1.04, "Body Weight": 5.5}, {"Index": 9, "Brain Weight": 4.19, "Body Weight": 58.0}, {"Index": 10, "Brain Weight": 0.425, "Body Weight": 6.4}, {"Index": 11, "Brain Weight": 0.10099999999999999, "Body Weight": 4.0}, {"Index": 12, "Brain Weight": 0.92, "Body Weight": 5.7}, {"Index": 13, "Brain Weight": 1.0, "Body Weight": 6.6}, {"Index": 14, "Brain Weight": 0.005, "Body Weight": 0.14}, {"Index": 15, "Brain Weight": 0.06, "Body Weight": 1.0}, {"Index": 16, "Brain Weight": 3.5, "Body Weight": 10.8}, {"Index": 17, "Brain Weight": 2.0, "Body Weight": 12.3}, {"Index": 18, "Brain Weight": 1.7, "Body Weight": 6.3}, {"Index": 19, "Brain Weight": 2547.0, "Body Weight": 4603.0}, {"Index": 20, "Brain Weight": 0.023, "Body Weight": 0.3}, {"Index": 21, "Brain Weight": 187.1, "Body Weight": 419.0}, {"Index": 22, "Brain Weight": 521.0, "Body Weight": 655.0}, {"Index": 23, "Brain Weight": 0.785, "Body Weight": 3.5}, {"Index": 24, "Brain Weight": 10.0, "Body Weight": 115.0}, {"Index": 25, "Brain Weight": 3.3, "Body Weight": 25.6}, {"Index": 26, "Brain Weight": 0.2, "Body Weight": 5.0}, {"Index": 27, "Brain Weight": 1.41, "Body Weight": 17.5}, {"Index": 28, "Brain Weight": 529.0, "Body Weight": 680.0}, {"Index": 29, "Brain Weight": 207.0, "Body Weight": 406.0}, {"Index": 30, "Brain Weight": 85.0, "Body Weight": 325.0}, {"Index": 31, "Brain Weight": 0.75, "Body Weight": 12.3}, {"Index": 32, "Brain Weight": 62.0, "Body Weight": 1320.0}, {"Index": 33, "Brain Weight": 6654.0, "Body Weight": 5712.0}, {"Index": 34, "Brain Weight": 3.5, "Body Weight": 3.9}, {"Index": 35, "Brain Weight": 6.8, "Body Weight": 179.0}, {"Index": 36, "Brain Weight": 35.0, "Body Weight": 56.0}, {"Index": 37, "Brain Weight": 4.05, "Body Weight": 17.0}, {"Index": 38, "Brain Weight": 0.12, "Body Weight": 1.0}, {"Index": 39, "Brain Weight": 0.023, "Body Weight": 0.4}, {"Index": 40, "Brain Weight": 0.01, "Body Weight": 0.25}, {"Index": 41, "Brain Weight": 1.4, "Body Weight": 12.5}, {"Index": 42, "Brain Weight": 250.0, "Body Weight": 490.0}, {"Index": 43, "Brain Weight": 2.5, "Body Weight": 12.1}, {"Index": 44, "Brain Weight": 55.5, "Body Weight": 175.0}, {"Index": 45, "Brain Weight": 100.0, "Body Weight": 157.0}, {"Index": 46, "Brain Weight": 52.16, "Body Weight": 440.0}, {"Index": 47, "Brain Weight": 10.55, "Body Weight": 179.5}, {"Index": 48, "Brain Weight": 0.55, "Body Weight": 2.4}, {"Index": 49, "Brain Weight": 60.0, "Body Weight": 81.0}, {"Index": 50, "Brain Weight": 3.6, "Body Weight": 21.0}, {"Index": 51, "Brain Weight": 4.288, "Body Weight": 39.2}, {"Index": 52, "Brain Weight": 0.28, "Body Weight": 1.9}, {"Index": 53, "Brain Weight": 0.075, "Body Weight": 1.2}, {"Index": 54, "Brain Weight": 0.122, "Body Weight": 3.0}, {"Index": 55, "Brain Weight": 0.048, "Body Weight": 0.33}, {"Index": 56, "Brain Weight": 192.0, "Body Weight": 180.0}, {"Index": 57, "Brain Weight": 3.0, "Body Weight": 25.0}, {"Index": 58, "Brain Weight": 160.0, "Body Weight": 169.0}, {"Index": 59, "Brain Weight": 0.9, "Body Weight": 2.6}, {"Index": 60, "Brain Weight": 1.62, "Body Weight": 11.4}, {"Index": 61, "Brain Weight": 0.10400000000000001, "Body Weight": 2.5}, {"Index": 62, "Brain Weight": 4.235, "Body Weight": 50.4}]}};
+    var embed_opt = {"mode": "vega-lite"};
+
+    function showError(el, error){
+        el.innerHTML = ('<div class="error">'
+                        + '<p>JavaScript Error: ' + error.message + '</p>'
+                        + "<p>This usually means there's a typo in your chart specification. "
+                        + "See the javascript console for the full traceback.</p>"
+                        + '</div>');
+        throw error;
+    }
+    const el = document.getElementById('vis');
+    vegaEmbed("#vis", spec, embed_opt)
+      .catch(error => showError(el, error));
+  </script>
+</body>
+</html>

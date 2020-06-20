@@ -1,0 +1,700 @@
+ 1336  cd .ssh
+ 1337  gedit config&
+ 1338  cd
+ 1339  ssh kschool_8ed_cluster 
+ 1340  ssh kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+ 1341  ssh -i ~/.ssh/kschool_8ed.pem -C kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+ 1342  cd .ssh
+ 1343  gedit config &
+ 1344  cd
+ 1345  ssh kschool_8ed_cluster
+ 1346  gedit .ssh/config &
+ 1347  ssh kschool_8ed_cluster
+ 1348  gedit .ssh/config &
+ 1349  ssh kschool_8ed_cluster
+ 1350  gedit .ssh/config &
+ 1351  ssh kschool_8ed_cluster
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeysnpKexcFPYsD3jqhVEtfxAibP4i4zSzSyWxr/5xx3DTADkUt3DdKXCbSn0Wfp9INc++lVlmZ0MNRfv4/qkPwF9lj6Fh/hTe+I9ez7w6HXqhUoS2uiYdFCDGsuNrcXo++Sc1EEnDPjarzLyC+WwKa5QAaowIM5MegitLH43Fv6KGW/GJgUxN4QNfnxCcxUuoarhyhmP0rbSqF5Kj/N5FabELEvI0J3CNHQiWt1iGERl/Yff8hAcXWBAd1lf3K+cRNdPCepc4gS18CL4DT0g7DdBoyDGS0g6wKlEnHPGAxK5OCTlx+CvXClP+A7PiCfG6MsTBtCFodoWPVYxJMHRX kschool_8ed
+ubuntu@ip-172-31-36-86:~$ logout
+Connection to 52.57.190.108 closed.
+dsc@master: ~ % ssh-keygen -y -f ~/.ssh/kschool_8ed.pem            ~ 0 11:03:11
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeysnpKexcFPYsD3jqhVEtfxAibP4i4zSzSyWxr/5xx3DTADkUt3DdKXCbSn0Wfp9INc++lVlmZ0MNRfv4/qkPwF9lj6Fh/hTe+I9ez7w6HXqhUoS2uiYdFCDGsuNrcXo++Sc1EEnDPjarzLyC+WwKa5QAaowIM5MegitLH43Fv6KGW/GJgUxN4QNfnxCcxUuoarhyhmP0rbSqF5Kj/N5FabELEvI0J3CNHQiWt1iGERl/Yff8hAcXWBAd1lf3K+cRNdPCepc4gS18CL4DT0g7DdBoyDGS0g6wKlEnHPGAxK5OCTlx+CvXClP+A7PiCfG6MsTBtCFodoWPVYxJMHRX
+dsc@master: ~ % ssh kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+Permission denied (publickey).
+dsc@master: ~ 255 % ssh kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+Permission denied (publickey).
+dsc@master: ~ 255 % ssh kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+Permission denied (publickey).
+dsc@master: ~ 255 % clear                                          ~ 0 11:23:26
+
+dsc@master: ~ % ssh kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+Permission denied (publickey).
+dsc@master: ~ 255 % ssh kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+Permission denied (publickey).
+dsc@master: ~ 255 % cd .ssh                                        ~ 0 11:23:51
+⌂75% dsc@master: .ssh % ll                                    ~/.ssh 0 11:26:05
+total 12K
+-rw-rw-r-- 1 dsc dsc  130 oct 20 10:45 config
+-rw-r--r-- 1 dsc dsc 2,2K oct 20 11:00 known_hosts
+-rw------- 1 dsc dsc 1,7K oct 20 10:24 kschool_8ed.pem
+⌂75% dsc@master: .ssh % gedit config &                        ~/.ssh 0 11:26:07
+[1] 5945
+⌂64% 1& dsc@master: .ssh %                                    ~/.ssh 0 11:26:17
+[1]  + done       gedit config
+⌂64% 1& dsc@master: .ssh % cd                                 ~/.ssh 0 11:28:56
+dsc@master: ~ % ssh kschool_08_cluster                             ~ 0 11:29:07
+ssh: Could not resolve hostname kschool_08_cluster: Name or service not known
+dsc@master: ~ 255 % cd .ssh                                        ~ 0 11:30:45
+dsc@master: .ssh % gedit config&                              ~/.ssh 0 11:30:56
+[1] 6205
+1& dsc@master: .ssh %                                         ~/.ssh 0 11:31:04
+[1]  + done       gedit config
+1& dsc@master: .ssh % cd                                      ~/.ssh 0 11:31:18
+dsc@master: ~ % ssh kschool_8ed_cluster                            ~ 0 11:31:21
+ssh: Could not resolve hostname ec2-52-211-95-201.eu-west-1.compute.amazonaws.comm: Name or service not known
+dsc@master: ~ 255 % ssh kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+Permission denied (publickey).
+dsc@master: ~ 255 % ssh -i ~/.ssh/kschool_8ed.pem -C kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2017.09-release-notes/
+3 package(s) needed for security, out of 3 available
+Run "sudo yum update" to apply all updates.
+Amazon Linux version 2018.03 is available.
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[kschool_08_08@ip-172-31-39-98 ~]$ logout
+Connection to ec2-52-211-95-201.eu-west-1.compute.amazonaws.com closed.
+dsc@master: ~ % cd .ssh                                            ~ 0 11:35:26
+dsc@master: .ssh % gedit config &                             ~/.ssh 0 11:35:33
+[1] 6589
+1& dsc@master: .ssh %                                         ~/.ssh 0 11:35:47
+[1]  + done       gedit config
+1& dsc@master: .ssh % cd                                      ~/.ssh 0 11:36:09
+dsc@master: ~ % ssh kschool_8ed_cluster                            ~ 0 11:36:12
+ssh: Could not resolve hostname ec2-52-211-95-201.eu-west-1.compute.amazonaws.comm: Name or service not known
+dsc@master: ~ 255 %                                                ~ 0 11:36:29
+dsc@master: ~ 255 % gedit .ssh/config &                            ~ 0 11:36:48
+[1] 6842
+1& dsc@master: ~ %                                                 ~ 0 11:38:55
+[1]  + done       gedit .ssh/config
+1& dsc@master: ~ % ssh kschool_8ed_cluster                         ~ 0 11:39:16
+no such identity: kschool_8ed.pem: No such file or directory
+Permission denied (publickey).
+dsc@master: ~ 255 % gedit .ssh/config &                            ~ 0 11:39:21
+[1] 6975
+1& dsc@master: ~ %                                                 ~ 0 11:40:01
+[1]  + done       gedit .ssh/config
+1& dsc@master: ~ % ssh kschool_8ed_cluster                         ~ 0 11:40:41
+no such identity: kschool_8ed.pem: No such file or directory
+Permission denied (publickey).
+dsc@master: ~ 255 % gedit .ssh/config &                            ~ 0 11:40:51
+[1] 7105
+1& dsc@master: ~ %                                                 ~ 0 11:41:03
+[1]  + done       gedit .ssh/config
+1& dsc@master: ~ % ssh kschool_8ed_cluster                         ~ 0 11:41:18
+Last login: Sat Oct 20 09:35:13 2018 from 217.125.33.122
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2017.09-release-notes/
+3 package(s) needed for security, out of 3 available
+Run "sudo yum update" to apply all updates.
+Amazon Linux version 2018.03 is available.
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[kschool_08_08@ip-172-31-39-98 ~]$ logout
+Connection to ec2-52-211-95-201.eu-west-1.compute.amazonaws.com closed.
+dsc@master: ~ % ssh kschool_8ed_cluster                            ~ 0 11:41:27
+Last login: Sat Oct 20 09:41:21 2018 from 217.125.33.122
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2017.09-release-notes/
+3 package(s) needed for security, out of 3 available
+Run "sudo yum update" to apply all updates.
+Amazon Linux version 2018.03 is available.
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[kschool_08_08@ip-172-31-39-98 ~]$ ll
+total 0
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls
+[kschool_08_08@ip-172-31-39-98 ~]$ ^C
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls /
+Found 4 items
+drwxrwxrwx   - hadoop hadoop          0 2018-09-21 16:25 /data
+drwxrwxrwt   - hdfs   hadoop          0 2018-03-13 16:26 /tmp
+drwxr-xr-x   - hdfs   hadoop          0 2018-10-19 13:21 /user
+drwxr-xr-x   - hdfs   hadoop          0 2017-11-22 16:47 /var
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls /user
+Found 56 items
+drwxrwxrwx   - hadoop         hadoop                  0 2018-09-21 16:40 /user/hadoop
+drwxr-xr-x   - kschool_08_01  kschool_08_01           0 2018-10-19 13:19 /user/kschool_08_01
+drwxr-xr-x   - kschool_08_02  kschool_08_02           0 2018-10-19 13:19 /user/kschool_08_02
+drwxr-xr-x   - kschool_08_03  kschool_08_03           0 2018-10-19 13:19 /user/kschool_08_03
+drwxr-xr-x   - kschool_08_04  kschool_08_04           0 2018-10-19 13:19 /user/kschool_08_04
+drwxr-xr-x   - kschool_08_05  kschool_08_05           0 2018-10-20 10:35 /user/kschool_08_05
+drwxr-xr-x   - kschool_08_06  kschool_08_06           0 2018-10-19 13:19 /user/kschool_08_06
+drwxr-xr-x   - kschool_08_07  kschool_08_07           0 2018-10-19 13:19 /user/kschool_08_07
+drwxr-xr-x   - kschool_08_08  kschool_08_08           0 2018-10-19 13:19 /user/kschool_08_08
+drwxr-xr-x   - kschool_08_09  kschool_08_09           0 2018-10-19 13:19 /user/kschool_08_09
+drwxr-xr-x   - kschool_08_10  kschool_08_10           0 2018-10-19 13:20 /user/kschool_08_10
+drwxr-xr-x   - kschool_08_11  kschool_08_11           0 2018-10-19 13:20 /user/kschool_08_11
+drwxr-xr-x   - kschool_08_12  kschool_08_12           0 2018-10-19 13:20 /user/kschool_08_12
+drwxr-xr-x   - kschool_08_13  kschool_08_13           0 2018-10-19 13:20 /user/kschool_08_13
+drwxr-xr-x   - kschool_08_14  kschool_08_14           0 2018-10-19 13:20 /user/kschool_08_14
+drwxr-xr-x   - kschool_08_15  kschool_08_15           0 2018-10-19 13:20 /user/kschool_08_15
+drwxr-xr-x   - kschool_08_16  kschool_08_16           0 2018-10-19 13:20 /user/kschool_08_16
+drwxr-xr-x   - kschool_08_17  kschool_08_17           0 2018-10-19 13:20 /user/kschool_08_17
+drwxr-xr-x   - kschool_08_18  kschool_08_18           0 2018-10-19 13:20 /user/kschool_08_18
+drwxr-xr-x   - kschool_08_19  kschool_08_19           0 2018-10-19 13:20 /user/kschool_08_19
+drwxr-xr-x   - kschool_08_20  kschool_08_20           0 2018-10-19 13:20 /user/kschool_08_20
+drwxr-xr-x   - kschool_08_21  kschool_08_21           0 2018-10-19 13:20 /user/kschool_08_21
+drwxr-xr-x   - kschool_08_22  kschool_08_22           0 2018-10-19 13:20 /user/kschool_08_22
+drwxr-xr-x   - kschool_08_23  kschool_08_23           0 2018-10-19 13:20 /user/kschool_08_23
+drwxr-xr-x   - kschool_08_24  kschool_08_24           0 2018-10-19 13:20 /user/kschool_08_24
+drwxr-xr-x   - kschool_08_25  kschool_08_25           0 2018-10-19 13:21 /user/kschool_08_25
+drwxr-xr-x   - kschool_vii_01 kschool_vii_01          0 2018-09-21 16:45 /user/kschool_vii_01
+drwxr-xr-x   - kschool_vii_02 kschool_vii_02          0 2018-09-21 16:40 /user/kschool_vii_02
+drwxr-xr-x   - kschool_vii_03 kschool_vii_03          0 2018-10-06 17:16 /user/kschool_vii_03
+drwxr-xr-x   - kschool_vii_04 kschool_vii_04          0 2018-09-21 16:40 /user/kschool_vii_04
+drwxr-xr-x   - kschool_vii_05 kschool_vii_05          0 2018-10-03 21:31 /user/kschool_vii_05
+drwxr-xr-x   - kschool_vii_06 kschool_vii_06          0 2018-09-21 16:43 /user/kschool_vii_06
+drwxr-xr-x   - kschool_vii_07 kschool_vii_07          0 2018-09-21 16:45 /user/kschool_vii_07
+drwxr-xr-x   - kschool_vii_08 kschool_vii_08          0 2018-09-21 16:41 /user/kschool_vii_08
+drwxr-xr-x   - kschool_vii_09 kschool_vii_09          0 2018-09-21 16:43 /user/kschool_vii_09
+drwxr-xr-x   - kschool_vii_10 kschool_vii_10          0 2018-09-21 16:40 /user/kschool_vii_10
+drwxr-xr-x   - kschool_vii_11 kschool_vii_11          0 2018-09-15 11:59 /user/kschool_vii_11
+drwxr-xr-x   - kschool_vii_12 kschool_vii_12          0 2018-09-21 16:40 /user/kschool_vii_12
+drwxr-xr-x   - kschool_vii_13 kschool_vii_13          0 2018-09-21 16:40 /user/kschool_vii_13
+drwxr-xr-x   - kschool_vii_14 kschool_vii_14          0 2018-09-21 16:41 /user/kschool_vii_14
+drwxr-xr-x   - kschool_vii_15 kschool_vii_15          0 2018-09-21 16:40 /user/kschool_vii_15
+drwxr-xr-x   - kschool_vii_16 kschool_vii_16          0 2018-09-21 15:55 /user/kschool_vii_16
+drwxr-xr-x   - kschool_vii_17 kschool_vii_17          0 2018-09-15 05:40 /user/kschool_vii_17
+drwxr-xr-x   - kschool_vii_18 kschool_vii_18          0 2018-09-15 05:40 /user/kschool_vii_18
+drwxr-xr-x   - kschool_vii_19 kschool_vii_19          0 2018-09-15 05:40 /user/kschool_vii_19
+drwxr-xr-x   - kschool_vii_20 kschool_vii_20          0 2018-09-15 05:40 /user/kschool_vii_20
+drwxr-xr-x   - kschool_vii_21 kschool_vii_21          0 2018-09-15 05:40 /user/kschool_vii_21
+drwxr-xr-x   - kschool_vii_22 kschool_vii_22          0 2018-09-15 05:40 /user/kschool_vii_22
+drwxr-xr-x   - kschool_vii_23 kschool_vii_23          0 2018-09-15 05:41 /user/kschool_vii_23
+drwxr-xr-x   - kschool_vii_24 kschool_vii_24          0 2018-09-15 05:41 /user/kschool_vii_24
+drwxr-xr-x   - kschool_vii_25 kschool_vii_25          0 2018-09-15 05:41 /user/kschool_vii_25
+drwxrwxrwx   - livy           livy                    0 2017-11-22 16:47 /user/livy
+drwxrwxrwx   - root           hadoop                  0 2017-11-22 16:47 /user/root
+drwxrwxrwx   - spark          spark                   0 2017-11-22 16:47 /user/spark
+drwxr-xr-x   - tocoto         tocoto                  0 2018-03-21 15:25 /user/tocoto
+drwxrwxrwx   - zeppelin       hadoop                  0 2017-11-22 16:47 /user/zeppelin
+[kschool_08_08@ip-172-31-39-98 ~]$ ll
+total 0
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls /
+Found 4 items
+drwxrwxrwx   - hadoop hadoop          0 2018-09-21 16:25 /data
+drwxrwxrwt   - hdfs   hadoop          0 2018-03-13 16:26 /tmp
+drwxr-xr-x   - hdfs   hadoop          0 2018-10-19 13:21 /user
+drwxr-xr-x   - hdfs   hadoop          0 2017-11-22 16:47 /var
+[kschool_08_08@ip-172-31-39-98 ~]$ -ls
+-bash: -ls: command not found
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+coupon150720.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -mkdir data
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls /
+Found 4 items
+drwxrwxrwx   - hadoop hadoop          0 2018-09-21 16:25 /data
+drwxrwxrwt   - hdfs   hadoop          0 2018-03-13 16:26 /tmp
+drwxr-xr-x   - hdfs   hadoop          0 2018-10-19 13:21 /user
+drwxr-xr-x   - hdfs   hadoop          0 2017-11-22 16:47 /var
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls
+Found 1 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 10:57 data
+[kschool_08_08@ip-172-31-39-98 ~]$ 
+[kschool_08_08@ip-172-31-39-98 ~]$ 
+[kschool_08_08@ip-172-31-39-98 ~]$ user@gateway$ hdfs dfs -put $LOCAL_FILE $HDFS_FOLDER
+-bash: user@gateway$: command not found
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -put coupon150720.csv data
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls
+Found 1 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:02 data
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs data/ -ls
+data/: Unknown command
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs ~/data/ -ls
+/home/kschool_08_08/data/: Unknown command
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs /data -ls 
+/data: Unknown command
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs /data -ll
+/data: Unknown command
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ll
+-ll: Unknown command
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -lsa
+-lsa: Unknown command
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls -a
+-ls: Illegal option -a
+Usage: hadoop fs [generic options] -ls [-d] [-h] [-R] [<path> ...]
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls
+Found 1 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:02 data
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls data
+Found 1 items
+-rw-r--r--   2 kschool_08_08 kschool_08_08   82317299 2018-10-20 11:02 data/coupon150720.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ clear
+
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls data
+Found 1 items
+-rw-r--r--   2 kschool_08_08 kschool_08_08   82317299 2018-10-20 11:02 data/coupon150720.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+coupon150720.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ rm coupon150720.csv 
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -get data/coupon150720.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+coupon150720.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -cat data/coupon150720.csv | head
+79062005698500,1,MAA,AUH,9W,9W,56.79,USD,1,H,H,0526,150904,OK,IAF0
+79062005698500,2,AUH,CDG,9W,9W,84.34,USD,1,H,H,6120,150905,OK,IAF0
+79062005924069,1,CJB,MAA,9W,9W,60.0,USD,1,H,H,2768,150721,OK,IAA0
+79065668570385,1,DEL,DXB,9W,9W,160.63,USD,2,S,S,0546,150804,OK,INA0
+79065668737021,1,AUH,IXE,9W,9W,152.46,USD,1,V,V,0501,150803,OK,INA0
+79062006192650,1,RPR,BOM,9W,9W,68.5,USD,1,K,K,2202,150720,OK,IAE0
+79062006192650,2,BOM,RPR,9W,9W,68.5,USD,1,H,H,0377,150721,OK,IAE0
+79062005733853,1,DEL,DED,9W,9W,56.16,USD,1,V,V,2839,150801,OK,INA0
+79062005836987,1,ATL,LGA,AA,AA,28.3,USD,1,V,V,3237,150903,OK,INB0
+79062005836987,2,LGA,EWR,,,0.0,USD,1,,,VOID,,,INA0
+cat: Unable to write to output stream.
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -cat data/coupon150720.csv | grep MAD > madcoupons.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+coupon150720.csv  madcoupons.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls data
+Found 1 items
+-rw-r--r--   2 kschool_08_08 kschool_08_08   82317299 2018-10-20 11:02 data/coupon150720.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ spark-submit sparkjob_file.py
+python: can't open file '/home/kschool_08_08/sparkjob_file.py': [Errno 2] No such file or directory
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls
+Found 1 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:02 data
+[kschool_08_08@ip-172-31-39-98 ~]$ ls
+coupon150720.csv  madcoupons.csv  mysparkjob.py
+[kschool_08_08@ip-172-31-39-98 ~]$ spark-submit mysparkjob.py data/coupons150720.csv result.csv
+18/10/20 11:21:54 INFO SparkContext: Running Spark version 2.2.0
+18/10/20 11:21:55 INFO SparkContext: Submitted application: MyTestJob
+18/10/20 11:21:55 INFO SecurityManager: Changing view acls to: kschool_08_08
+18/10/20 11:21:55 INFO SecurityManager: Changing modify acls to: kschool_08_08
+18/10/20 11:21:55 INFO SecurityManager: Changing view acls groups to: 
+18/10/20 11:21:55 INFO SecurityManager: Changing modify acls groups to: 
+18/10/20 11:21:55 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(kschool_08_08); groups with view permissions: Set(); users  with modify permissions: Set(kschool_08_08); groups with modify permissions: Set()
+18/10/20 11:21:55 INFO Utils: Successfully started service 'sparkDriver' on port 44495.
+18/10/20 11:21:55 INFO SparkEnv: Registering MapOutputTracker
+18/10/20 11:21:55 INFO SparkEnv: Registering BlockManagerMaster
+18/10/20 11:21:55 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+18/10/20 11:21:55 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+18/10/20 11:21:55 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-9257ac4c-f2ce-4fc9-b904-f94df643bc66
+18/10/20 11:21:56 INFO MemoryStore: MemoryStore started with capacity 12.9 GB
+18/10/20 11:21:56 INFO SparkEnv: Registering OutputCommitCoordinator
+18/10/20 11:21:56 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+18/10/20 11:21:56 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+18/10/20 11:21:56 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+18/10/20 11:21:56 INFO Utils: Successfully started service 'SparkUI' on port 4043.
+18/10/20 11:21:57 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-39-98.eu-west-1.compute.internal:4043
+18/10/20 11:21:57 INFO Utils: Using initial executors = 5, max of spark.dynamicAllocation.initialExecutors, spark.dynamicAllocation.minExecutors and spark.executor.instances
+18/10/20 11:21:58 INFO RMProxy: Connecting to ResourceManager at ip-172-31-39-98.eu-west-1.compute.internal/172.31.39.98:8032
+18/10/20 11:21:58 INFO Client: Requesting a new application from cluster with 5 NodeManagers
+18/10/20 11:21:58 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (24576 MB per container)
+18/10/20 11:21:58 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+18/10/20 11:21:58 INFO Client: Setting up container launch context for our AM
+18/10/20 11:21:58 INFO Client: Setting up the launch environment for our AM container
+18/10/20 11:21:58 INFO Client: Preparing resources for our AM container
+18/10/20 11:22:00 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+18/10/20 11:22:02 INFO Client: Uploading resource file:/mnt/tmp/spark-5f407c83-d2b4-4824-8582-99e8c8419115/__spark_libs__4700288940497079037.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0087/__spark_libs__4700288940497079037.zip
+18/10/20 11:22:05 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/pyspark.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0087/pyspark.zip
+18/10/20 11:22:05 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/py4j-0.10.4-src.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0087/py4j-0.10.4-src.zip
+18/10/20 11:22:05 INFO Client: Uploading resource file:/mnt/tmp/spark-5f407c83-d2b4-4824-8582-99e8c8419115/__spark_conf__9173876537343561037.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0087/__spark_conf__.zip
+18/10/20 11:22:05 INFO SecurityManager: Changing view acls to: kschool_08_08
+18/10/20 11:22:05 INFO SecurityManager: Changing modify acls to: kschool_08_08
+18/10/20 11:22:05 INFO SecurityManager: Changing view acls groups to: 
+18/10/20 11:22:05 INFO SecurityManager: Changing modify acls groups to: 
+18/10/20 11:22:05 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(kschool_08_08); groups with view permissions: Set(); users  with modify permissions: Set(kschool_08_08); groups with modify permissions: Set()
+18/10/20 11:22:05 INFO Client: Submitting application application_1524243890930_0087 to ResourceManager
+18/10/20 11:22:05 INFO YarnClientImpl: Submitted application application_1524243890930_0087
+18/10/20 11:22:05 INFO SchedulerExtensionServices: Starting Yarn extension services with app application_1524243890930_0087 and attemptId None
+18/10/20 11:22:06 INFO Client: Application report for application_1524243890930_0087 (state: ACCEPTED)
+18/10/20 11:22:06 INFO Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1540034525882
+	 final status: UNDEFINED
+	 tracking URL: http://ip-172-31-39-98.eu-west-1.compute.internal:20888/proxy/application_1524243890930_0087/
+	 user: kschool_08_08
+18/10/20 11:22:07 INFO Client: Application report for application_1524243890930_0087 (state: ACCEPTED)
+18/10/20 11:22:08 INFO Client: Application report for application_1524243890930_0087 (state: ACCEPTED)
+18/10/20 11:22:09 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+18/10/20 11:22:09 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> ip-172-31-39-98.eu-west-1.compute.internal, PROXY_URI_BASES -> http://ip-172-31-39-98.eu-west-1.compute.internal:20888/proxy/application_1524243890930_0087), /proxy/application_1524243890930_0087
+18/10/20 11:22:09 INFO JettyUtils: Adding filter: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+18/10/20 11:22:09 INFO Client: Application report for application_1524243890930_0087 (state: RUNNING)
+18/10/20 11:22:09 INFO Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 172.31.42.245
+	 ApplicationMaster RPC port: 0
+	 queue: default
+	 start time: 1540034525882
+	 final status: UNDEFINED
+	 tracking URL: http://ip-172-31-39-98.eu-west-1.compute.internal:20888/proxy/application_1524243890930_0087/
+	 user: kschool_08_08
+18/10/20 11:22:09 INFO YarnClientSchedulerBackend: Application application_1524243890930_0087 has started running.
+18/10/20 11:22:09 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42647.
+18/10/20 11:22:09 INFO NettyBlockTransferService: Server created on 172.31.39.98:42647
+18/10/20 11:22:09 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+18/10/20 11:22:09 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.31.39.98, 42647, None)
+18/10/20 11:22:09 INFO BlockManagerMasterEndpoint: Registering block manager 172.31.39.98:42647 with 12.9 GB RAM, BlockManagerId(driver, 172.31.39.98, 42647, None)
+18/10/20 11:22:09 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.31.39.98, 42647, None)
+18/10/20 11:22:09 INFO BlockManager: external shuffle service port = 7337
+18/10/20 11:22:09 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.31.39.98, 42647, None)
+18/10/20 11:22:10 INFO EventLoggingListener: Logging events to hdfs:///var/log/spark/apps/application_1524243890930_0087
+18/10/20 11:22:10 INFO Utils: Using initial executors = 5, max of spark.dynamicAllocation.initialExecutors, spark.dynamicAllocation.minExecutors and spark.executor.instances
+18/10/20 11:22:27 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000(ms)
+18/10/20 11:22:27 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 310.0 KB, free 12.9 GB)
+18/10/20 11:22:27 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 26.2 KB, free 12.9 GB)
+18/10/20 11:22:27 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.31.39.98:42647 (size: 26.2 KB, free: 12.9 GB)
+18/10/20 11:22:27 INFO SparkContext: Created broadcast 0 from textFile at NativeMethodAccessorImpl.java:0
+18/10/20 11:22:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+18/10/20 11:22:27 INFO GPLNativeCodeLoader: Loaded native gpl library
+18/10/20 11:22:27 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev d73c901b4228f4e75d3a527ec2318ce7376036cb]
+Traceback (most recent call last):
+  File "/home/kschool_08_08/mysparkjob.py", line 12, in <module>
+    dataRDD.saveAsTextFile(sys.argv[2])
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 1553, in saveAsTextFile
+  File "/usr/lib/spark/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1133, in __call__
+  File "/usr/lib/spark/python/lib/py4j-0.10.4-src.zip/py4j/protocol.py", line 319, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling o55.saveAsTextFile.
+: org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/data/coupons150720.csv
+	at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:253)
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:201)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:281)
+	at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:194)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:252)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:250)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:250)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:252)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:250)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:250)
+	at org.apache.spark.api.python.PythonRDD.getPartitions(PythonRDD.scala:53)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:252)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:250)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:250)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:252)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:250)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:250)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:252)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:250)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:250)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2075)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply$mcV$sp(PairRDDFunctions.scala:1151)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply(PairRDDFunctions.scala:1096)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply(PairRDDFunctions.scala:1096)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopDataset(PairRDDFunctions.scala:1096)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply$mcV$sp(PairRDDFunctions.scala:1070)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1035)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1035)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1035)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply$mcV$sp(PairRDDFunctions.scala:961)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:961)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:961)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:960)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply$mcV$sp(RDD.scala:1489)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1468)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1468)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1468)
+	at org.apache.spark.api.java.JavaRDDLike$class.saveAsTextFile(JavaRDDLike.scala:550)
+	at org.apache.spark.api.java.AbstractJavaRDDLike.saveAsTextFile(JavaRDDLike.scala:45)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:280)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:214)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/10/20 11:22:27 INFO SparkContext: Invoking stop() from shutdown hook
+18/10/20 11:22:27 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-39-98.eu-west-1.compute.internal:4043
+18/10/20 11:22:27 INFO YarnClientSchedulerBackend: Interrupting monitor thread
+18/10/20 11:22:27 INFO YarnClientSchedulerBackend: Shutting down all executors
+18/10/20 11:22:27 INFO YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+18/10/20 11:22:27 INFO SchedulerExtensionServices: Stopping SchedulerExtensionServices
+(serviceOption=None,
+ services=List(),
+ started=false)
+18/10/20 11:22:27 INFO YarnClientSchedulerBackend: Stopped
+18/10/20 11:22:27 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+18/10/20 11:22:27 INFO MemoryStore: MemoryStore cleared
+18/10/20 11:22:27 INFO BlockManager: BlockManager stopped
+18/10/20 11:22:27 INFO BlockManagerMaster: BlockManagerMaster stopped
+18/10/20 11:22:27 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+18/10/20 11:22:27 INFO SparkContext: Successfully stopped SparkContext
+18/10/20 11:22:27 INFO ShutdownHookManager: Shutdown hook called
+18/10/20 11:22:27 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-5f407c83-d2b4-4824-8582-99e8c8419115/pyspark-0ddb71aa-7ede-4e85-81f8-104378e80a24
+18/10/20 11:22:27 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-5f407c83-d2b4-4824-8582-99e8c8419115
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls
+Found 3 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:22 .sparkStaging
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:02 data
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:22 result.csv
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls result.csv
+Found 1 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:22 result.csv/_temporary
+[kschool_08_08@ip-172-31-39-98 ~]$ spark-submit mysparkjob.py data/coupons150720.csv result.csv
+18/10/20 11:34:08 INFO SparkContext: Running Spark version 2.2.0
+18/10/20 11:34:08 INFO SparkContext: Submitted application: MyTestJob
+18/10/20 11:34:08 INFO SecurityManager: Changing view acls to: kschool_08_08
+18/10/20 11:34:08 INFO SecurityManager: Changing modify acls to: kschool_08_08
+18/10/20 11:34:08 INFO SecurityManager: Changing view acls groups to: 
+18/10/20 11:34:08 INFO SecurityManager: Changing modify acls groups to: 
+18/10/20 11:34:08 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(kschool_08_08); groups with view permissions: Set(); users  with modify permissions: Set(kschool_08_08); groups with modify permissions: Set()
+18/10/20 11:34:09 INFO Utils: Successfully started service 'sparkDriver' on port 42963.
+18/10/20 11:34:09 INFO SparkEnv: Registering MapOutputTracker
+18/10/20 11:34:09 INFO SparkEnv: Registering BlockManagerMaster
+18/10/20 11:34:09 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+18/10/20 11:34:09 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+18/10/20 11:34:09 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-de936397-a205-4a96-82f2-80ccebcaad8f
+18/10/20 11:34:09 INFO MemoryStore: MemoryStore started with capacity 12.9 GB
+18/10/20 11:34:09 INFO SparkEnv: Registering OutputCommitCoordinator
+18/10/20 11:34:09 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+18/10/20 11:34:09 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://ip-172-31-39-98.eu-west-1.compute.internal:4040
+18/10/20 11:34:09 INFO Utils: Using initial executors = 5, max of spark.dynamicAllocation.initialExecutors, spark.dynamicAllocation.minExecutors and spark.executor.instances
+18/10/20 11:34:10 INFO RMProxy: Connecting to ResourceManager at ip-172-31-39-98.eu-west-1.compute.internal/172.31.39.98:8032
+18/10/20 11:34:10 INFO Client: Requesting a new application from cluster with 5 NodeManagers
+18/10/20 11:34:10 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (24576 MB per container)
+18/10/20 11:34:10 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+18/10/20 11:34:10 INFO Client: Setting up container launch context for our AM
+18/10/20 11:34:10 INFO Client: Setting up the launch environment for our AM container
+18/10/20 11:34:10 INFO Client: Preparing resources for our AM container
+18/10/20 11:34:11 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+18/10/20 11:34:13 INFO Client: Uploading resource file:/mnt/tmp/spark-f7f45d6c-08d9-46ca-8ddd-a7f0658a4249/__spark_libs__9083710998331393909.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0094/__spark_libs__9083710998331393909.zip
+18/10/20 11:34:15 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/pyspark.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0094/pyspark.zip
+18/10/20 11:34:15 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/py4j-0.10.4-src.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0094/py4j-0.10.4-src.zip
+18/10/20 11:34:15 INFO Client: Uploading resource file:/mnt/tmp/spark-f7f45d6c-08d9-46ca-8ddd-a7f0658a4249/__spark_conf__7952658366440069504.zip -> hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/.sparkStaging/application_1524243890930_0094/__spark_conf__.zip
+18/10/20 11:34:15 INFO SecurityManager: Changing view acls to: kschool_08_08
+18/10/20 11:34:15 INFO SecurityManager: Changing modify acls to: kschool_08_08
+18/10/20 11:34:15 INFO SecurityManager: Changing view acls groups to: 
+18/10/20 11:34:15 INFO SecurityManager: Changing modify acls groups to: 
+18/10/20 11:34:15 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(kschool_08_08); groups with view permissions: Set(); users  with modify permissions: Set(kschool_08_08); groups with modify permissions: Set()
+18/10/20 11:34:15 INFO Client: Submitting application application_1524243890930_0094 to ResourceManager
+18/10/20 11:34:15 INFO YarnClientImpl: Submitted application application_1524243890930_0094
+18/10/20 11:34:15 INFO SchedulerExtensionServices: Starting Yarn extension services with app application_1524243890930_0094 and attemptId None
+18/10/20 11:34:16 INFO Client: Application report for application_1524243890930_0094 (state: ACCEPTED)
+18/10/20 11:34:16 INFO Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1540035255133
+	 final status: UNDEFINED
+	 tracking URL: http://ip-172-31-39-98.eu-west-1.compute.internal:20888/proxy/application_1524243890930_0094/
+	 user: kschool_08_08
+18/10/20 11:34:17 INFO Client: Application report for application_1524243890930_0094 (state: ACCEPTED)
+18/10/20 11:34:18 INFO Client: Application report for application_1524243890930_0094 (state: ACCEPTED)
+18/10/20 11:34:18 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+18/10/20 11:34:18 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> ip-172-31-39-98.eu-west-1.compute.internal, PROXY_URI_BASES -> http://ip-172-31-39-98.eu-west-1.compute.internal:20888/proxy/application_1524243890930_0094), /proxy/application_1524243890930_0094
+18/10/20 11:34:18 INFO JettyUtils: Adding filter: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+18/10/20 11:34:19 INFO Client: Application report for application_1524243890930_0094 (state: RUNNING)
+18/10/20 11:34:19 INFO Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 172.31.33.41
+	 ApplicationMaster RPC port: 0
+	 queue: default
+	 start time: 1540035255133
+	 final status: UNDEFINED
+	 tracking URL: http://ip-172-31-39-98.eu-west-1.compute.internal:20888/proxy/application_1524243890930_0094/
+	 user: kschool_08_08
+18/10/20 11:34:19 INFO YarnClientSchedulerBackend: Application application_1524243890930_0094 has started running.
+18/10/20 11:34:19 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38761.
+18/10/20 11:34:19 INFO NettyBlockTransferService: Server created on 172.31.39.98:38761
+18/10/20 11:34:19 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+18/10/20 11:34:19 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.31.39.98, 38761, None)
+18/10/20 11:34:19 INFO BlockManagerMasterEndpoint: Registering block manager 172.31.39.98:38761 with 12.9 GB RAM, BlockManagerId(driver, 172.31.39.98, 38761, None)
+18/10/20 11:34:19 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.31.39.98, 38761, None)
+18/10/20 11:34:19 INFO BlockManager: external shuffle service port = 7337
+18/10/20 11:34:19 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.31.39.98, 38761, None)
+18/10/20 11:34:19 INFO EventLoggingListener: Logging events to hdfs:///var/log/spark/apps/application_1524243890930_0094
+18/10/20 11:34:19 INFO Utils: Using initial executors = 5, max of spark.dynamicAllocation.initialExecutors, spark.dynamicAllocation.minExecutors and spark.executor.instances
+18/10/20 11:34:22 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.33.41:56188) with ID 1
+18/10/20 11:34:22 INFO ExecutorAllocationManager: New executor 1 has registered (new total is 1)
+18/10/20 11:34:22 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-33-41.eu-west-1.compute.internal:34987 with 12.4 GB RAM, BlockManagerId(1, ip-172-31-33-41.eu-west-1.compute.internal, 34987, None)
+18/10/20 11:34:22 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.36.187:57848) with ID 2
+18/10/20 11:34:22 INFO ExecutorAllocationManager: New executor 2 has registered (new total is 2)
+18/10/20 11:34:22 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.35.200:43122) with ID 3
+18/10/20 11:34:22 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-36-187.eu-west-1.compute.internal:38685 with 12.4 GB RAM, BlockManagerId(2, ip-172-31-36-187.eu-west-1.compute.internal, 38685, None)
+18/10/20 11:34:22 INFO ExecutorAllocationManager: New executor 3 has registered (new total is 3)
+18/10/20 11:34:22 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-35-200.eu-west-1.compute.internal:35229 with 12.4 GB RAM, BlockManagerId(3, ip-172-31-35-200.eu-west-1.compute.internal, 35229, None)
+18/10/20 11:34:23 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.42.245:50030) with ID 4
+18/10/20 11:34:23 INFO ExecutorAllocationManager: New executor 4 has registered (new total is 4)
+18/10/20 11:34:23 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-42-245.eu-west-1.compute.internal:35271 with 12.4 GB RAM, BlockManagerId(4, ip-172-31-42-245.eu-west-1.compute.internal, 35271, None)
+18/10/20 11:34:23 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.8
+18/10/20 11:34:23 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.46.141:46494) with ID 5
+18/10/20 11:34:23 INFO ExecutorAllocationManager: New executor 5 has registered (new total is 5)
+18/10/20 11:34:23 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-46-141.eu-west-1.compute.internal:43395 with 12.4 GB RAM, BlockManagerId(5, ip-172-31-46-141.eu-west-1.compute.internal, 43395, None)
+18/10/20 11:34:23 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 310.0 KB, free 12.9 GB)
+18/10/20 11:34:23 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 26.2 KB, free 12.9 GB)
+18/10/20 11:34:23 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.31.39.98:38761 (size: 26.2 KB, free: 12.9 GB)
+18/10/20 11:34:23 INFO SparkContext: Created broadcast 0 from textFile at NativeMethodAccessorImpl.java:0
+Traceback (most recent call last):
+  File "/home/kschool_08_08/mysparkjob.py", line 12, in <module>
+    dataRDD.saveAsTextFile(sys.argv[2])
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 1553, in saveAsTextFile
+  File "/usr/lib/spark/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1133, in __call__
+  File "/usr/lib/spark/python/lib/py4j-0.10.4-src.zip/py4j/protocol.py", line 319, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling o55.saveAsTextFile.
+: org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://ip-172-31-39-98.eu-west-1.compute.internal:8020/user/kschool_08_08/result.csv already exists
+	at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:131)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply$mcV$sp(PairRDDFunctions.scala:1119)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply(PairRDDFunctions.scala:1096)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1.apply(PairRDDFunctions.scala:1096)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopDataset(PairRDDFunctions.scala:1096)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply$mcV$sp(PairRDDFunctions.scala:1070)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1035)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$4.apply(PairRDDFunctions.scala:1035)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1035)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply$mcV$sp(PairRDDFunctions.scala:961)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:961)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopFile$1.apply(PairRDDFunctions.scala:961)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:960)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply$mcV$sp(RDD.scala:1489)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1468)
+	at org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1.apply(RDD.scala:1468)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:362)
+	at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1468)
+	at org.apache.spark.api.java.JavaRDDLike$class.saveAsTextFile(JavaRDDLike.scala:550)
+	at org.apache.spark.api.java.AbstractJavaRDDLike.saveAsTextFile(JavaRDDLike.scala:45)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:280)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:214)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/10/20 11:34:23 INFO SparkContext: Invoking stop() from shutdown hook
+18/10/20 11:34:23 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-39-98.eu-west-1.compute.internal:4040
+18/10/20 11:34:23 INFO YarnClientSchedulerBackend: Interrupting monitor thread
+18/10/20 11:34:23 INFO YarnClientSchedulerBackend: Shutting down all executors
+18/10/20 11:34:23 INFO YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+18/10/20 11:34:23 INFO SchedulerExtensionServices: Stopping SchedulerExtensionServices
+(serviceOption=None,
+ services=List(),
+ started=false)
+18/10/20 11:34:23 INFO YarnClientSchedulerBackend: Stopped
+18/10/20 11:34:23 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+18/10/20 11:34:23 INFO MemoryStore: MemoryStore cleared
+18/10/20 11:34:23 INFO BlockManager: BlockManager stopped
+18/10/20 11:34:23 INFO BlockManagerMaster: BlockManagerMaster stopped
+18/10/20 11:34:23 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+18/10/20 11:34:23 INFO SparkContext: Successfully stopped SparkContext
+18/10/20 11:34:23 INFO ShutdownHookManager: Shutdown hook called
+18/10/20 11:34:23 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-f7f45d6c-08d9-46ca-8ddd-a7f0658a4249/pyspark-6779543e-6735-42ef-bf9e-4063a5bd70af
+18/10/20 11:34:23 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-f7f45d6c-08d9-46ca-8ddd-a7f0658a4249
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls result.csv
+Found 1 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:22 result.csv/_temporary
+[kschool_08_08@ip-172-31-39-98 ~]$ hdfs dfs -ls result.csv
+Found 1 items
+drwxr-xr-x   - kschool_08_08 kschool_08_08          0 2018-10-20 11:22 result.csv/_temporary
+[kschool_08_08@ip-172-31-39-98 ~]$ packet_write_wait: Connection to 52.211.95.201 port 22: Broken pipe
+dsc@master: ~ 255 % history > Desktop/Big\ Data\ Spark/cloudcommands.txt     ~ 0 12:36:07
+dsc@master: ~ %                                                              ~ 0 12:37:12
+

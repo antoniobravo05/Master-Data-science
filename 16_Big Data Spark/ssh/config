@@ -1,0 +1,9 @@
+Host kschool_8ed
+	User ubuntu
+	HostName ec2-52-57-190-108.eu-central-1.compute.amazonaws.com
+	IdentityFile ~/.ssh/kschool_8ed.pem
+
+Host kschool_8ed_cluster
+	User kschool_08_08
+	HostName ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+	IdentityFile ~/.ssh/kschool_8ed.pem

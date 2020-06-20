@@ -1,0 +1,122 @@
+ 1329  ls
+ 1330  cd
+ 1331  mv Desktop/Big\ Data\ Spark/coupon150720 ~/.ssh
+ 1332  mv Desktop/Big\ Data\ Spark/coupon150720.csv ~/.ssh
+ 1333  cd .ssh
+ 1334  ll
+ 1335  scp -i ~/.ssh/kschool_8ed.pem ~/Desktop/Big\ Data\ Spark/coupon150720.csv kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+ 1336  scp coupon150720.csv kschool_8ed_cluster
+ 1337  scp coupon150720.csv kschool_8ed_cluster:
+ 1338  cd
+ 1339  scp mysparkjob.py kschool_8ed_cluster:
+ 1340  cd .ssh
+ 1341  ll
+ 1342  cd
+ 1343  ll
+ 1344  gedit mysparkjob.py&
+
+
+
+---------------------------------------------------------------------
+
+
+dsc@master: ~ % scp -i ~/.ssh/kschool_8ed.pem ~/Desktop/Big\ Data\ Spark/coupon150720.csv ubuntu@52.57.190.108                    
+dsc@master: ~ % mv Desktop/config ~/.ssh                           ~ 0 10:41:57
+dsc@master: ~ % scp shakespeare.txt kschool_8ed                    ~ 0 10:47:27
+cp: cannot stat 'shakespeare.txt': No such file or directory
+dsc@master: ~ 1 % cd .ssh                                          ~ 0 10:51:41
+dsc@master: .ssh % ll                                         ~/.ssh 0 12:43:01
+total 12K
+-rw-rw-r-- 1 dsc dsc  273 oct 20 11:41 config
+-rw-r--r-- 1 dsc dsc 2,2K oct 20 11:00 known_hosts
+-rw------- 1 dsc dsc 1,7K oct 20 10:24 kschool_8ed.pem
+dsc@master: .ssh % scp -i ~/.ssh/kschool_8ed.pem ~/Desktop/Big\ Data\ Spark/coupon150720.csv kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+dsc@master: .ssh % ls                                         ~/.ssh 0 12:45:29
+config       kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com*
+known_hosts  kschool_8ed.pem
+dsc@master: .ssh % cd                                         ~/.ssh 0 12:48:33
+dsc@master: ~ % mv Desktop/Big\ Data\ Spark/coupon150720 ~/.ssh    ~ 0 12:49:29
+mv: cannot stat 'Desktop/Big Data Spark/coupon150720': No such file or directory
+dsc@master: ~ 1 % mv Desktop/Big\ Data\ Spark/coupon150720.csv ~/.ssh
+dsc@master: ~ % cd .ssh                                            ~ 0 12:50:11
+dsc@master: .ssh % ll                                         ~/.ssh 0 12:50:29
+total 158M
+-rw-rw-r-- 1 dsc dsc  273 oct 20 11:41 config
+-rw-r--r-- 1 dsc dsc 2,2K oct 20 11:00 known_hosts
+-rwxr-x--- 1 dsc dsc  79M oct 20 12:45 kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com*
+-rwxrwx--- 1 dsc dsc  79M oct  6 11:20 coupon150720.csv*
+-rw------- 1 dsc dsc 1,7K oct 20 10:24 kschool_8ed.pem
+dsc@master: .ssh % scp -i ~/.ssh/kschool_8ed.pem ~/Desktop/Big\ Data\ Spark/coupon150720.csv kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com
+dsc@master: .ssh % scp coupon150720.csv kschool_8ed_cluster   ~/.ssh 0 12:50:44
+dsc@master: .ssh % scp coupon150720.csv kschool_8ed_cluster:  ~/.ssh 0 12:52:24
+coupon150720.csv                              100%   79MB   1.4MB/s   00:55    
+dsc@master: .ssh %                                            ~/.ssh 0 12:53:26
+dsc@master: .ssh 1 % cd                                       ~/.ssh 0 12:54:01
+dsc@master: ~ % scp mysparkjob.py kschool_8ed_cluster:             ~ 0 13:19:51
+mysparkjob.py                                 100%  429    10.2KB/s   00:00    
+dsc@master: ~ % cd .ssh                                            ~ 0 13:20:06
+dsc@master: .ssh % ll                                         ~/.ssh 0 13:33:40
+total 236M
+-rw-rw-r-- 1 dsc dsc  273 oct 20 11:41 config
+-rw-r--r-- 1 dsc dsc 2,2K oct 20 11:00 known_hosts
+-rwxr-x--- 1 dsc dsc  79M oct 20 12:52 kschool_8ed_cluster*
+-rwxr-x--- 1 dsc dsc  79M oct 20 12:50 kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com*
+-rwxrwx--- 1 dsc dsc  79M oct  6 11:20 coupon150720.csv*
+-rw------- 1 dsc dsc 1,7K oct 20 10:24 kschool_8ed.pem
+dsc@master: .ssh % ll                                         ~/.ssh 0 13:33:41
+total 236M
+-rw-rw-r-- 1 dsc dsc  273 oct 20 11:41 config
+-rw-r--r-- 1 dsc dsc 2,2K oct 20 11:00 known_hosts
+-rwxr-x--- 1 dsc dsc  79M oct 20 12:52 kschool_8ed_cluster*
+-rwxr-x--- 1 dsc dsc  79M oct 20 12:50 kschool_08_08@ec2-52-211-95-201.eu-west-1.compute.amazonaws.com*
+-rwxrwx--- 1 dsc dsc  79M oct  6 11:20 coupon150720.csv*
+-rw------- 1 dsc dsc 1,7K oct 20 10:24 kschool_8ed.pem
+dsc@master: .ssh % cd                                         ~/.ssh 0 13:52:20
+dsc@master: ~ % ll                                                 ~ 0 13:52:32
+total 79M
+drwxr-xr-x 22 dsc dsc 4,0K sep 15 11:10 anaconda3/
+drwxr-x---  7 dsc dsc 4,0K may  4 18:06 Data/
+drwxr-xr-x  4 dsc dsc 4,0K oct 20 10:47 Desktop/
+drwxr-xr-x  2 dsc dsc 4,0K mar 13  2018 Documents/
+drwxr-xr-x  3 dsc dsc 4,0K oct 20 10:30 Downloads/
+-rwxr--rwx  1 dsc dsc    0 abr 21 10:18 empty_file*
+-rwxr--rwx  1 dsc dsc    0 abr 21 10:18 empty_file_copy_permission*
+drwxr-xr-x  5 dsc dsc 4,0K abr 21 10:54 first_dir/
+drwxr-xr-x  5 dsc dsc 4,0K mar 13  2018 metastore_db/
+drwxr-xr-x  2 dsc dsc 4,0K mar 13  2018 Music/
+drwxr-xr-x  2 dsc dsc 4,0K may 25 17:11 Notebooks/
+drwxr-xr-x  2 dsc dsc 4,0K mar 13  2018 Pictures/
+drwxr-xr-x  2 dsc dsc 4,0K mar 13  2018 Public/
+drwxrwxr-x  3 dsc dsc 4,0K mar 12  2018 R/
+drwxr-xr-x  4 dsc dsc 4,0K may  5 11:16 Repos/
+drwxr-xr-x  2 dsc dsc 4,0K may  4 21:54 scripts/
+drwxrwxr-x  3 dsc dsc 4,0K jun 16 12:39 spark/
+drwxr-xr-x  2 dsc dsc 4,0K mar 13  2018 Templates/
+drwxr-xr-x  3 dsc dsc 4,0K abr 21 10:28 test/
+drwxr-xr-x  2 dsc dsc 4,0K abr 21 10:40 test_git_error/
+drwxr-xr-x  2 dsc dsc 4,0K mar 13  2018 Videos/
+drwxr-xr-x  3 dsc dsc 4,0K jun 29 17:00 visualizacion con R/
+drwxr-xr-x  3 dsc dsc 4,0K jun 29 16:58 Visualizacion con R/
+-rwxr-x---  1 dsc dsc  79M oct 20 10:41 ubuntu@52.57.190.108*
+-rw-r--r--  1 dsc dsc  174 may  5 11:06 my_fb_friends.csv
+-rw-r--r--  1 dsc dsc  235 may  5 11:10 my_ldin_contacts.csv
+-rw-r--r--  1 dsc dsc  701 mar 13  2018 derby.log
+-rw-rw-r--  1 dsc dsc  429 oct 20 13:19 mysparkjob.py
+-rw-r--r--  1 dsc dsc  767 may  5 13:42 aircraft_create.sql
+-rw-r--r--  1 dsc dsc  197 may  5 12:39 ldin_creat.sql
+-rw-r--r--  1 dsc dsc  27K may  5 14:00 05_05_2018_class.txt
+-rw-r--r--  1 dsc dsc 3,6K may  5 14:01 05_05_2018_sql_history.txt
+-rw-r--r--  1 dsc dsc    0 may  5 13:59 20180505_classhistory.txt
+-rw-r--r--  1 dsc dsc    0 may  5 13:59 20180505_sql_classhistory.txt
+-rw-r--r--  1 dsc dsc  754 abr 21 12:38 20commandHistory.txt
+-rw-r--r--  1 dsc dsc 8,0K abr 21 13:56 21_04_2018_class.txt
+-rw-r--r--  1 dsc dsc  24K may  4 22:04 4_05_2018_class.txt
+-rw-r--r--  1 dsc dsc   12 abr 21 12:20 hello_world.txt
+-rw-r--r--  1 dsc dsc   20 may  4 17:14 uniq_example.txt
+-rw-r--r--  1 dsc dsc   10 may  4 17:10 uniq_xample.txt
+dsc@master: ~ % gedit mysparkjob.py&                               ~ 0 13:52:33
+[1] 8978
+1& dsc@master: ~ %                                                 ~ 0 13:52:45
+[1]  + done       gedit mysparkjob.py
+1& dsc@master: ~ % history > Desktop/Big\ Data\ Spark/localcommands.txt
+dsc@master: ~ %  

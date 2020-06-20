@@ -1,0 +1,8 @@
+"0","fit.linear <- lm(y ~ .,  data = df_) #
+fit.linear <- lm(y ~ .,  data = df_) #
+#predict.linear <- predict(fit.linear, newdata = data.frame(x.test))
+predict.linear <- predict(fit.linear, newdata =df_test_)
+"
+"2","prediction from a rank-deficient fit may be misleading"
+"0","rmse = RMSE(predict.linear, y.test)"
+"0","mse = MSE(predict.linear, y.test)"

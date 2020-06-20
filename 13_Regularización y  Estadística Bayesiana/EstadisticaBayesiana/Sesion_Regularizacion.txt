@@ -1,0 +1,43 @@
+#Clase Regularización. (María Hernandez Rubio)
+#_______________________________________________________________
+
+# Con la regularizacion se soluciona o se intenta solucionar el problema de overfitting, es decir, 
+# cuando el modelo no consigue predecir correctamente valores futuros (no generaliza bien). EL modelo ha aprendido
+# a resolver el problmema de train, lo hace bien pero para otro DS no funciona, por ejemplo en el test.
+
+# Una solucion al overfitting es hacer un modelo lo mas sencillo posible.
+
+# Regulacion: quiero ajustar mis datos con un modelo pero tenemos varias opciones
+# a escoger. Tenemosuna familia de funciones posibles. Según la regulacion, no me vale cualquiera, voy a RESTRINGIR UN POCO EL TIPO DE 
+# FUNCOINES QUE PUEDO TENER.
+# 
+# Sé que cuanto mas sencillo sea el modelo hay menos probabilidad de tener overfitting.
+# Parto de una familia de modelos compleja que puede contener muchos parámetros, pero intento restringirla.
+
+# REGRESION LINEAL
+# y=w^T*xn
+# Vamos a restringir la regresion lineal de la siguiente forma:
+#   queremos que los pesos w queden restringidos (constrained linear regression): Ω(w)<=condicion
+#   Sumaremos un parametro por cada restriccion que pongamos (forma lagrangiana): L(w)=...+lambda*Ω(w)
+#   Y esto es lo que se llama "regulation penalty"
+#   
+#   RIDGE Y LASSO (no es mas que regularizacion con regresion lineal)
+#   1. RIDGE (o regularizacion L2): Se añade una penalizacion cuadrática. QUeremos hacer pequeño el error pero hacer mínimo tmbien el término penaly de regulacion. Tenemos que tener un tradeoff entre estas dos cosas.
+#     Ver la formula cerrada en las diapositivas y en los apuntes.
+
+#   2. LASSO (o regularizacion L1): Con linear penaltu term. Ω(w)=||w||_p=∑Xi^p
+      # Ahora las features que no son relevantes no se harán pequeñas, como en el caso anterior. Se harán 0 directamente.
+      # (Sparse solutions).
+      # Es mucho mas costosa computacionamente hablando debido en parte al uso de la norma.
+
+# Validacion Cruzada: tenemos DS general train y test, ajutamos en train y vemos el error en test
+# No podemos basarnos en nuestra eleccion del modelo en base al error de test. Dejamos el conjunto de test a parte y se genera el conjunto de validacion
+# Elegimos el modelo en funcion de cual va mejor en el conjunto de validacion. Cuando está elegido, sometemos al test y vemos su error. Este será el error real esperado.
+# Cuando tenemos muy pocos datos, hacemos cross-validation. Dividimos DS en train(80%) y test (20%) pero cambiaria este conjunto cada vez, podría variarlos 5 veces estos conjuntos, calculamos los errores y hacemos la media del error.
+# Si tenemosmuchos datos, se dejaría el test aparte y la validacion se haría todo sobre el train. 
+
+# HEMOS VISTO DOS SOLUCIONES HASTA AHORA: SIMPLER MODEL Y REGULARIZATION, PERO HAY UNA TERCERA SOLUCION: 
+#   -TENER MAS DATOS: (mas que más, mejores datos). Con mas datos podemos hacer mejor el train (ajustar, modelar) y se reduce el overfitting.
+
+#Ejercicio Regulacion en R:
+#ver el archivo del ejercicio

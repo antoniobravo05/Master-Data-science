@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gráficos con R</title>
+  <meta name="description" content="Gráficos con R">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gráficos con R" />
+  
+  
+  
+
+<meta name="author" content="Olivier Nuñez">
+
+
+<meta name="date" content="2018-05-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="graficos-avanzados.html">
+<link rel="next" href="referencias.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preámbulo</a></li>
+<li class="chapter" data-level="1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html"><i class="fa fa-check"></i><b>1</b> Gráficos básicos en el análisis de datos</a><ul>
+<li class="chapter" data-level="1.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#distribucion-de-una-variable"><i class="fa fa-check"></i><b>1.1</b> Distribución de una variable</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#histograma"><i class="fa fa-check"></i><b>1.1.1</b> Histograma</a></li>
+<li class="chapter" data-level="1.1.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-caja-boxplot"><i class="fa fa-check"></i><b>1.1.2</b> Diagrama de caja (boxplot)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-barras"><i class="fa fa-check"></i><b>1.1.3</b> Diagrama de barras</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#relacion-entre-dos-variables"><i class="fa fa-check"></i><b>1.2</b> Relación entre dos variables</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#diagrama-de-dispersion"><i class="fa fa-check"></i><b>1.2.1</b> Diagrama de dispersión</a></li>
+<li class="chapter" data-level="1.2.2" data-path="graficos-basicos-en-el-analisis-de-datos.html"><a href="graficos-basicos-en-el-analisis-de-datos.html#dotchart"><i class="fa fa-check"></i><b>1.2.2</b> Dotchart</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html"><i class="fa fa-check"></i><b>2</b> Gráficos avanzados</a><ul>
+<li class="chapter" data-level="2.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#elementos-de-un-grafico-en-ggplot2"><i class="fa fa-check"></i><b>2.1</b> Elementos de un gráfico en <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.1.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#datos"><i class="fa fa-check"></i><b>2.1.1</b> Datos</a></li>
+<li class="chapter" data-level="2.1.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#esteticas-aes"><i class="fa fa-check"></i><b>2.1.2</b> Estéticas (<code>aes</code>)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#capas-geoms"><i class="fa fa-check"></i><b>2.1.3</b> Capas (<code>geoms</code>)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#facetas"><i class="fa fa-check"></i><b>2.1.4</b> Facetas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#toque-final"><i class="fa fa-check"></i><b>2.2</b> Toque final</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#etiquetas"><i class="fa fa-check"></i><b>2.2.1</b> Etiquetas</a></li>
+<li class="chapter" data-level="2.2.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#escalas"><i class="fa fa-check"></i><b>2.2.2</b> Escalas</a></li>
+<li class="chapter" data-level="2.2.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#temas"><i class="fa fa-check"></i><b>2.2.3</b> Temas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#exportacion-de-los-graficos"><i class="fa fa-check"></i><b>2.3</b> Exportación de los graficos</a></li>
+<li class="chapter" data-level="2.4" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#introduccion-a-ggmap"><i class="fa fa-check"></i><b>2.4</b> Introducción a ggmap</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#mas-ejemplos-de-mapas-con-puntos"><i class="fa fa-check"></i><b>2.4.1</b> Más ejemplos de mapas con puntos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#mas-alla-de-los-puntos-densidades-y-poligonos"><i class="fa fa-check"></i><b>2.4.2</b> Más allá de los puntos: densidades y poligonos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="graficos-avanzados.html"><a href="graficos-avanzados.html#extension-dinamica-de-los-graficos"><i class="fa fa-check"></i><b>2.5</b> Extensión dinamica de los graficos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html"><i class="fa fa-check"></i><b>3</b> Rmarkdown y shiny</a><ul>
+<li class="chapter" data-level="3.1" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#rmarkdown"><i class="fa fa-check"></i><b>3.1</b> Rmarkdown</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#rmarkdown-en-15-mn"><i class="fa fa-check"></i><b>3.1.1</b> Rmarkdown en 15 mn</a></li>
+<li class="chapter" data-level="3.1.2" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#elementos-de-un-documento-rmarkdown"><i class="fa fa-check"></i><b>3.1.2</b> Elementos de un documento Rmarkdown</a></li>
+<li class="chapter" data-level="3.1.3" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#tablas-con-rmarkdown"><i class="fa fa-check"></i><b>3.1.3</b> Tablas con Rmarkdown</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="rmarkdown-y-shiny.html"><a href="rmarkdown-y-shiny.html#shiny"><i class="fa fa-check"></i><b>3.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>4</b> Referencias</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmarkdown-y-shiny" class="section level1">
+<h1><span class="header-section-number">3</span> Rmarkdown y shiny</h1>
+<p>Esta sección está dedicada a dos extensiones de R: <code>shiny</code> y <code>rmarkdown</code>. El primero de ellos permite crear cuadros de mando interactivos. El segundo, documentos automatizados que combinan texto con código, tablas y gráficos generados directamente por R.</p>
+<p>Estos dos paquetes no son complejos sino, más bien, extensos y llenos de detalles. El objetivo de esta sesión es recorrer sus posibilidades.</p>
+<div id="rmarkdown" class="section level2">
+<h2><span class="header-section-number">3.1</span> Rmarkdown</h2>
+<p>Rmarkdown permite generar documentos dinámicos al mezclar texto formateado y resultados generados por R. Los documentos generados pueden estar en HTML, PDF, Word y muchos otros formatos.</p>
+<p>Las ventajas de esta herramienta son numerosas:</p>
+<ul>
+<li>El código y sus resultados no están separados de los comentarios asociados a ellos</li>
+<li>El documento final es reproducible</li>
+<li>El documento se puede actualizar fácilmente, por ejemplo, si los datos de origen se han modificado.</li>
+</ul>
+<p>Por lo tanto, es una herramienta muy práctica para exportar, comunicar y difundir resultados estadísticos.</p>
+<p>Este documento se ha generado a partir de archivos R Markdown ^ [Más precisamente gracias a la extensión <code>bookdown</code> que permite generar documentos de tipo libro].</p>
+<p>Aprender Rmarkdown implica aprender dos cosas distintas:</p>
+<ul>
+<li>Markdown, un <em>formato</em> para escribir documentos simples en modo texto. Tiene la ventaja de ser fácilmente legible por humanos pero, a la vez, procesable programáticamente para volcarlos en otros formatos: pdf, html, …</li>
+<li>La integración entre R y markdown</li>
+</ul>
+<p>Aquí, un documento de R Markdown básico:</p>
+<pre><code>---
+title: &quot;Ejemplo de R Markdown&quot;
+output: pdf_document
+---
+
+*R Markdown* permite mezclar :
+
+- texto libre puesto en formato
+- bloques de codigo de R
+
+Los bloques de codigo se pueden ejecutar para incluir sus resultados en el documento,
+así por ejemplo :
+
+```{r}
+mean(airquality$Ozone,na.rm=TRUE)
+```
+
+## Gráficos
+
+Se puede también incluir __gráficos__ :
+
+```{r}
+plot(Ozone~Temp,data=airquality,bg=&quot;lightblue&quot;,pch=21)
+```</code></pre>
+<p>Al “compilar” el documento, el texto se formatea, los bloques de código se ejecutan, sus resultados se agregan al documento y todo se transforma en uno de los diferentes formatos posibles (html, pdf, word, …).</p>
+<p>Aquí, la representación del documento anterior en formato HTML</p>
+<div class="figure">
+<img src="resources/minimal.png" />
+
+</div>
+<div id="rmarkdown-en-15-mn" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Rmarkdown en 15 mn</h3>
+<p>Para aprender Markdown, se recomiendan los dos siguientes ejercicios :</p>
+<div class="ej">
+<p>
+Crear un fichero <code>.Rmd</code> usando <code>File &gt; New File &gt; R Markdown</code>.
+</p>
+</div>
+<p>Al crear un nuevo fichero de tipo <code>R Markdown</code>, RStudio proporciona, en lugar de uno vacío, una plantilla que muestra algunas de las opciones disponibles en este formato. Eso facilita el siguiente ejercicio:</p>
+<div class="ej">
+<p>
+Modificar el fichero de ejemplo creado en el ejercicio anterior añadiéndole títulos de varios niveles, párrafos de texto, cursivas, negritas, enlaces, listas (numeradas y sin numerar), etc. usando como guía el <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"><code>Cheat Sheet</code></a> del paquete. <em>Compilar</em> el documento (p.e., pulsando el botón con la etiqueta <em>Knit HTML</em> situado encima del panel de edición de RStudio) para inspeccionar el resultado final.
+</p>
+</div>
+<p>Se puede también generar documentos en formato Word y PDF. Para estos formato, es necesario tener instalados los programas : MS Word, LibreOffice o similar para el primero y LaTeX para el segundo.</p>
+<p>El segundo de los componentes de Rmarkdown (y lo que lo diferencia de Markdown <em>a secas</em>) es la posibilidad de incorporar bloques de código en el hilo del documento. Estos bloques de código se procesan durante la compilación del documento y los resultados que generan (tablas, gráficos, etc.) se integran en la salida. La plantilla de fichero Rmarkdown que genera RStudio incluye unos cuantos ejemplos de bloques de código.</p>
+<div class="ej">
+<p>
+Insertar sobre el documento (o sobre una nueva plantilla) bloques de código de R que hagan alguna cosa. Los bloques de código incluyen opciones en su encabezamiento (p.e., para que un bloque se ejecute o no; para que el código se muestre o se oculte en el documento final, etc.). Las opciones disponibles se pueden consultar en el <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"><code>Cheat Sheet</code></a> del paquete.
+</p>
+</div>
+</div>
+<div id="elementos-de-un-documento-rmarkdown" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Elementos de un documento Rmarkdown</h3>
+<div id="encabezado-preambulo" class="section level4">
+<h4><span class="header-section-number">3.1.2.1</span> Encabezado (préambulo)</h4>
+<p>La primera parte del documento es su <em>encabezado</em>. Se encuentra al principio del documento y está delimitado por tres guiones (<code>---</code>) antes y después:</p>
+<pre><code>---
+title: &quot;Titulo&quot;
+author: &quot;Nombre Apellido&quot;
+date: &quot;2 de mayo de 2018&quot;
+output: html_document
+---</code></pre>
+<p>Este encabezado contiene los metadatos del documento, como su título, autor, fecha, más una serie de opciones posibles que permiten configurar o personalizar todo el documento y su representación. Aquí, por ejemplo, la línea <code>output: html_document</code> indica que el documento generado tendrá un formato HTML.</p>
+</div>
+<div id="texto-del-documento" class="section level4">
+<h4><span class="header-section-number">3.1.2.2</span> Texto del documento</h4>
+<p>El cuerpo del documento consiste en texto con la sintaxis de Markdown: un marcado ligero que permite establecer niveles de títulos o formatear texto. Por ejemplo, el siguiente texto:</p>
+<pre><code>Este es un texto *en cursiva* y **en negrita**.
+
+Se puede definir una lista así:
+
+- primer elemento
+- segundo elemento</code></pre>
+<p>Que dará la siguiente salida</p>
+<blockquote>
+<p>Este es un texto <em>en cursiva</em> y <strong>en negrita</strong>.</p>
+<p>Se puede definir una lista así:</p>
+<ul>
+<li>primer elemento</li>
+<li>segundo elemento</li>
+</ul>
+</blockquote>
+<p>Los títulos de diferentes niveles se pueden definir comenzando una línea con uno o más caracteres <code>#</code>:</p>
+<pre><code># Titulo de nivel 1
+
+## Titulo de nivel 2
+
+### Titulo de nivel 3</code></pre>
+<p>Cuando se han definido los títulos, al hacer clic en el icono <em>Show document outline</em> en el extremo derecho de la barra de herramientas asociada al archivo, se muestra una tabla dinámica de contenidos generada automáticamente a partir de los títulos que permite navegar fácilmente en el documento.</p>
+<p>La sintaxis de Markdown permite también insertar enlaces o imágenes. Por ejemplo, la siguiente sintaxis:</p>
+<pre><code>[Kschool](https://kschool.com)</code></pre>
+<p>Dará el siguiente vinculo:</p>
+<blockquote>
+<p><a href="https://kschool.com">Kschool</a></p>
+</blockquote>
+<p>En RStudio, el menú <em>Help</em> y luego <em>Markdown quick reference</em> proporciona una descripción más completa de la sintaxis.</p>
+</div>
+<div id="bloques-de-codigo" class="section level4">
+<h4><span class="header-section-number">3.1.2.3</span> Bloques de codigo</h4>
+<p>Además del texto libre en formato Markdown, un documento R Markdown contiene, como su nombre indica, código R. Este código se incluye en fragmentos definidos por la siguiente sintaxis:</p>
+<p>Como esta cadena de caracteres no es muy fácil de escribir, se puede usar <em>R</em> en el menú Insertar de RStudio, o teclear el atajo <code>Ctrl+Alt+i</code>.</p>
+<p>Se puede dar un nombre al bloque y se indica directamente después de <code>r</code>:</p>
+<p><code>{r nombre_del_bloque}</code></p>
+<p>No es obligatorio, pero puede ser útil en caso de error de compilación, para identificar el bloque que causó el problema. Atención, no podemos tener dos bloques con el mismo nombre.</p>
+<p>Además de un nombre, se puede pasar a un bloque una serie de opciones para modificar su comportamiento.</p>
+<pre><code>```{r echo = FALSE, warning = FALSE}
+x &lt;- 1:5
+```</code></pre>
+<p>Una de las opciones más útiles es la opción <code>echo</code>. Por defecto <code>echo=TRUE</code>, y el bloque de código R se inserta en el documento generado:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>
+<span class="kw">print</span>(x)</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>Pero, si la opción <code>echo=FALSE</code>, entonces el código R ya no se inserta en el documento, y solo se el resultado será visible:</p>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>Aquí hay una lista de algunas de las opciones más comunes:</p>
+<table>
+<thead>
+<tr class="header">
+<th>opción</th>
+<th>valores</th>
+<th>descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>echo</td>
+<td>TRUE / FALSE</td>
+<td>Mostrar o no el código R en el documento</td>
+</tr>
+<tr class="even">
+<td>eval</td>
+<td>TRUE / FALSE</td>
+<td>Ejecutar o no el código R en tiempo de compilación</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>TRUE / FALSE</td>
+<td>Mostrar o no las advertencias generadas por el bloque</td>
+</tr>
+<tr class="even">
+<td>message</td>
+<td>TRUE / FALSE</td>
+<td>Mostrar o no los mensajes generados por el bloque</td>
+</tr>
+</tbody>
+</table>
+<p>Hay muchas otras opciones descritas en la <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Guía de referencia de R Markdown</a>.</p>
+</div>
+</div>
+<div id="tablas-con-rmarkdown" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Tablas con Rmarkdown</h3>
+<div id="tablas-cruzadas" class="section level4">
+<h4><span class="header-section-number">3.1.3.1</span> Tablas cruzadas</h4>
+<p>Por defecto, las tablas generadas por la función <code>table</code> se muestran tal y como aparecen en la consola de R, es decir, en texto sin formato:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># titanic&lt;-ftable(Survived~Class,data=Titanic)</span>
+<span class="co"># Supervivencia al Titanic según clase</span>
+titanic&lt;-<span class="kw">apply</span>(Titanic,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>),sum)
+titanic</code></pre></div>
+<pre><code>##       Survived
+## Class   No Yes
+##   1st  122 203
+##   2nd  167 118
+##   3rd  528 178
+##   Crew 673 212</code></pre>
+<p>Su presentación se puede mejorar utilizando la función <code>kable</code> de la extensión <code>knitr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">kable</span>(titanic,<span class="dt">caption=</span><span class="st">&quot;Supervivencia a la catastrofe del Titanic según la clase&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-74">Table 3.1: </span>Supervivencia a la catastrofe del Titanic según la clase</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">No</th>
+<th align="right">Yes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1st</td>
+<td align="right">122</td>
+<td align="right">203</td>
+</tr>
+<tr class="even">
+<td>2nd</td>
+<td align="right">167</td>
+<td align="right">118</td>
+</tr>
+<tr class="odd">
+<td>3rd</td>
+<td align="right">528</td>
+<td align="right">178</td>
+</tr>
+<tr class="even">
+<td>Crew</td>
+<td align="right">673</td>
+<td align="right">212</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="base-de-datos" class="section level4">
+<h4><span class="header-section-number">3.1.3.2</span> Base de datos</h4>
+<p>Respecto a las bases de datos (<code>tibble</code> o <code>data.frame</code>), la presentación HTML por defecto es el contenido que aparece en consola. Este formato puede ser poco adecuado si la tabla excede una cierta dimensión.</p>
+<p>Una alternativa es usar la función <code>paged_table</code>, que muestra una representación HTML paginada de la base:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(ggplot2)
+rmarkdown<span class="op">::</span><span class="kw">paged_table</span>(mpg)</code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["manufacturer"],"name":[1],"type":["chr"],"align":["left"]},{"label":["model"],"name":[2],"type":["chr"],"align":["left"]},{"label":["displ"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["year"],"name":[4],"type":["int"],"align":["right"]},{"label":["cyl"],"name":[5],"type":["int"],"align":["right"]},{"label":["trans"],"name":[6],"type":["chr"],"align":["left"]},{"label":["drv"],"name":[7],"type":["chr"],"align":["left"]},{"label":["cty"],"name":[8],"type":["int"],"align":["right"]},{"label":["hwy"],"name":[9],"type":["int"],"align":["right"]},{"label":["fl"],"name":[10],"type":["chr"],"align":["left"]},{"label":["class"],"name":[11],"type":["chr"],"align":["left"]},{"label":["consumo"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["media"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"audi","2":"a4","3":"1.8","4":"1999","5":"4","6":"auto(l5)","7":"f","8":"18","9":"29","10":"p","11":"compact","12":"8.103448","13":"8.343072"},{"1":"audi","2":"a4","3":"1.8","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"p","11":"compact","12":"8.103448","13":"8.343072"},{"1":"audi","2":"a4","3":"2.0","4":"2008","5":"4","6":"manual(m6)","7":"f","8":"20","9":"31","10":"p","11":"compact","12":"7.580645","13":"8.343072"},{"1":"audi","2":"a4","3":"2.0","4":"2008","5":"4","6":"auto(av)","7":"f","8":"21","9":"30","10":"p","11":"compact","12":"7.833333","13":"8.343072"},{"1":"audi","2":"a4","3":"2.8","4":"1999","5":"6","6":"auto(l5)","7":"f","8":"16","9":"26","10":"p","11":"compact","12":"9.038462","13":"8.343072"},{"1":"audi","2":"a4","3":"2.8","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"18","9":"26","10":"p","11":"compact","12":"9.038462","13":"8.343072"},{"1":"audi","2":"a4","3":"3.1","4":"2008","5":"6","6":"auto(av)","7":"f","8":"18","9":"27","10":"p","11":"compact","12":"8.703704","13":"8.343072"},{"1":"audi","2":"a4 quattro","3":"1.8","4":"1999","5":"4","6":"manual(m5)","7":"4","8":"18","9":"26","10":"p","11":"compact","12":"9.038462","13":"9.141878"},{"1":"audi","2":"a4 quattro","3":"1.8","4":"1999","5":"4","6":"auto(l5)","7":"4","8":"16","9":"25","10":"p","11":"compact","12":"9.400000","13":"9.141878"},{"1":"audi","2":"a4 quattro","3":"2.0","4":"2008","5":"4","6":"manual(m6)","7":"4","8":"20","9":"28","10":"p","11":"compact","12":"8.392857","13":"9.141878"},{"1":"audi","2":"a4 quattro","3":"2.0","4":"2008","5":"4","6":"auto(s6)","7":"4","8":"19","9":"27","10":"p","11":"compact","12":"8.703704","13":"9.141878"},{"1":"audi","2":"a4 quattro","3":"2.8","4":"1999","5":"6","6":"auto(l5)","7":"4","8":"15","9":"25","10":"p","11":"compact","12":"9.400000","13":"9.141878"},{"1":"audi","2":"a4 quattro","3":"2.8","4":"1999","5":"6","6":"manual(m5)","7":"4","8":"17","9":"25","10":"p","11":"compact","12":"9.400000","13":"9.141878"},{"1":"audi","2":"a4 quattro","3":"3.1","4":"2008","5":"6","6":"auto(s6)","7":"4","8":"17","9":"25","10":"p","11":"compact","12":"9.400000","13":"9.141878"},{"1":"audi","2":"a4 quattro","3":"3.1","4":"2008","5":"6","6":"manual(m6)","7":"4","8":"15","9":"25","10":"p","11":"compact","12":"9.400000","13":"9.141878"},{"1":"audi","2":"a6 quattro","3":"2.8","4":"1999","5":"6","6":"auto(l5)","7":"4","8":"15","9":"24","10":"p","11":"midsize","12":"9.791667","13":"9.803019"},{"1":"audi","2":"a6 quattro","3":"3.1","4":"2008","5":"6","6":"auto(s6)","7":"4","8":"17","9":"25","10":"p","11":"midsize","12":"9.400000","13":"9.803019"},{"1":"audi","2":"a6 quattro","3":"4.2","4":"2008","5":"8","6":"auto(s6)","7":"4","8":"16","9":"23","10":"p","11":"midsize","12":"10.217391","13":"9.803019"},{"1":"chevrolet","2":"c1500 suburban 2wd","3":"5.3","4":"2008","5":"8","6":"auto(l4)","7":"r","8":"14","9":"20","10":"r","11":"suv","12":"11.750000","13":"13.362745"},{"1":"chevrolet","2":"c1500 suburban 2wd","3":"5.3","4":"2008","5":"8","6":"auto(l4)","7":"r","8":"11","9":"15","10":"e","11":"suv","12":"15.666667","13":"13.362745"},{"1":"chevrolet","2":"c1500 suburban 2wd","3":"5.3","4":"2008","5":"8","6":"auto(l4)","7":"r","8":"14","9":"20","10":"r","11":"suv","12":"11.750000","13":"13.362745"},{"1":"chevrolet","2":"c1500 suburban 2wd","3":"5.7","4":"1999","5":"8","6":"auto(l4)","7":"r","8":"13","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.362745"},{"1":"chevrolet","2":"c1500 suburban 2wd","3":"6.0","4":"2008","5":"8","6":"auto(l4)","7":"r","8":"12","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.362745"},{"1":"chevrolet","2":"corvette","3":"5.7","4":"1999","5":"8","6":"manual(m6)","7":"r","8":"16","9":"26","10":"p","11":"2seater","12":"9.038462","13":"9.497196"},{"1":"chevrolet","2":"corvette","3":"5.7","4":"1999","5":"8","6":"auto(l4)","7":"r","8":"15","9":"23","10":"p","11":"2seater","12":"10.217391","13":"9.497196"},{"1":"chevrolet","2":"corvette","3":"6.2","4":"2008","5":"8","6":"manual(m6)","7":"r","8":"16","9":"26","10":"p","11":"2seater","12":"9.038462","13":"9.497196"},{"1":"chevrolet","2":"corvette","3":"6.2","4":"2008","5":"8","6":"auto(s6)","7":"r","8":"15","9":"25","10":"p","11":"2seater","12":"9.400000","13":"9.497196"},{"1":"chevrolet","2":"corvette","3":"7.0","4":"2008","5":"8","6":"manual(m6)","7":"r","8":"15","9":"24","10":"p","11":"2seater","12":"9.791667","13":"9.497196"},{"1":"chevrolet","2":"k1500 tahoe 4wd","3":"5.3","4":"2008","5":"8","6":"auto(l4)","7":"4","8":"14","9":"19","10":"r","11":"suv","12":"12.368421","13":"14.661083"},{"1":"chevrolet","2":"k1500 tahoe 4wd","3":"5.3","4":"2008","5":"8","6":"auto(l4)","7":"4","8":"11","9":"14","10":"e","11":"suv","12":"16.785714","13":"14.661083"},{"1":"chevrolet","2":"k1500 tahoe 4wd","3":"5.7","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"r","11":"suv","12":"15.666667","13":"14.661083"},{"1":"chevrolet","2":"k1500 tahoe 4wd","3":"6.5","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"14","9":"17","10":"d","11":"suv","12":"13.823529","13":"14.661083"},{"1":"chevrolet","2":"malibu","3":"2.4","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"19","9":"27","10":"r","11":"midsize","12":"8.703704","13":"8.543482"},{"1":"chevrolet","2":"malibu","3":"2.4","4":"2008","5":"4","6":"auto(l4)","7":"f","8":"22","9":"30","10":"r","11":"midsize","12":"7.833333","13":"8.543482"},{"1":"chevrolet","2":"malibu","3":"3.1","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.543482"},{"1":"chevrolet","2":"malibu","3":"3.5","4":"2008","5":"6","6":"auto(l4)","7":"f","8":"18","9":"29","10":"r","11":"midsize","12":"8.103448","13":"8.543482"},{"1":"chevrolet","2":"malibu","3":"3.6","4":"2008","5":"6","6":"auto(s6)","7":"f","8":"17","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.543482"},{"1":"dodge","2":"caravan 2wd","3":"2.4","4":"1999","5":"4","6":"auto(l3)","7":"f","8":"18","9":"24","10":"r","11":"minivan","12":"9.791667","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.0","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"17","9":"24","10":"r","11":"minivan","12":"9.791667","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.3","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"16","9":"22","10":"r","11":"minivan","12":"10.681818","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.3","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"16","9":"22","10":"r","11":"minivan","12":"10.681818","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.3","4":"2008","5":"6","6":"auto(l4)","7":"f","8":"17","9":"24","10":"r","11":"minivan","12":"9.791667","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.3","4":"2008","5":"6","6":"auto(l4)","7":"f","8":"17","9":"24","10":"r","11":"minivan","12":"9.791667","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.3","4":"2008","5":"6","6":"auto(l4)","7":"f","8":"11","9":"17","10":"e","11":"minivan","12":"13.823529","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.8","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"15","9":"22","10":"r","11":"minivan","12":"10.681818","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.8","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"15","9":"21","10":"r","11":"minivan","12":"11.190476","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"3.8","4":"2008","5":"6","6":"auto(l6)","7":"f","8":"16","9":"23","10":"r","11":"minivan","12":"10.217391","13":"10.605537"},{"1":"dodge","2":"caravan 2wd","3":"4.0","4":"2008","5":"6","6":"auto(l6)","7":"f","8":"16","9":"23","10":"r","11":"minivan","12":"10.217391","13":"10.605537"},{"1":"dodge","2":"dakota pickup 4wd","3":"3.7","4":"2008","5":"6","6":"manual(m6)","7":"4","8":"15","9":"19","10":"r","11":"pickup","12":"12.368421","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"3.7","4":"2008","5":"6","6":"auto(l4)","7":"4","8":"14","9":"18","10":"r","11":"pickup","12":"13.055556","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"3.9","4":"1999","5":"6","6":"auto(l4)","7":"4","8":"13","9":"17","10":"r","11":"pickup","12":"13.823529","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"3.9","4":"1999","5":"6","6":"manual(m5)","7":"4","8":"14","9":"17","10":"r","11":"pickup","12":"13.823529","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"14","9":"19","10":"r","11":"pickup","12":"12.368421","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"14","9":"19","10":"r","11":"pickup","12":"12.368421","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"9","9":"12","10":"e","11":"pickup","12":"19.583333","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"5.2","4":"1999","5":"8","6":"manual(m5)","7":"4","8":"11","9":"17","10":"r","11":"pickup","12":"13.823529","13":"14.097934"},{"1":"dodge","2":"dakota pickup 4wd","3":"5.2","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"r","11":"pickup","12":"15.666667","13":"14.097934"},{"1":"dodge","2":"durango 4wd","3":"3.9","4":"1999","5":"6","6":"auto(l4)","7":"4","8":"13","9":"17","10":"r","11":"suv","12":"13.823529","13":"14.923378"},{"1":"dodge","2":"durango 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"13","9":"17","10":"r","11":"suv","12":"13.823529","13":"14.923378"},{"1":"dodge","2":"durango 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"9","9":"12","10":"e","11":"suv","12":"19.583333","13":"14.923378"},{"1":"dodge","2":"durango 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"13","9":"17","10":"r","11":"suv","12":"13.823529","13":"14.923378"},{"1":"dodge","2":"durango 4wd","3":"5.2","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"16","10":"r","11":"suv","12":"14.687500","13":"14.923378"},{"1":"dodge","2":"durango 4wd","3":"5.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"13","9":"18","10":"r","11":"suv","12":"13.055556","13":"14.923378"},{"1":"dodge","2":"durango 4wd","3":"5.9","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"r","11":"suv","12":"15.666667","13":"14.923378"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"4.7","4":"2008","5":"8","6":"manual(m6)","7":"4","8":"12","9":"16","10":"r","11":"pickup","12":"14.687500","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"9","9":"12","10":"e","11":"pickup","12":"19.583333","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"13","9":"17","10":"r","11":"pickup","12":"13.823529","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"13","9":"17","10":"r","11":"pickup","12":"13.823529","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"4.7","4":"2008","5":"8","6":"manual(m6)","7":"4","8":"12","9":"16","10":"r","11":"pickup","12":"14.687500","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"4.7","4":"2008","5":"8","6":"manual(m6)","7":"4","8":"9","9":"12","10":"e","11":"pickup","12":"19.583333","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"5.2","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"r","11":"pickup","12":"15.666667","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"5.2","4":"1999","5":"8","6":"manual(m5)","7":"4","8":"11","9":"16","10":"r","11":"pickup","12":"14.687500","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"5.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"13","9":"17","10":"r","11":"pickup","12":"13.823529","13":"15.603309"},{"1":"dodge","2":"ram 1500 pickup 4wd","3":"5.9","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"r","11":"pickup","12":"15.666667","13":"15.603309"},{"1":"ford","2":"expedition 2wd","3":"4.6","4":"1999","5":"8","6":"auto(l4)","7":"r","8":"11","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.567538"},{"1":"ford","2":"expedition 2wd","3":"5.4","4":"1999","5":"8","6":"auto(l4)","7":"r","8":"11","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.567538"},{"1":"ford","2":"expedition 2wd","3":"5.4","4":"2008","5":"8","6":"auto(l6)","7":"r","8":"12","9":"18","10":"r","11":"suv","12":"13.055556","13":"13.567538"},{"1":"ford","2":"explorer 4wd","3":"4.0","4":"1999","5":"6","6":"auto(l5)","7":"4","8":"14","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.095975"},{"1":"ford","2":"explorer 4wd","3":"4.0","4":"1999","5":"6","6":"manual(m5)","7":"4","8":"15","9":"19","10":"r","11":"suv","12":"12.368421","13":"13.095975"},{"1":"ford","2":"explorer 4wd","3":"4.0","4":"1999","5":"6","6":"auto(l5)","7":"4","8":"14","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.095975"},{"1":"ford","2":"explorer 4wd","3":"4.0","4":"2008","5":"6","6":"auto(l5)","7":"4","8":"13","9":"19","10":"r","11":"suv","12":"12.368421","13":"13.095975"},{"1":"ford","2":"explorer 4wd","3":"4.6","4":"2008","5":"8","6":"auto(l6)","7":"4","8":"13","9":"19","10":"r","11":"suv","12":"12.368421","13":"13.095975"},{"1":"ford","2":"explorer 4wd","3":"5.0","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"13","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.095975"},{"1":"ford","2":"f150 pickup 4wd","3":"4.2","4":"1999","5":"6","6":"auto(l4)","7":"4","8":"14","9":"17","10":"r","11":"pickup","12":"13.823529","13":"14.333683"},{"1":"ford","2":"f150 pickup 4wd","3":"4.2","4":"1999","5":"6","6":"manual(m5)","7":"4","8":"14","9":"17","10":"r","11":"pickup","12":"13.823529","13":"14.333683"},{"1":"ford","2":"f150 pickup 4wd","3":"4.6","4":"1999","5":"8","6":"manual(m5)","7":"4","8":"13","9":"16","10":"r","11":"pickup","12":"14.687500","13":"14.333683"},{"1":"ford","2":"f150 pickup 4wd","3":"4.6","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"13","9":"16","10":"r","11":"pickup","12":"14.687500","13":"14.333683"},{"1":"ford","2":"f150 pickup 4wd","3":"4.6","4":"2008","5":"8","6":"auto(l4)","7":"4","8":"13","9":"17","10":"r","11":"pickup","12":"13.823529","13":"14.333683"},{"1":"ford","2":"f150 pickup 4wd","3":"5.4","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"r","11":"pickup","12":"15.666667","13":"14.333683"},{"1":"ford","2":"f150 pickup 4wd","3":"5.4","4":"2008","5":"8","6":"auto(l4)","7":"4","8":"13","9":"17","10":"r","11":"pickup","12":"13.823529","13":"14.333683"},{"1":"ford","2":"mustang","3":"3.8","4":"1999","5":"6","6":"manual(m5)","7":"r","8":"18","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"10.198899"},{"1":"ford","2":"mustang","3":"3.8","4":"1999","5":"6","6":"auto(l4)","7":"r","8":"18","9":"25","10":"r","11":"subcompact","12":"9.400000","13":"10.198899"},{"1":"ford","2":"mustang","3":"4.0","4":"2008","5":"6","6":"manual(m5)","7":"r","8":"17","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"10.198899"},{"1":"ford","2":"mustang","3":"4.0","4":"2008","5":"6","6":"auto(l5)","7":"r","8":"16","9":"24","10":"r","11":"subcompact","12":"9.791667","13":"10.198899"},{"1":"ford","2":"mustang","3":"4.6","4":"1999","5":"8","6":"auto(l4)","7":"r","8":"15","9":"21","10":"r","11":"subcompact","12":"11.190476","13":"10.198899"},{"1":"ford","2":"mustang","3":"4.6","4":"1999","5":"8","6":"manual(m5)","7":"r","8":"15","9":"22","10":"r","11":"subcompact","12":"10.681818","13":"10.198899"},{"1":"ford","2":"mustang","3":"4.6","4":"2008","5":"8","6":"manual(m5)","7":"r","8":"15","9":"23","10":"r","11":"subcompact","12":"10.217391","13":"10.198899"},{"1":"ford","2":"mustang","3":"4.6","4":"2008","5":"8","6":"auto(l5)","7":"r","8":"15","9":"22","10":"r","11":"subcompact","12":"10.681818","13":"10.198899"},{"1":"ford","2":"mustang","3":"5.4","4":"2008","5":"8","6":"manual(m6)","7":"r","8":"14","9":"20","10":"p","11":"subcompact","12":"11.750000","13":"10.198899"},{"1":"honda","2":"civic","3":"1.6","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"28","9":"33","10":"r","11":"subcompact","12":"7.121212","13":"7.258520"},{"1":"honda","2":"civic","3":"1.6","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"24","9":"32","10":"r","11":"subcompact","12":"7.343750","13":"7.258520"},{"1":"honda","2":"civic","3":"1.6","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"25","9":"32","10":"r","11":"subcompact","12":"7.343750","13":"7.258520"},{"1":"honda","2":"civic","3":"1.6","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"23","9":"29","10":"p","11":"subcompact","12":"8.103448","13":"7.258520"},{"1":"honda","2":"civic","3":"1.6","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"24","9":"32","10":"r","11":"subcompact","12":"7.343750","13":"7.258520"},{"1":"honda","2":"civic","3":"1.8","4":"2008","5":"4","6":"manual(m5)","7":"f","8":"26","9":"34","10":"r","11":"subcompact","12":"6.911765","13":"7.258520"},{"1":"honda","2":"civic","3":"1.8","4":"2008","5":"4","6":"auto(l5)","7":"f","8":"25","9":"36","10":"r","11":"subcompact","12":"6.527778","13":"7.258520"},{"1":"honda","2":"civic","3":"1.8","4":"2008","5":"4","6":"auto(l5)","7":"f","8":"24","9":"36","10":"c","11":"subcompact","12":"6.527778","13":"7.258520"},{"1":"honda","2":"civic","3":"2.0","4":"2008","5":"4","6":"manual(m6)","7":"f","8":"21","9":"29","10":"p","11":"subcompact","12":"8.103448","13":"7.258520"},{"1":"hyundai","2":"sonata","3":"2.4","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.517989"},{"1":"hyundai","2":"sonata","3":"2.4","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"18","9":"27","10":"r","11":"midsize","12":"8.703704","13":"8.517989"},{"1":"hyundai","2":"sonata","3":"2.4","4":"2008","5":"4","6":"auto(l4)","7":"f","8":"21","9":"30","10":"r","11":"midsize","12":"7.833333","13":"8.517989"},{"1":"hyundai","2":"sonata","3":"2.4","4":"2008","5":"4","6":"manual(m5)","7":"f","8":"21","9":"31","10":"r","11":"midsize","12":"7.580645","13":"8.517989"},{"1":"hyundai","2":"sonata","3":"2.5","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.517989"},{"1":"hyundai","2":"sonata","3":"2.5","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.517989"},{"1":"hyundai","2":"sonata","3":"3.3","4":"2008","5":"6","6":"auto(l5)","7":"f","8":"19","9":"28","10":"r","11":"midsize","12":"8.392857","13":"8.517989"},{"1":"hyundai","2":"tiburon","3":"2.0","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"19","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"9.087639"},{"1":"hyundai","2":"tiburon","3":"2.0","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"19","9":"29","10":"r","11":"subcompact","12":"8.103448","13":"9.087639"},{"1":"hyundai","2":"tiburon","3":"2.0","4":"2008","5":"4","6":"manual(m5)","7":"f","8":"20","9":"28","10":"r","11":"subcompact","12":"8.392857","13":"9.087639"},{"1":"hyundai","2":"tiburon","3":"2.0","4":"2008","5":"4","6":"auto(l4)","7":"f","8":"20","9":"27","10":"r","11":"subcompact","12":"8.703704","13":"9.087639"},{"1":"hyundai","2":"tiburon","3":"2.7","4":"2008","5":"6","6":"auto(l4)","7":"f","8":"17","9":"24","10":"r","11":"subcompact","12":"9.791667","13":"9.087639"},{"1":"hyundai","2":"tiburon","3":"2.7","4":"2008","5":"6","6":"manual(m6)","7":"f","8":"16","9":"24","10":"r","11":"subcompact","12":"9.791667","13":"9.087639"},{"1":"hyundai","2":"tiburon","3":"2.7","4":"2008","5":"6","6":"manual(m5)","7":"f","8":"17","9":"24","10":"r","11":"subcompact","12":"9.791667","13":"9.087639"},{"1":"jeep","2":"grand cherokee 4wd","3":"3.0","4":"2008","5":"6","6":"auto(l5)","7":"4","8":"17","9":"22","10":"d","11":"suv","12":"10.681818","13":"13.802099"},{"1":"jeep","2":"grand cherokee 4wd","3":"3.7","4":"2008","5":"6","6":"auto(l5)","7":"4","8":"15","9":"19","10":"r","11":"suv","12":"12.368421","13":"13.802099"},{"1":"jeep","2":"grand cherokee 4wd","3":"4.0","4":"1999","5":"6","6":"auto(l4)","7":"4","8":"15","9":"20","10":"r","11":"suv","12":"11.750000","13":"13.802099"},{"1":"jeep","2":"grand cherokee 4wd","3":"4.7","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"14","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.802099"},{"1":"jeep","2":"grand cherokee 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"9","9":"12","10":"e","11":"suv","12":"19.583333","13":"13.802099"},{"1":"jeep","2":"grand cherokee 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"14","9":"19","10":"r","11":"suv","12":"12.368421","13":"13.802099"},{"1":"jeep","2":"grand cherokee 4wd","3":"5.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"13","9":"18","10":"r","11":"suv","12":"13.055556","13":"13.802099"},{"1":"jeep","2":"grand cherokee 4wd","3":"6.1","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"11","9":"14","10":"p","11":"suv","12":"16.785714","13":"13.802099"},{"1":"land rover","2":"range rover","3":"4.0","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"p","11":"suv","12":"15.666667","13":"14.361111"},{"1":"land rover","2":"range rover","3":"4.2","4":"2008","5":"8","6":"auto(s6)","7":"4","8":"12","9":"18","10":"r","11":"suv","12":"13.055556","13":"14.361111"},{"1":"land rover","2":"range rover","3":"4.4","4":"2008","5":"8","6":"auto(s6)","7":"4","8":"12","9":"18","10":"r","11":"suv","12":"13.055556","13":"14.361111"},{"1":"land rover","2":"range rover","3":"4.6","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"p","11":"suv","12":"15.666667","13":"14.361111"},{"1":"lincoln","2":"navigator 2wd","3":"5.4","4":"1999","5":"8","6":"auto(l4)","7":"r","8":"11","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.855528"},{"1":"lincoln","2":"navigator 2wd","3":"5.4","4":"1999","5":"8","6":"auto(l4)","7":"r","8":"11","9":"16","10":"p","11":"suv","12":"14.687500","13":"13.855528"},{"1":"lincoln","2":"navigator 2wd","3":"5.4","4":"2008","5":"8","6":"auto(l6)","7":"r","8":"12","9":"18","10":"r","11":"suv","12":"13.055556","13":"13.855528"},{"1":"mercury","2":"mountaineer 4wd","3":"4.0","4":"1999","5":"6","6":"auto(l5)","7":"4","8":"14","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.095975"},{"1":"mercury","2":"mountaineer 4wd","3":"4.0","4":"2008","5":"6","6":"auto(l5)","7":"4","8":"13","9":"19","10":"r","11":"suv","12":"12.368421","13":"13.095975"},{"1":"mercury","2":"mountaineer 4wd","3":"4.6","4":"2008","5":"8","6":"auto(l6)","7":"4","8":"13","9":"19","10":"r","11":"suv","12":"12.368421","13":"13.095975"},{"1":"mercury","2":"mountaineer 4wd","3":"5.0","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"13","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.095975"},{"1":"nissan","2":"altima","3":"2.4","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"r","11":"compact","12":"8.103448","13":"8.245619"},{"1":"nissan","2":"altima","3":"2.4","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"19","9":"27","10":"r","11":"compact","12":"8.703704","13":"8.245619"},{"1":"nissan","2":"altima","3":"2.5","4":"2008","5":"4","6":"auto(av)","7":"f","8":"23","9":"31","10":"r","11":"midsize","12":"7.580645","13":"8.245619"},{"1":"nissan","2":"altima","3":"2.5","4":"2008","5":"4","6":"manual(m6)","7":"f","8":"23","9":"32","10":"r","11":"midsize","12":"7.343750","13":"8.245619"},{"1":"nissan","2":"altima","3":"3.5","4":"2008","5":"6","6":"manual(m6)","7":"f","8":"19","9":"27","10":"p","11":"midsize","12":"8.703704","13":"8.245619"},{"1":"nissan","2":"altima","3":"3.5","4":"2008","5":"6","6":"auto(av)","7":"f","8":"19","9":"26","10":"p","11":"midsize","12":"9.038462","13":"8.245619"},{"1":"nissan","2":"maxima","3":"3.0","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"9.279487"},{"1":"nissan","2":"maxima","3":"3.0","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"19","9":"25","10":"r","11":"midsize","12":"9.400000","13":"9.279487"},{"1":"nissan","2":"maxima","3":"3.5","4":"2008","5":"6","6":"auto(av)","7":"f","8":"19","9":"25","10":"p","11":"midsize","12":"9.400000","13":"9.279487"},{"1":"nissan","2":"pathfinder 4wd","3":"3.3","4":"1999","5":"6","6":"auto(l4)","7":"4","8":"14","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.113154"},{"1":"nissan","2":"pathfinder 4wd","3":"3.3","4":"1999","5":"6","6":"manual(m5)","7":"4","8":"15","9":"17","10":"r","11":"suv","12":"13.823529","13":"13.113154"},{"1":"nissan","2":"pathfinder 4wd","3":"4.0","4":"2008","5":"6","6":"auto(l5)","7":"4","8":"14","9":"20","10":"p","11":"suv","12":"11.750000","13":"13.113154"},{"1":"nissan","2":"pathfinder 4wd","3":"5.6","4":"2008","5":"8","6":"auto(s5)","7":"4","8":"12","9":"18","10":"p","11":"suv","12":"13.055556","13":"13.113154"},{"1":"pontiac","2":"grand prix","3":"3.1","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.914697"},{"1":"pontiac","2":"grand prix","3":"3.8","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"16","9":"26","10":"p","11":"midsize","12":"9.038462","13":"8.914697"},{"1":"pontiac","2":"grand prix","3":"3.8","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"17","9":"27","10":"r","11":"midsize","12":"8.703704","13":"8.914697"},{"1":"pontiac","2":"grand prix","3":"3.8","4":"2008","5":"6","6":"auto(l4)","7":"f","8":"18","9":"28","10":"r","11":"midsize","12":"8.392857","13":"8.914697"},{"1":"pontiac","2":"grand prix","3":"5.3","4":"2008","5":"8","6":"auto(s4)","7":"f","8":"16","9":"25","10":"p","11":"midsize","12":"9.400000","13":"8.914697"},{"1":"subaru","2":"forester awd","3":"2.5","4":"1999","5":"4","6":"manual(m5)","7":"4","8":"18","9":"25","10":"r","11":"suv","12":"9.400000","13":"9.425204"},{"1":"subaru","2":"forester awd","3":"2.5","4":"1999","5":"4","6":"auto(l4)","7":"4","8":"18","9":"24","10":"r","11":"suv","12":"9.791667","13":"9.425204"},{"1":"subaru","2":"forester awd","3":"2.5","4":"2008","5":"4","6":"manual(m5)","7":"4","8":"20","9":"27","10":"r","11":"suv","12":"8.703704","13":"9.425204"},{"1":"subaru","2":"forester awd","3":"2.5","4":"2008","5":"4","6":"manual(m5)","7":"4","8":"19","9":"25","10":"p","11":"suv","12":"9.400000","13":"9.425204"},{"1":"subaru","2":"forester awd","3":"2.5","4":"2008","5":"4","6":"auto(l4)","7":"4","8":"20","9":"26","10":"r","11":"suv","12":"9.038462","13":"9.425204"},{"1":"subaru","2":"forester awd","3":"2.5","4":"2008","5":"4","6":"auto(l4)","7":"4","8":"18","9":"23","10":"p","11":"suv","12":"10.217391","13":"9.425204"},{"1":"subaru","2":"impreza awd","3":"2.2","4":"1999","5":"4","6":"auto(l4)","7":"4","8":"21","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"9.045157"},{"1":"subaru","2":"impreza awd","3":"2.2","4":"1999","5":"4","6":"manual(m5)","7":"4","8":"19","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"9.045157"},{"1":"subaru","2":"impreza awd","3":"2.5","4":"1999","5":"4","6":"manual(m5)","7":"4","8":"19","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"9.045157"},{"1":"subaru","2":"impreza awd","3":"2.5","4":"1999","5":"4","6":"auto(l4)","7":"4","8":"19","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"9.045157"},{"1":"subaru","2":"impreza awd","3":"2.5","4":"2008","5":"4","6":"auto(s4)","7":"4","8":"20","9":"25","10":"p","11":"compact","12":"9.400000","13":"9.045157"},{"1":"subaru","2":"impreza awd","3":"2.5","4":"2008","5":"4","6":"auto(s4)","7":"4","8":"20","9":"27","10":"r","11":"compact","12":"8.703704","13":"9.045157"},{"1":"subaru","2":"impreza awd","3":"2.5","4":"2008","5":"4","6":"manual(m5)","7":"4","8":"19","9":"25","10":"p","11":"compact","12":"9.400000","13":"9.045157"},{"1":"subaru","2":"impreza awd","3":"2.5","4":"2008","5":"4","6":"manual(m5)","7":"4","8":"20","9":"27","10":"r","11":"compact","12":"8.703704","13":"9.045157"},{"1":"toyota","2":"4runner 4wd","3":"2.7","4":"1999","5":"4","6":"manual(m5)","7":"4","8":"15","9":"20","10":"r","11":"suv","12":"11.750000","13":"12.544247"},{"1":"toyota","2":"4runner 4wd","3":"2.7","4":"1999","5":"4","6":"auto(l4)","7":"4","8":"16","9":"20","10":"r","11":"suv","12":"11.750000","13":"12.544247"},{"1":"toyota","2":"4runner 4wd","3":"3.4","4":"1999","5":"6","6":"auto(l4)","7":"4","8":"15","9":"19","10":"r","11":"suv","12":"12.368421","13":"12.544247"},{"1":"toyota","2":"4runner 4wd","3":"3.4","4":"1999","5":"6","6":"manual(m5)","7":"4","8":"15","9":"17","10":"r","11":"suv","12":"13.823529","13":"12.544247"},{"1":"toyota","2":"4runner 4wd","3":"4.0","4":"2008","5":"6","6":"auto(l5)","7":"4","8":"16","9":"20","10":"r","11":"suv","12":"11.750000","13":"12.544247"},{"1":"toyota","2":"4runner 4wd","3":"4.7","4":"2008","5":"8","6":"auto(l5)","7":"4","8":"14","9":"17","10":"r","11":"suv","12":"13.823529","13":"12.544247"},{"1":"toyota","2":"camry","3":"2.2","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"r","11":"midsize","12":"8.103448","13":"8.348318"},{"1":"toyota","2":"camry","3":"2.2","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"21","9":"27","10":"r","11":"midsize","12":"8.703704","13":"8.348318"},{"1":"toyota","2":"camry","3":"2.4","4":"2008","5":"4","6":"manual(m5)","7":"f","8":"21","9":"31","10":"r","11":"midsize","12":"7.580645","13":"8.348318"},{"1":"toyota","2":"camry","3":"2.4","4":"2008","5":"4","6":"auto(l5)","7":"f","8":"21","9":"31","10":"r","11":"midsize","12":"7.580645","13":"8.348318"},{"1":"toyota","2":"camry","3":"3.0","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.348318"},{"1":"toyota","2":"camry","3":"3.0","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"18","9":"26","10":"r","11":"midsize","12":"9.038462","13":"8.348318"},{"1":"toyota","2":"camry","3":"3.5","4":"2008","5":"6","6":"auto(s6)","7":"f","8":"19","9":"28","10":"r","11":"midsize","12":"8.392857","13":"8.348318"},{"1":"toyota","2":"camry solara","3":"2.2","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"21","9":"27","10":"r","11":"compact","12":"8.703704","13":"8.392724"},{"1":"toyota","2":"camry solara","3":"2.2","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"r","11":"compact","12":"8.103448","13":"8.392724"},{"1":"toyota","2":"camry solara","3":"2.4","4":"2008","5":"4","6":"manual(m5)","7":"f","8":"21","9":"31","10":"r","11":"compact","12":"7.580645","13":"8.392724"},{"1":"toyota","2":"camry solara","3":"2.4","4":"2008","5":"4","6":"auto(s5)","7":"f","8":"22","9":"31","10":"r","11":"compact","12":"7.580645","13":"8.392724"},{"1":"toyota","2":"camry solara","3":"3.0","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"18","9":"26","10":"r","11":"compact","12":"9.038462","13":"8.392724"},{"1":"toyota","2":"camry solara","3":"3.0","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"18","9":"26","10":"r","11":"compact","12":"9.038462","13":"8.392724"},{"1":"toyota","2":"camry solara","3":"3.3","4":"2008","5":"6","6":"auto(s5)","7":"f","8":"18","9":"27","10":"r","11":"compact","12":"8.703704","13":"8.392724"},{"1":"toyota","2":"corolla","3":"1.8","4":"1999","5":"4","6":"auto(l3)","7":"f","8":"24","9":"30","10":"r","11":"compact","12":"7.833333","13":"6.946894"},{"1":"toyota","2":"corolla","3":"1.8","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"24","9":"33","10":"r","11":"compact","12":"7.121212","13":"6.946894"},{"1":"toyota","2":"corolla","3":"1.8","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"26","9":"35","10":"r","11":"compact","12":"6.714286","13":"6.946894"},{"1":"toyota","2":"corolla","3":"1.8","4":"2008","5":"4","6":"manual(m5)","7":"f","8":"28","9":"37","10":"r","11":"compact","12":"6.351351","13":"6.946894"},{"1":"toyota","2":"corolla","3":"1.8","4":"2008","5":"4","6":"auto(l4)","7":"f","8":"26","9":"35","10":"r","11":"compact","12":"6.714286","13":"6.946894"},{"1":"toyota","2":"land cruiser wagon 4wd","3":"4.7","4":"1999","5":"8","6":"auto(l4)","7":"4","8":"11","9":"15","10":"r","11":"suv","12":"15.666667","13":"14.361111"},{"1":"toyota","2":"land cruiser wagon 4wd","3":"5.7","4":"2008","5":"8","6":"auto(s6)","7":"4","8":"13","9":"18","10":"r","11":"suv","12":"13.055556","13":"14.361111"},{"1":"toyota","2":"toyota tacoma 4wd","3":"2.7","4":"1999","5":"4","6":"manual(m5)","7":"4","8":"15","9":"20","10":"r","11":"pickup","12":"11.750000","13":"12.168475"},{"1":"toyota","2":"toyota tacoma 4wd","3":"2.7","4":"1999","5":"4","6":"auto(l4)","7":"4","8":"16","9":"20","10":"r","11":"pickup","12":"11.750000","13":"12.168475"},{"1":"toyota","2":"toyota tacoma 4wd","3":"2.7","4":"2008","5":"4","6":"manual(m5)","7":"4","8":"17","9":"22","10":"r","11":"pickup","12":"10.681818","13":"12.168475"},{"1":"toyota","2":"toyota tacoma 4wd","3":"3.4","4":"1999","5":"6","6":"manual(m5)","7":"4","8":"15","9":"17","10":"r","11":"pickup","12":"13.823529","13":"12.168475"},{"1":"toyota","2":"toyota tacoma 4wd","3":"3.4","4":"1999","5":"6","6":"auto(l4)","7":"4","8":"15","9":"19","10":"r","11":"pickup","12":"12.368421","13":"12.168475"},{"1":"toyota","2":"toyota tacoma 4wd","3":"4.0","4":"2008","5":"6","6":"manual(m6)","7":"4","8":"15","9":"18","10":"r","11":"pickup","12":"13.055556","13":"12.168475"},{"1":"toyota","2":"toyota tacoma 4wd","3":"4.0","4":"2008","5":"6","6":"auto(l5)","7":"4","8":"16","9":"20","10":"r","11":"pickup","12":"11.750000","13":"12.168475"},{"1":"volkswagen","2":"gti","3":"2.0","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"r","11":"compact","12":"8.103448","13":"8.628095"},{"1":"volkswagen","2":"gti","3":"2.0","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"19","9":"26","10":"r","11":"compact","12":"9.038462","13":"8.628095"},{"1":"volkswagen","2":"gti","3":"2.0","4":"2008","5":"4","6":"manual(m6)","7":"f","8":"21","9":"29","10":"p","11":"compact","12":"8.103448","13":"8.628095"},{"1":"volkswagen","2":"gti","3":"2.0","4":"2008","5":"4","6":"auto(s6)","7":"f","8":"22","9":"29","10":"p","11":"compact","12":"8.103448","13":"8.628095"},{"1":"volkswagen","2":"gti","3":"2.8","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"17","9":"24","10":"r","11":"compact","12":"9.791667","13":"8.628095"},{"1":"volkswagen","2":"jetta","3":"1.9","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"33","9":"44","10":"d","11":"compact","12":"5.340909","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.0","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"r","11":"compact","12":"8.103448","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.0","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"19","9":"26","10":"r","11":"compact","12":"9.038462","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.0","4":"2008","5":"4","6":"auto(s6)","7":"f","8":"22","9":"29","10":"p","11":"compact","12":"8.103448","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.0","4":"2008","5":"4","6":"manual(m6)","7":"f","8":"21","9":"29","10":"p","11":"compact","12":"8.103448","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.5","4":"2008","5":"5","6":"auto(s6)","7":"f","8":"21","9":"29","10":"r","11":"compact","12":"8.103448","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.5","4":"2008","5":"5","6":"manual(m5)","7":"f","8":"21","9":"29","10":"r","11":"compact","12":"8.103448","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.8","4":"1999","5":"6","6":"auto(l4)","7":"f","8":"16","9":"23","10":"r","11":"compact","12":"10.217391","13":"8.322852"},{"1":"volkswagen","2":"jetta","3":"2.8","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"17","9":"24","10":"r","11":"compact","12":"9.791667","13":"8.322852"},{"1":"volkswagen","2":"new beetle","3":"1.9","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"35","9":"44","10":"d","11":"subcompact","12":"5.340909","13":"7.451805"},{"1":"volkswagen","2":"new beetle","3":"1.9","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"29","9":"41","10":"d","11":"subcompact","12":"5.731707","13":"7.451805"},{"1":"volkswagen","2":"new beetle","3":"2.0","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"r","11":"subcompact","12":"8.103448","13":"7.451805"},{"1":"volkswagen","2":"new beetle","3":"2.0","4":"1999","5":"4","6":"auto(l4)","7":"f","8":"19","9":"26","10":"r","11":"subcompact","12":"9.038462","13":"7.451805"},{"1":"volkswagen","2":"new beetle","3":"2.5","4":"2008","5":"5","6":"manual(m5)","7":"f","8":"20","9":"28","10":"r","11":"subcompact","12":"8.392857","13":"7.451805"},{"1":"volkswagen","2":"new beetle","3":"2.5","4":"2008","5":"5","6":"auto(s6)","7":"f","8":"20","9":"29","10":"r","11":"subcompact","12":"8.103448","13":"7.451805"},{"1":"volkswagen","2":"passat","3":"1.8","4":"1999","5":"4","6":"manual(m5)","7":"f","8":"21","9":"29","10":"p","11":"midsize","12":"8.103448","13":"8.545512"},{"1":"volkswagen","2":"passat","3":"1.8","4":"1999","5":"4","6":"auto(l5)","7":"f","8":"18","9":"29","10":"p","11":"midsize","12":"8.103448","13":"8.545512"},{"1":"volkswagen","2":"passat","3":"2.0","4":"2008","5":"4","6":"auto(s6)","7":"f","8":"19","9":"28","10":"p","11":"midsize","12":"8.392857","13":"8.545512"},{"1":"volkswagen","2":"passat","3":"2.0","4":"2008","5":"4","6":"manual(m6)","7":"f","8":"21","9":"29","10":"p","11":"midsize","12":"8.103448","13":"8.545512"},{"1":"volkswagen","2":"passat","3":"2.8","4":"1999","5":"6","6":"auto(l5)","7":"f","8":"16","9":"26","10":"p","11":"midsize","12":"9.038462","13":"8.545512"},{"1":"volkswagen","2":"passat","3":"2.8","4":"1999","5":"6","6":"manual(m5)","7":"f","8":"18","9":"26","10":"p","11":"midsize","12":"9.038462","13":"8.545512"},{"1":"volkswagen","2":"passat","3":"3.6","4":"2008","5":"6","6":"auto(s6)","7":"f","8":"17","9":"26","10":"p","11":"midsize","12":"9.038462","13":"8.545512"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Otra alternativa es la función <code>datatable</code> de la extensión <code>DT</code>, que ofrece aún más interactividad:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DT)
+<span class="kw">datatable</span>(mpg)</code></pre></div>
+<div id="htmlwidget-690b13a4464e1cf0a035" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-690b13a4464e1cf0a035">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234"],["audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","audi","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","chevrolet","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","dodge","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","ford","honda","honda","honda","honda","honda","honda","honda","honda","honda","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","hyundai","jeep","jeep","jeep","jeep","jeep","jeep","jeep","jeep","land rover","land rover","land rover","land rover","lincoln","lincoln","lincoln","mercury","mercury","mercury","mercury","nissan","nissan","nissan","nissan","nissan","nissan","nissan","nissan","nissan","nissan","nissan","nissan","nissan","pontiac","pontiac","pontiac","pontiac","pontiac","subaru","subaru","subaru","subaru","subaru","subaru","subaru","subaru","subaru","subaru","subaru","subaru","subaru","subaru","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","toyota","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen","volkswagen"],["a4","a4","a4","a4","a4","a4","a4","a4 quattro","a4 quattro","a4 quattro","a4 quattro","a4 quattro","a4 quattro","a4 quattro","a4 quattro","a6 quattro","a6 quattro","a6 quattro","c1500 suburban 2wd","c1500 suburban 2wd","c1500 suburban 2wd","c1500 suburban 2wd","c1500 suburban 2wd","corvette","corvette","corvette","corvette","corvette","k1500 tahoe 4wd","k1500 tahoe 4wd","k1500 tahoe 4wd","k1500 tahoe 4wd","malibu","malibu","malibu","malibu","malibu","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","caravan 2wd","dakota pickup 4wd","dakota pickup 4wd","dakota pickup 4wd","dakota pickup 4wd","dakota pickup 4wd","dakota pickup 4wd","dakota pickup 4wd","dakota pickup 4wd","dakota pickup 4wd","durango 4wd","durango 4wd","durango 4wd","durango 4wd","durango 4wd","durango 4wd","durango 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","ram 1500 pickup 4wd","expedition 2wd","expedition 2wd","expedition 2wd","explorer 4wd","explorer 4wd","explorer 4wd","explorer 4wd","explorer 4wd","explorer 4wd","f150 pickup 4wd","f150 pickup 4wd","f150 pickup 4wd","f150 pickup 4wd","f150 pickup 4wd","f150 pickup 4wd","f150 pickup 4wd","mustang","mustang","mustang","mustang","mustang","mustang","mustang","mustang","mustang","civic","civic","civic","civic","civic","civic","civic","civic","civic","sonata","sonata","sonata","sonata","sonata","sonata","sonata","tiburon","tiburon","tiburon","tiburon","tiburon","tiburon","tiburon","grand cherokee 4wd","grand cherokee 4wd","grand cherokee 4wd","grand cherokee 4wd","grand cherokee 4wd","grand cherokee 4wd","grand cherokee 4wd","grand cherokee 4wd","range rover","range rover","range rover","range rover","navigator 2wd","navigator 2wd","navigator 2wd","mountaineer 4wd","mountaineer 4wd","mountaineer 4wd","mountaineer 4wd","altima","altima","altima","altima","altima","altima","maxima","maxima","maxima","pathfinder 4wd","pathfinder 4wd","pathfinder 4wd","pathfinder 4wd","grand prix","grand prix","grand prix","grand prix","grand prix","forester awd","forester awd","forester awd","forester awd","forester awd","forester awd","impreza awd","impreza awd","impreza awd","impreza awd","impreza awd","impreza awd","impreza awd","impreza awd","4runner 4wd","4runner 4wd","4runner 4wd","4runner 4wd","4runner 4wd","4runner 4wd","camry","camry","camry","camry","camry","camry","camry","camry solara","camry solara","camry solara","camry solara","camry solara","camry solara","camry solara","corolla","corolla","corolla","corolla","corolla","land cruiser wagon 4wd","land cruiser wagon 4wd","toyota tacoma 4wd","toyota tacoma 4wd","toyota tacoma 4wd","toyota tacoma 4wd","toyota tacoma 4wd","toyota tacoma 4wd","toyota tacoma 4wd","gti","gti","gti","gti","gti","jetta","jetta","jetta","jetta","jetta","jetta","jetta","jetta","jetta","new beetle","new beetle","new beetle","new beetle","new beetle","new beetle","passat","passat","passat","passat","passat","passat","passat"],[1.8,1.8,2,2,2.8,2.8,3.1,1.8,1.8,2,2,2.8,2.8,3.1,3.1,2.8,3.1,4.2,5.3,5.3,5.3,5.7,6,5.7,5.7,6.2,6.2,7,5.3,5.3,5.7,6.5,2.4,2.4,3.1,3.5,3.6,2.4,3,3.3,3.3,3.3,3.3,3.3,3.8,3.8,3.8,4,3.7,3.7,3.9,3.9,4.7,4.7,4.7,5.2,5.2,3.9,4.7,4.7,4.7,5.2,5.7,5.9,4.7,4.7,4.7,4.7,4.7,4.7,5.2,5.2,5.7,5.9,4.6,5.4,5.4,4,4,4,4,4.6,5,4.2,4.2,4.6,4.6,4.6,5.4,5.4,3.8,3.8,4,4,4.6,4.6,4.6,4.6,5.4,1.6,1.6,1.6,1.6,1.6,1.8,1.8,1.8,2,2.4,2.4,2.4,2.4,2.5,2.5,3.3,2,2,2,2,2.7,2.7,2.7,3,3.7,4,4.7,4.7,4.7,5.7,6.1,4,4.2,4.4,4.6,5.4,5.4,5.4,4,4,4.6,5,2.4,2.4,2.5,2.5,3.5,3.5,3,3,3.5,3.3,3.3,4,5.6,3.1,3.8,3.8,3.8,5.3,2.5,2.5,2.5,2.5,2.5,2.5,2.2,2.2,2.5,2.5,2.5,2.5,2.5,2.5,2.7,2.7,3.4,3.4,4,4.7,2.2,2.2,2.4,2.4,3,3,3.5,2.2,2.2,2.4,2.4,3,3,3.3,1.8,1.8,1.8,1.8,1.8,4.7,5.7,2.7,2.7,2.7,3.4,3.4,4,4,2,2,2,2,2.8,1.9,2,2,2,2,2.5,2.5,2.8,2.8,1.9,1.9,2,2,2.5,2.5,1.8,1.8,2,2,2.8,2.8,3.6],[1999,1999,2008,2008,1999,1999,2008,1999,1999,2008,2008,1999,1999,2008,2008,1999,2008,2008,2008,2008,2008,1999,2008,1999,1999,2008,2008,2008,2008,2008,1999,1999,1999,2008,1999,2008,2008,1999,1999,1999,1999,2008,2008,2008,1999,1999,2008,2008,2008,2008,1999,1999,2008,2008,2008,1999,1999,1999,2008,2008,2008,1999,2008,1999,2008,2008,2008,2008,2008,2008,1999,1999,2008,1999,1999,1999,2008,1999,1999,1999,2008,2008,1999,1999,1999,1999,1999,2008,1999,2008,1999,1999,2008,2008,1999,1999,2008,2008,2008,1999,1999,1999,1999,1999,2008,2008,2008,2008,1999,1999,2008,2008,1999,1999,2008,1999,1999,2008,2008,2008,2008,2008,2008,2008,1999,1999,2008,2008,2008,2008,1999,2008,2008,1999,1999,1999,2008,1999,2008,2008,1999,1999,1999,2008,2008,2008,2008,1999,1999,2008,1999,1999,2008,2008,1999,1999,1999,2008,2008,1999,1999,2008,2008,2008,2008,1999,1999,1999,1999,2008,2008,2008,2008,1999,1999,1999,1999,2008,2008,1999,1999,2008,2008,1999,1999,2008,1999,1999,2008,2008,1999,1999,2008,1999,1999,1999,2008,2008,1999,2008,1999,1999,2008,1999,1999,2008,2008,1999,1999,2008,2008,1999,1999,1999,1999,2008,2008,2008,2008,1999,1999,1999,1999,1999,1999,2008,2008,1999,1999,2008,2008,1999,1999,2008],[4,4,4,4,6,6,6,4,4,4,4,6,6,6,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,4,4,6,6,6,4,6,6,6,6,6,6,6,6,6,6,6,6,6,6,8,8,8,8,8,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,6,6,6,6,8,8,6,6,8,8,8,8,8,6,6,6,6,8,8,8,8,8,4,4,4,4,4,4,4,4,4,4,4,4,4,6,6,6,4,4,4,4,6,6,6,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,6,6,8,8,4,4,4,4,6,6,6,6,6,6,6,6,8,6,6,6,6,8,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,6,6,6,8,4,4,4,4,6,6,6,4,4,4,4,6,6,6,4,4,4,4,4,8,8,4,4,4,6,6,6,6,4,4,4,4,6,4,4,4,4,4,5,5,6,6,4,4,4,4,5,5,4,4,4,4,6,6,6],["auto(l5)","manual(m5)","manual(m6)","auto(av)","auto(l5)","manual(m5)","auto(av)","manual(m5)","auto(l5)","manual(m6)","auto(s6)","auto(l5)","manual(m5)","auto(s6)","manual(m6)","auto(l5)","auto(s6)","auto(s6)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","manual(m6)","auto(l4)","manual(m6)","auto(s6)","manual(m6)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(s6)","auto(l3)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(l6)","auto(l6)","manual(m6)","auto(l4)","auto(l4)","manual(m5)","auto(l5)","auto(l5)","auto(l5)","manual(m5)","auto(l4)","auto(l4)","auto(l5)","auto(l5)","auto(l5)","auto(l4)","auto(l5)","auto(l4)","manual(m6)","auto(l5)","auto(l5)","auto(l5)","manual(m6)","manual(m6)","auto(l4)","manual(m5)","auto(l5)","auto(l4)","auto(l4)","auto(l4)","auto(l6)","auto(l5)","manual(m5)","auto(l5)","auto(l5)","auto(l6)","auto(l4)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","manual(m5)","auto(l4)","manual(m5)","auto(l5)","auto(l4)","manual(m5)","manual(m5)","auto(l5)","manual(m6)","manual(m5)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","manual(m5)","auto(l5)","auto(l5)","manual(m6)","auto(l4)","manual(m5)","auto(l4)","manual(m5)","auto(l4)","manual(m5)","auto(l5)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","auto(l4)","manual(m6)","manual(m5)","auto(l5)","auto(l5)","auto(l4)","auto(l4)","auto(l5)","auto(l5)","auto(l5)","auto(l5)","auto(l4)","auto(s6)","auto(s6)","auto(l4)","auto(l4)","auto(l4)","auto(l6)","auto(l5)","auto(l5)","auto(l6)","auto(l4)","manual(m5)","auto(l4)","auto(av)","manual(m6)","manual(m6)","auto(av)","auto(l4)","manual(m5)","auto(av)","auto(l4)","manual(m5)","auto(l5)","auto(s5)","auto(l4)","auto(l4)","auto(l4)","auto(l4)","auto(s4)","manual(m5)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","auto(l4)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","auto(s4)","auto(s4)","manual(m5)","manual(m5)","manual(m5)","auto(l4)","auto(l4)","manual(m5)","auto(l5)","auto(l5)","manual(m5)","auto(l4)","manual(m5)","auto(l5)","auto(l4)","manual(m5)","auto(s6)","auto(l4)","manual(m5)","manual(m5)","auto(s5)","auto(l4)","manual(m5)","auto(s5)","auto(l3)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","auto(l4)","auto(s6)","manual(m5)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","manual(m6)","auto(l5)","manual(m5)","auto(l4)","manual(m6)","auto(s6)","manual(m5)","manual(m5)","manual(m5)","auto(l4)","auto(s6)","manual(m6)","auto(s6)","manual(m5)","auto(l4)","manual(m5)","manual(m5)","auto(l4)","manual(m5)","auto(l4)","manual(m5)","auto(s6)","manual(m5)","auto(l5)","auto(s6)","manual(m6)","auto(l5)","manual(m5)","auto(s6)"],["f","f","f","f","f","f","f","4","4","4","4","4","4","4","4","4","4","4","r","r","r","r","r","r","r","r","r","r","4","4","4","4","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","r","r","r","4","4","4","4","4","4","4","4","4","4","4","4","4","r","r","r","r","r","r","r","r","r","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","4","4","4","4","4","4","4","4","4","4","4","4","r","r","r","4","4","4","4","f","f","f","f","f","f","f","f","f","4","4","4","4","f","f","f","f","f","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","4","4","4","4","4","4","4","4","4","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f"],[18,21,20,21,16,18,18,18,16,20,19,15,17,17,15,15,17,16,14,11,14,13,12,16,15,16,15,15,14,11,11,14,19,22,18,18,17,18,17,16,16,17,17,11,15,15,16,16,15,14,13,14,14,14,9,11,11,13,13,9,13,11,13,11,12,9,13,13,12,9,11,11,13,11,11,11,12,14,15,14,13,13,13,14,14,13,13,13,11,13,18,18,17,16,15,15,15,15,14,28,24,25,23,24,26,25,24,21,18,18,21,21,18,18,19,19,19,20,20,17,16,17,17,15,15,14,9,14,13,11,11,12,12,11,11,11,12,14,13,13,13,21,19,23,23,19,19,18,19,19,14,15,14,12,18,16,17,18,16,18,18,20,19,20,18,21,19,19,19,20,20,19,20,15,16,15,15,16,14,21,21,21,21,18,18,19,21,21,21,22,18,18,18,24,24,26,28,26,11,13,15,16,17,15,15,15,16,21,19,21,22,17,33,21,19,22,21,21,21,16,17,35,29,21,19,20,20,21,18,19,21,16,18,17],[29,29,31,30,26,26,27,26,25,28,27,25,25,25,25,24,25,23,20,15,20,17,17,26,23,26,25,24,19,14,15,17,27,30,26,29,26,24,24,22,22,24,24,17,22,21,23,23,19,18,17,17,19,19,12,17,15,17,17,12,17,16,18,15,16,12,17,17,16,12,15,16,17,15,17,17,18,17,19,17,19,19,17,17,17,16,16,17,15,17,26,25,26,24,21,22,23,22,20,33,32,32,29,32,34,36,36,29,26,27,30,31,26,26,28,26,29,28,27,24,24,24,22,19,20,17,12,19,18,14,15,18,18,15,17,16,18,17,19,19,17,29,27,31,32,27,26,26,25,25,17,17,20,18,26,26,27,28,25,25,24,27,25,26,23,26,26,26,26,25,27,25,27,20,20,19,17,20,17,29,27,31,31,26,26,28,27,29,31,31,26,26,27,30,33,35,37,35,15,18,20,20,22,17,19,18,20,29,26,29,29,24,44,29,26,29,29,29,29,23,24,44,41,29,26,28,29,29,29,28,29,26,26,26],["p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","r","e","r","r","r","p","p","p","p","p","r","e","r","d","r","r","r","r","r","r","r","r","r","r","r","e","r","r","r","r","r","r","r","r","r","r","e","r","r","r","r","e","r","r","r","r","r","e","r","r","r","e","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","p","r","r","r","p","r","r","r","c","p","r","r","r","r","r","r","r","r","r","r","r","r","r","r","d","r","r","r","e","r","r","p","p","r","r","p","r","p","r","r","r","r","r","r","r","r","r","p","p","r","r","p","r","r","p","p","r","p","r","r","p","r","r","r","p","r","p","r","r","r","r","p","r","p","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","r","p","p","r","d","r","r","p","p","r","r","r","r","d","d","r","r","r","r","p","p","p","p","p","p","p"],["compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","midsize","midsize","midsize","suv","suv","suv","suv","suv","2seater","2seater","2seater","2seater","2seater","suv","suv","suv","suv","midsize","midsize","midsize","midsize","midsize","minivan","minivan","minivan","minivan","minivan","minivan","minivan","minivan","minivan","minivan","minivan","pickup","pickup","pickup","pickup","pickup","pickup","pickup","pickup","pickup","suv","suv","suv","suv","suv","suv","suv","pickup","pickup","pickup","pickup","pickup","pickup","pickup","pickup","pickup","pickup","suv","suv","suv","suv","suv","suv","suv","suv","suv","pickup","pickup","pickup","pickup","pickup","pickup","pickup","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","midsize","midsize","midsize","midsize","midsize","midsize","midsize","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","suv","compact","compact","midsize","midsize","midsize","midsize","midsize","midsize","midsize","suv","suv","suv","suv","midsize","midsize","midsize","midsize","midsize","suv","suv","suv","suv","suv","suv","subcompact","subcompact","subcompact","subcompact","compact","compact","compact","compact","suv","suv","suv","suv","suv","suv","midsize","midsize","midsize","midsize","midsize","midsize","midsize","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","suv","suv","pickup","pickup","pickup","pickup","pickup","pickup","pickup","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","compact","subcompact","subcompact","subcompact","subcompact","subcompact","subcompact","midsize","midsize","midsize","midsize","midsize","midsize","midsize"],[8.10344827586207,8.10344827586207,7.58064516129032,7.83333333333333,9.03846153846154,9.03846153846154,8.7037037037037,9.03846153846154,9.4,8.39285714285714,8.7037037037037,9.4,9.4,9.4,9.4,9.79166666666667,9.4,10.2173913043478,11.75,15.6666666666667,11.75,13.8235294117647,13.8235294117647,9.03846153846154,10.2173913043478,9.03846153846154,9.4,9.79166666666667,12.3684210526316,16.7857142857143,15.6666666666667,13.8235294117647,8.7037037037037,7.83333333333333,9.03846153846154,8.10344827586207,9.03846153846154,9.79166666666667,9.79166666666667,10.6818181818182,10.6818181818182,9.79166666666667,9.79166666666667,13.8235294117647,10.6818181818182,11.1904761904762,10.2173913043478,10.2173913043478,12.3684210526316,13.0555555555556,13.8235294117647,13.8235294117647,12.3684210526316,12.3684210526316,19.5833333333333,13.8235294117647,15.6666666666667,13.8235294117647,13.8235294117647,19.5833333333333,13.8235294117647,14.6875,13.0555555555556,15.6666666666667,14.6875,19.5833333333333,13.8235294117647,13.8235294117647,14.6875,19.5833333333333,15.6666666666667,14.6875,13.8235294117647,15.6666666666667,13.8235294117647,13.8235294117647,13.0555555555556,13.8235294117647,12.3684210526316,13.8235294117647,12.3684210526316,12.3684210526316,13.8235294117647,13.8235294117647,13.8235294117647,14.6875,14.6875,13.8235294117647,15.6666666666667,13.8235294117647,9.03846153846154,9.4,9.03846153846154,9.79166666666667,11.1904761904762,10.6818181818182,10.2173913043478,10.6818181818182,11.75,7.12121212121212,7.34375,7.34375,8.10344827586207,7.34375,6.91176470588235,6.52777777777778,6.52777777777778,8.10344827586207,9.03846153846154,8.7037037037037,7.83333333333333,7.58064516129032,9.03846153846154,9.03846153846154,8.39285714285714,9.03846153846154,8.10344827586207,8.39285714285714,8.7037037037037,9.79166666666667,9.79166666666667,9.79166666666667,10.6818181818182,12.3684210526316,11.75,13.8235294117647,19.5833333333333,12.3684210526316,13.0555555555556,16.7857142857143,15.6666666666667,13.0555555555556,13.0555555555556,15.6666666666667,13.8235294117647,14.6875,13.0555555555556,13.8235294117647,12.3684210526316,12.3684210526316,13.8235294117647,8.10344827586207,8.7037037037037,7.58064516129032,7.34375,8.7037037037037,9.03846153846154,9.03846153846154,9.4,9.4,13.8235294117647,13.8235294117647,11.75,13.0555555555556,9.03846153846154,9.03846153846154,8.7037037037037,8.39285714285714,9.4,9.4,9.79166666666667,8.7037037037037,9.4,9.03846153846154,10.2173913043478,9.03846153846154,9.03846153846154,9.03846153846154,9.03846153846154,9.4,8.7037037037037,9.4,8.7037037037037,11.75,11.75,12.3684210526316,13.8235294117647,11.75,13.8235294117647,8.10344827586207,8.7037037037037,7.58064516129032,7.58064516129032,9.03846153846154,9.03846153846154,8.39285714285714,8.7037037037037,8.10344827586207,7.58064516129032,7.58064516129032,9.03846153846154,9.03846153846154,8.7037037037037,7.83333333333333,7.12121212121212,6.71428571428571,6.35135135135135,6.71428571428571,15.6666666666667,13.0555555555556,11.75,11.75,10.6818181818182,13.8235294117647,12.3684210526316,13.0555555555556,11.75,8.10344827586207,9.03846153846154,8.10344827586207,8.10344827586207,9.79166666666667,5.34090909090909,8.10344827586207,9.03846153846154,8.10344827586207,8.10344827586207,8.10344827586207,8.10344827586207,10.2173913043478,9.79166666666667,5.34090909090909,5.73170731707317,8.10344827586207,9.03846153846154,8.39285714285714,8.10344827586207,8.10344827586207,8.10344827586207,8.39285714285714,8.10344827586207,9.03846153846154,9.03846153846154,9.03846153846154],[8.3430716895678,8.3430716895678,8.3430716895678,8.3430716895678,8.3430716895678,8.3430716895678,8.3430716895678,9.1418777981278,9.1418777981278,9.1418777981278,9.1418777981278,9.1418777981278,9.1418777981278,9.1418777981278,9.1418777981278,9.8030193236715,9.8030193236715,9.8030193236715,13.3627450980392,13.3627450980392,13.3627450980392,13.3627450980392,13.3627450980392,9.49719620958751,9.49719620958751,9.49719620958751,9.49719620958751,9.49719620958751,14.6610828541943,14.6610828541943,14.6610828541943,14.6610828541943,8.54348167796444,8.54348167796444,8.54348167796444,8.54348167796444,8.54348167796444,10.605537220278,10.605537220278,10.605537220278,10.605537220278,10.605537220278,10.605537220278,10.605537220278,10.605537220278,10.605537220278,10.605537220278,10.605537220278,14.097934105416,14.097934105416,14.097934105416,14.097934105416,14.097934105416,14.097934105416,14.097934105416,14.097934105416,14.097934105416,14.9233776844071,14.9233776844071,14.9233776844071,14.9233776844071,14.9233776844071,14.9233776844071,14.9233776844071,15.6033088235294,15.6033088235294,15.6033088235294,15.6033088235294,15.6033088235294,15.6033088235294,15.6033088235294,15.6033088235294,15.6033088235294,15.6033088235294,13.5675381263617,13.5675381263617,13.5675381263617,13.0959752321981,13.0959752321981,13.0959752321981,13.0959752321981,13.0959752321981,13.0959752321981,14.3336834733894,14.3336834733894,14.3336834733894,14.3336834733894,14.3336834733894,14.3336834733894,14.3336834733894,10.1988992891167,10.1988992891167,10.1988992891167,10.1988992891167,10.1988992891167,10.1988992891167,10.1988992891167,10.1988992891167,10.1988992891167,7.25851988159713,7.25851988159713,7.25851988159713,7.25851988159713,7.25851988159713,7.25851988159713,7.25851988159713,7.25851988159713,7.25851988159713,8.51798913665273,8.51798913665273,8.51798913665273,8.51798913665273,8.51798913665273,8.51798913665273,8.51798913665273,9.08763866584064,9.08763866584064,9.08763866584064,9.08763866584064,9.08763866584064,9.08763866584064,9.08763866584064,13.8020991091812,13.8020991091812,13.8020991091812,13.8020991091812,13.8020991091812,13.8020991091812,13.8020991091812,13.8020991091812,14.3611111111111,14.3611111111111,14.3611111111111,14.3611111111111,13.8555283224401,13.8555283224401,13.8555283224401,13.0959752321981,13.0959752321981,13.0959752321981,13.0959752321981,8.24561873050356,8.24561873050356,8.24561873050356,8.24561873050356,8.24561873050356,8.24561873050356,9.27948717948718,9.27948717948718,9.27948717948718,13.1131535947712,13.1131535947712,13.1131535947712,13.1131535947712,8.91469678469679,8.91469678469679,8.91469678469679,8.91469678469679,8.91469678469679,9.42520386886329,9.42520386886329,9.42520386886329,9.42520386886329,9.42520386886329,9.42520386886329,9.0451566951567,9.0451566951567,9.0451566951567,9.0451566951567,9.0451566951567,9.0451566951567,9.0451566951567,9.0451566951567,12.5442466460268,12.5442466460268,12.5442466460268,12.5442466460268,12.5442466460268,12.5442466460268,8.34831750313238,8.34831750313238,8.34831750313238,8.34831750313238,8.34831750313238,8.34831750313238,8.34831750313238,8.39272415468189,8.39272415468189,8.39272415468189,8.39272415468189,8.39272415468189,8.39272415468189,8.39272415468189,6.94689364689365,6.94689364689365,6.94689364689365,6.94689364689365,6.94689364689365,14.3611111111111,14.3611111111111,12.1684748859671,12.1684748859671,12.1684748859671,12.1684748859671,12.1684748859671,12.1684748859671,12.1684748859671,8.62809460654288,8.62809460654288,8.62809460654288,8.62809460654288,8.62809460654288,8.32285221996616,8.32285221996616,8.32285221996616,8.32285221996616,8.32285221996616,8.32285221996616,8.32285221996616,8.32285221996616,8.32285221996616,7.45180527350418,7.45180527350418,7.45180527350418,7.45180527350418,7.45180527350418,7.45180527350418,8.545512369404,8.545512369404,8.545512369404,8.545512369404,8.545512369404,8.545512369404,8.545512369404]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>manufacturer<\/th>\n      <th>model<\/th>\n      <th>displ<\/th>\n      <th>year<\/th>\n      <th>cyl<\/th>\n      <th>trans<\/th>\n      <th>drv<\/th>\n      <th>cty<\/th>\n      <th>hwy<\/th>\n      <th>fl<\/th>\n      <th>class<\/th>\n      <th>consumo<\/th>\n      <th>media<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4,5,8,9,12,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>En cualquier caso, no es recomendable mostrar una tabla de datos muy grandes de esta manera porque el archivo HTML resultante contendría todos los datos y, por lo tanto, sería muy grande.</p>
+</div>
+</div>
+</div>
+<div id="shiny" class="section level2">
+<h2><span class="header-section-number">3.2</span> Shiny</h2>
+<p><code>shiny</code> es un paquete de R para la construcción de cuadros de mando <em>web</em> interactivos. Permite, por ejemplo, crear interfaces para algoritmos o acceder y manipular tablas de datos a través de controles de HMTL: <em>sliders</em>, botones, etc.</p>
+<p>El paquete proporciona varias aplicaciones de ejemplo que usaremos para aprender los rudimentos de <code>shiny</code>. Por ejemplo, se puede hacer</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+<span class="kw">runExample</span>(<span class="dt">example =</span> <span class="st">&quot;01_hello&quot;</span>)</code></pre></div>
+<p>para desplegar la aplicación de ejemplo <code>01_hello</code>. Esta aplicación pinta en el panel central un histograma y tiene en el lateral un <em>slider</em> con el que modular su granularidad (técnicamente, para definir el número de pedazos, <em>breaks</em>, en los que partir el rango de valores del vector subyacente).</p>
+<p>Para detener la aplicación, en RStudio, presiona sobre el icono de la señal de <em>stop</em> (en la parte superior de la ventana de la consola); en una terminal, usa Control-C para interrumpir la ejecución.</p>
+<div class="ej">
+<p>
+Ejecuta <code>runExample()</code> (sin argumento); el mensaje de error indica qué otros ejemplos además de <code>01_hello</code> están disponibles por defecto. Échales un vistazo a algunos.
+</p>
+</div>
+<div class="ej">
+<p>
+Crea tu primera aplicación en <code>shiny</code>. Para ello, despliega <code>01_hello</code>. Luego, copia los ficheros <code>ui.r</code> y <code>server.r</code> en un nuevo directorio vacío. Llámalo, por ejemplo, <code>prueba00</code>. Luego ejecuta <code>runApp(“prueba00”)</code> para desplegarla. (Nota: el argumento de <code>runApp</code> tiene que ser la ruta, sea absoluta o relativa, del directorio en cuestión; recuerda que una aplicación en <code>shiny</code> recibe el nombre del directorio que la contiene).
+</p>
+</div>
+<p>El ejercicio anterior muestra cómo construir aplicaciones en <code>shiny</code>. Una aplicación en <code>shiny</code> es un directorio que da nombre a la aplicación. Dentro de él tiene que haber, como mínimo, dos ficheros: <code>ui.r</code> y <code>server.r</code>. El primero define la interfaz de la aplicación. El segundo realiza los cálculos en segundo plano cada vez que el usuario manipula los controles de la interfaz.</p>
+<p>Además de estos ficheros, en aplicaciones más complejas, puede haber otros organizados o no en subdirectorios: datos, otros ficheros auxiliares de código, logos, CSSs, imágenes estáticas, etc. Tendrás que leer la documentación de <code>shiny</code> para averiguar cómo y dónde colocar estos recursos adicionales.</p>
+<p><code>ui.r</code> y <code>server.r</code> se comunican entre sí: <code>ui.r</code> tiene que pasarle parámetros a <code>server.r</code> y este resultados a aquel. Esto se hace a través de variables y estructuras de datos con una forma muy particular. El siguiente ejercicio está pensado para que descubras el mecanismo de comunicación. Se te va a pedir que traduzcas el nombre de las variables y los parámetros al español. Obviamente, al traducir las variables en uno de los ficheros se romperá la aplicación. Realinear los nombres en el otro fichero te servirá para identificar los mecanismos de comunicación.</p>
+<div class="ej">
+<p>
+Crea <code>prueba01</code> como una copia de prueba00. Entonces, traduce al español el nombre de todas las variables implicadas en la aplicación.
+</p>
+</div>
+<p>El siguiente ejercicio te enseñará a modificar la interfaz de una aplicación en <code>shiny</code>, incorporar nuevos controles y añadir el código subyacente para que responda adecuadamente.</p>
+<div class="ej">
+<p>
+Añade a la aplicación <code>prueba01</code> otro <em>slider</em> que mueva una linea vertical roja que dibujes sobre el histograma. Es recomendable que comiences, y en este orden, añadiendo una línea roja en algún punto (del eje x) prefijado con la función <code>abline</code>, incorporando el <em>slider</em> y finalmente, vinculando el valor proporcionado por el <em>slider</em> al punto del eje x.
+</p>
+<p>
+Nota: cuando modifiques <code>ui.r</code>, presta atención a la estructura del programa y cómo se corresponde a la de la interfaz web: qué es lo que va en la barra lateral, qué en el panel central, etc. Ten cuidado además con los paréntesis: ¡hay muchos y es fácil desemparejarlos!
+</p>
+</div>
+<div class="ej">
+<p>
+Inspecciona el tutorial de <code>shiny</code> (<a href="http://shiny.rstudio.com/tutorial/"><code><a href="http://shiny.rstudio.com/tutorial/" class="uri">http://shiny.rstudio.com/tutorial/</a></code></a>) para descubrir qué tipo <em>widgets</em> (además de <em>sliders</em>) existen, cómo se procesan esos <em>inputs</em> en <code>server.r</code>, etc. Recuerda que ese tutorial es la principal fuente de información sobre todo lo relacionado con <code>shiny</code>.
+</p>
+</div>
+<div class="ej">
+<p>
+Visita la galería de aplicaciones de <code>shiny</code> (<a href="http://shiny.rstudio.com/gallery/"><code><a href="http://shiny.rstudio.com/gallery/" class="uri">http://shiny.rstudio.com/gallery/</a></code></a>) para investigar cómo implementar controles, qué tipos adicionales de paneles existen, etc.
+</p>
+</div>
+<p>Uno de los asuntos (avanzados) que se discuten en esas páginas es el de las reacciones: <code>shiny</code> está basado en un tipo de programación denominada <em>reactiva</em>, que es la que permite que las funciones de <code>server.r</code> simulen estar escuchando (y <em>reaccionen</em>) a los cambios que realiza el usuario en los controles de la aplicación. Puedes buscar en Internet más información sobre la <em>programación reactiva</em> si te interesa el tema.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="graficos-avanzados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["graficosConR.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

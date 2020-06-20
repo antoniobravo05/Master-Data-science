@@ -1,0 +1,6 @@
+"0","print (paste0('Ridge OPT RMSE=', round(rmse.ridge.opt,2), ', MSE=', round(mse.ridge.opt,2)))
+"
+"1","[1]"
+"1"," ""Ridge OPT RMSE=3.75, MSE=14.08"""
+"1","
+"
